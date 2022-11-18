@@ -21,3 +21,7 @@ Trying to translate ancient history scripts to interactive gameplay with a serio
 - 这是个开源项目，之后可能会上steam，免费，以方便更多人玩。欢迎参与。讨论，issue，或开发。
 - 总之，先做个曹沫，我觉得就能探索出不少问题的答案了。
 - 如果真有价值的话，野心是把二十四史全做了。
+
+#### 开发资源
+- unity：unityhub://2020.3.28f1/f5400f52e03f
+- 音乐音效：https://soundimage.org/
