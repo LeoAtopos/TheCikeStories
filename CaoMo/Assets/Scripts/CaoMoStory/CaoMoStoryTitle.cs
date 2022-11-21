@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CaoMoStoryTitle : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class CaoMoStoryTitle : MonoBehaviour
             if(Input.GetMouseButton(0))
             {
                 Debug.Log("haha");
+                SceneManager.LoadScene("101ChooseHeadIcon");
             }
         }
         
