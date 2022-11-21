@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CaoMoStory/Start.unity
     guid: 31bbda982aa2a114ab3e0b1fe9016694
+  - enabled: 1
+    path: Assets/Scenes/CaoMoStory/101ChooseHeadIcon.unity
+    guid: 65fee953b45f2409390f2fcb2020c48a
   m_configObjects: {}

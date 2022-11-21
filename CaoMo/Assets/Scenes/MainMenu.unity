@@ -225,8 +225,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -273.5, y: -232.2}
-  m_SizeDelta: {x: 53.9334, y: 30}
+  m_AnchoredPosition: {x: -260.92252, y: -232.2}
+  m_SizeDelta: {x: 79.0883, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &124008108
 MonoBehaviour:
@@ -501,7 +501,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u8BF4\u660E"
+  m_Text: "\u539F\u4EC0\u4E48\uFF1F"
 --- !u!222 &371265181
 CanvasRenderer:
   m_ObjectHideFlags: 0
