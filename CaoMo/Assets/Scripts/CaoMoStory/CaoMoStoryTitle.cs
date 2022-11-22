@@ -22,7 +22,6 @@ public class CaoMoStoryTitle : MonoBehaviour
         {
             if(Input.GetMouseButton(0))
             {
-                Debug.Log("haha");
                 SceneManager.LoadScene("101ChooseHeadIcon");
             }
         }
