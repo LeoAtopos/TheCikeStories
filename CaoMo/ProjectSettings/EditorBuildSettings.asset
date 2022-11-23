@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CaoMoStory/102FindLuState.unity
     guid: dba0420c27c264fbfac29fa99432a5a8
+  - enabled: 1
+    path: Assets/Scenes/CaoMoStory/103BraveOne.unity
+    guid: 54dd449795b434bd0b1324075cdd4efd
   m_configObjects: {}
