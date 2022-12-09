@@ -21,4 +21,9 @@ public class MainMenuGameController : MonoBehaviour
     {
         SceneManager.LoadScene("Start");
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
