@@ -20,7 +20,7 @@ public class CaoMoStoryTitle : MonoBehaviour
     {
         if(isShowFinished)
         {
-            if(Input.GetMouseButton(0))
+            if(Input.GetMouseButton(0) && !GameController.Instance.pausePanel.activeSelf)
             {
                 SceneManager.LoadScene("101ChooseHeadIcon");
             }

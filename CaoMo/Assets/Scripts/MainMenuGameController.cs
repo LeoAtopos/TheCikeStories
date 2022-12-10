@@ -20,6 +20,7 @@ public class MainMenuGameController : MonoBehaviour
     public void LoadGameStartScene()
     {
         SceneManager.LoadScene("Start");
+        GameController.Instance.isGaming = true;
     }
 
     public void ExitGame()
