@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PausePanel : MonoBehaviour
 {
+    public GameObject continueButton;
     public GameObject content;
 
     void Awake()

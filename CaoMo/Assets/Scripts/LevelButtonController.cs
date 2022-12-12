@@ -33,6 +33,8 @@ public class LevelButtonController : MonoBehaviour
     public void LoadLevel()
     {
         Time.timeScale = 1f;
+        GameController.Instance.isGaming = true;
+        GameController.Instance.isPausing = false;
         SceneManager.LoadScene(levelSceneName);
     }
 }

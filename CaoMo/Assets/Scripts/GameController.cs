@@ -21,6 +21,8 @@ public class GameController : MonoBehaviour
     public List<GameObject> levelList;
     public GameObject LevelButtonPrefab;
 
+    public GameObject ChooseLevelPanel;
+
     void Awake()
     {
         instance = this;
@@ -93,5 +95,19 @@ public class GameController : MonoBehaviour
         GameObject g = Instantiate(LevelButtonPrefab, content.transform);
         g.GetComponent<LevelButtonController>().SetLevel(ln,ls,ll);
         return g;
+    }
+
+    public void ShowChooseLevelPanel()
+    {
+        if(ChooseLevelPanel == null)
+        {
+            gamingCanvas = GameObject.Find("Canvas");
+            ChooseLevelPanel = Instantiate(pausePanelPrefab, gamingCanvas.transform);
+            NewLevelList(ChooseLevelPanel);
+            ChooseLevelPanel.GetComponent<PausePanel>().continueButton.SetActive(false);
+        }else
+        {
+
+        }
     }
 }
