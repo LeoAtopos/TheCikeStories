@@ -63,7 +63,8 @@ public class GameController : MonoBehaviour
 
     public void ContinueGame()
     {
-        pausePanel.SetActive(false);
+        if(pausePanel != null)
+            pausePanel.SetActive(false);
         isPausing = false;
         Time.timeScale = 1f;
     }

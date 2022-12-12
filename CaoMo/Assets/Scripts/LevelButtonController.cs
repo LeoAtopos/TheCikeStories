@@ -32,6 +32,7 @@ public class LevelButtonController : MonoBehaviour
 
     public void LoadLevel()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(levelSceneName);
     }
 }
