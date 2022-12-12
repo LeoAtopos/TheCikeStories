@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelButtonController : MonoBehaviour
 {
@@ -27,5 +28,10 @@ public class LevelButtonController : MonoBehaviour
         levelSceneName = ls;
         levelLine = ll;
         leveltext.text = ll;
+    }
+
+    public void LoadLevel()
+    {
+        SceneManager.LoadScene(levelSceneName);
     }
 }

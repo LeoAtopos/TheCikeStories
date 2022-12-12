@@ -91,7 +91,6 @@ public class GameController : MonoBehaviour
         
         GameObject g = Instantiate(LevelButtonPrefab, content.transform);
         g.GetComponent<LevelButtonController>().SetLevel(ln,ls,ll);
-        //g.transform.localPosition
         return g;
     }
 }
