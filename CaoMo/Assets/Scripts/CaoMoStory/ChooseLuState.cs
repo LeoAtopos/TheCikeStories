@@ -7,6 +7,7 @@ public class ChooseLuState : MonoBehaviour
     public GameObject chooseInUniverse;
     public GameObject chooseOnEarth;
     public GameObject chooseOnStateMap;
+    public GameObject cmHead;
     
     // Start is called before the first frame update
     void Awake()
@@ -47,5 +48,6 @@ public class ChooseLuState : MonoBehaviour
     public void ChoosedLu()
     {
         chooseOnStateMap.GetComponent<Animator>().Play("ZoomUp");
+        cmHead.GetComponent<CaoMoHeadNormalAsCursor>().MoveToCenter();
     }
 }
