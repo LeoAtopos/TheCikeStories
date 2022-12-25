@@ -23,14 +23,8 @@ public class ChooseLuState : MonoBehaviour
 
     public void ChoosedEarth()
     {
-        Debug.Log("earth");
         chooseInUniverse.GetComponent<Animator>().Play("FaintAway");
         chooseOnEarth.SetActive(true);
-    }
-
-    public void ChoosedMoon()
-    {
-        Debug.Log("moon");
     }
 
     public void ChooseInUniverseFade()
