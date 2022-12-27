@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CaoMoSpriteController : MonoBehaviour
 {
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +20,12 @@ public class CaoMoSpriteController : MonoBehaviour
             {
                 //left move
                 transform.position += new Vector3(-250 * Time.deltaTime, 0 , 0);
+                animator.Play("CaoMoMoving");
             }else if(Input.mousePosition.x - transform.position.x > 5.0f)
             {
                 //right move
                 transform.position += new Vector3( 250 * Time.deltaTime, 0 , 0);
+                animator.Play("CaoMoMoving");
             }
         }
     }
