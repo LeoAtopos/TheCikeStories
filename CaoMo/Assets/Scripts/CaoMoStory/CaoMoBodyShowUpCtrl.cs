@@ -20,5 +20,6 @@ public class CaoMoBodyShowUpCtrl : MonoBehaviour
     public void ShowUpEnd()
     {
         cmSC.SetOkToMove();
+        Cursor.visible = true;
     }
 }

@@ -270,6 +270,10 @@ PrefabInstance:
       propertyPath: m_enableWordWrapping
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2600993235981249513, guid: 9bc454ccb1f794beba9121b75c9164f2, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b0f696f2e0686d741b06b67257895946, type: 3}
     - target: {fileID: 2600993236018355378, guid: 9bc454ccb1f794beba9121b75c9164f2, type: 3}
       propertyPath: m_Name
       value: SubText
