@@ -43,7 +43,7 @@ public class CaoMoSpriteController : MonoBehaviour
                 }
             }
 
-            if(transform.position.x < 300.0f)
+            if(gameObject.GetComponent<RectTransform>().localPosition.x < -290.0f)
             {
                 isOKToMove = false;
                 maChe.transform.SetParent(transform);
