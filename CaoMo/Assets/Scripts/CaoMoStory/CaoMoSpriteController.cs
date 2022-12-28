@@ -6,15 +6,20 @@ using DG.Tweening;
 public class CaoMoSpriteController : MonoBehaviour
 {
     public Animator animator;
+    public Animator horseAnimator;
     public bool isOKToMove = false;
+    public bool isOKToLead = false;
 
     public GameObject maChe;
     public GameObject zhuangTitleText;
     public GameObject zhuangLines;
+
+    public GameObject trees;
     // Start is called before the first frame update
     void Start()
     {
         isOKToMove = false;
+        isOKToLead = false;
         zhuangLines.SetActive(false);
     }
 
@@ -43,6 +48,19 @@ public class CaoMoSpriteController : MonoBehaviour
                 isOKToMove = false;
                 maChe.transform.SetParent(transform);
                 PlayInToStep2();
+            }
+        }
+
+        if(isOKToLead)
+        {
+            if(Input.GetMouseButton(0))
+            {
+                if(Input.mousePosition.x > transform.position.x + 10.0f)
+                {
+                    animator.Play("CaoMoMoving");
+                    horseAnimator.Play("HorseMoving");
+                    trees.transform.position += new Vector3(-100 * Time.deltaTime,0,0);
+                }
             }
         }
     }
@@ -84,5 +102,6 @@ public class CaoMoSpriteController : MonoBehaviour
     {
         transform.DOScale(new Vector3(0.5f,0.5f,0), 1.0f);
         transform.DOLocalMove(new Vector3(0.0f,0.0f,0), 1.0f);
+        isOKToLead = true;
     }
 }
