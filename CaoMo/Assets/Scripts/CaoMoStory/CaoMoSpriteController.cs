@@ -62,6 +62,11 @@ public class CaoMoSpriteController : MonoBehaviour
                     trees.transform.position += new Vector3(-100 * Time.deltaTime,0,0);
                 }
             }
+
+            if(trees.transform.localPosition.x <= -470.0f)
+            {
+                isOKToLead = false;
+            }
         }
     }
 
@@ -104,4 +109,6 @@ public class CaoMoSpriteController : MonoBehaviour
         transform.DOLocalMove(new Vector3(0.0f,0.0f,0), 1.0f);
         isOKToLead = true;
     }
+
+    // 走到tree的位置是-470
 }
