@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class CaoMoSpriteController : MonoBehaviour
 {
@@ -23,7 +24,10 @@ public class CaoMoSpriteController : MonoBehaviour
     public GameObject zeiShoutLine;
 
     public GameObject xiZi;
-    bool isXiing = false;
+    public float xiZiScale;
+    public bool isXiing = false;
+
+    public Animator caoMoHeadShoutAnimator;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +37,7 @@ public class CaoMoSpriteController : MonoBehaviour
         zeiShoutLine.SetActive(false);
         xiZi.SetActive(false);
         isXiing = false;
+        xiZiScale = 1;
     }
 
     // Update is called once per frame
@@ -84,7 +89,17 @@ public class CaoMoSpriteController : MonoBehaviour
 
         if(isXiing)
         {
-            xiZi.transform.DOScale( 6f, 0);
+            xiZiScale += 0.5f * Time.deltaTime;
+            xiZi.transform.DOScale( xiZiScale, 0);
+            Color xiZiColor = xiZi.GetComponent<Image>().color;
+            xiZiColor.a -= xiZiScale / 10000;
+            Debug.Log(xiZiColor.a);
+            xiZi.GetComponent<Image>().color = xiZiColor;
+            if (xiZiScale > 15.5f)
+            {
+                isXiing = false;
+                CaoMoXiGou();
+            }
         }
     }
 
@@ -164,6 +179,27 @@ public class CaoMoSpriteController : MonoBehaviour
     void XiZiShowUp()
     {
         xiZi.SetActive(true);
+        xiZi.transform.SetAsLastSibling();
         isXiing = true;
+    }
+
+    void CaoMoXiGou()
+    {
+        // 需要声音演出，这里zeng的一身
+        Invoke("XiZiShrink", 2);
+    }
+
+    void XiZiShrink()
+    {
+        xiZi.transform.DOScale(1.0f, 1.5f).OnComplete(() => XiZiHide());
+        CaMoShout();
+    }
+    void XiZiHide()
+    {
+        xiZi.SetActive(false);
+    }
+    void CaMoShout()
+    {
+        caoMoHeadShoutAnimator.Play("CaoMoHeadShoutEnlarge");
     }
 }
