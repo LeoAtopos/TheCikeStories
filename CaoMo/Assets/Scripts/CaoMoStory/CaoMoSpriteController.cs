@@ -92,7 +92,7 @@ public class CaoMoSpriteController : MonoBehaviour
             xiZiScale += 0.5f * Time.deltaTime;
             xiZi.transform.DOScale( xiZiScale, 0);
             Color xiZiColor = xiZi.GetComponent<Image>().color;
-            xiZiColor.a -= xiZiScale / 10000;
+            xiZiColor.a -= xiZiScale / 6000;
             Debug.Log(xiZiColor.a);
             xiZi.GetComponent<Image>().color = xiZiColor;
             if (xiZiScale > 15.5f)
@@ -201,5 +201,10 @@ public class CaoMoSpriteController : MonoBehaviour
     void CaMoShout()
     {
         caoMoHeadShoutAnimator.Play("CaoMoHeadShoutEnlarge");
+        Invoke("ZeiMobFlyAway", 2.0f);
+    }
+    void ZeiMobFlyAway()
+    {
+        // feizou
     }
 }
