@@ -15,6 +15,8 @@ public class CaoMoSpriteController : MonoBehaviour
     public GameObject zhuangLines;
 
     public GameObject trees;
+    public GameObject zei;
+    public Animator zeiAnimator;
     // Start is called before the first frame update
     void Start()
     {
@@ -66,6 +68,7 @@ public class CaoMoSpriteController : MonoBehaviour
             if(trees.transform.localPosition.x <= -470.0f)
             {
                 isOKToLead = false;
+                ZeiJump();
             }
         }
     }
@@ -111,4 +114,18 @@ public class CaoMoSpriteController : MonoBehaviour
     }
 
     // 走到tree的位置是-470
+    void ZeiJump()
+    {
+        zei.transform.DOLocalJump(new Vector3(1000f, 0 , 0), 50.0f, 1, 0.2f, false).OnComplete(() => ZeiShowed());
+    }
+
+    void ZeiShowed()
+    {
+        Invoke("ZeiShout", 1.0f);
+    }
+
+    void ZeiShout()
+    {
+        zeiAnimator.Play("ZeiShout");
+    }
 }
