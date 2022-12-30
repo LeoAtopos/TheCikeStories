@@ -21,6 +21,9 @@ public class CaoMoSpriteController : MonoBehaviour
     public GameObject zeiMobsNear;
     public GameObject zeiMobsFar;
     public GameObject zeiShoutLine;
+
+    public GameObject xiZi;
+    bool isXiing = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +31,8 @@ public class CaoMoSpriteController : MonoBehaviour
         isOKToLead = false;
         zhuangLines.SetActive(false);
         zeiShoutLine.SetActive(false);
+        xiZi.SetActive(false);
+        isXiing = false;
     }
 
     // Update is called once per frame
@@ -75,6 +80,11 @@ public class CaoMoSpriteController : MonoBehaviour
                 isOKToLead = false;
                 ZeiJump();
             }
+        }
+
+        if(isXiing)
+        {
+            xiZi.transform.DOScale( 6f, 0);
         }
     }
 
@@ -144,9 +154,16 @@ public class CaoMoSpriteController : MonoBehaviour
         float zx = zhuang.transform.localPosition.x;
         float zy = zhuang.transform.localPosition.y - 45.0f;
         zhuang.transform.DOLocalMove(new Vector3(zx, zy, 0), 1.5f);
+        Invoke("XiZiShowUp", 1.1f);
     }
     void HideZeiShoutLine()
     {
         zeiShoutLine.SetActive(false);
+    }
+
+    void XiZiShowUp()
+    {
+        xiZi.SetActive(true);
+        isXiing = true;
     }
 }
