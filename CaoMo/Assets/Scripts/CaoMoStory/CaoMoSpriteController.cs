@@ -11,12 +11,15 @@ public class CaoMoSpriteController : MonoBehaviour
     public bool isOKToLead = false;
 
     public GameObject maChe;
+    public GameObject zhuang;
     public GameObject zhuangTitleText;
     public GameObject zhuangLines;
 
     public GameObject trees;
     public GameObject zei;
     public Animator zeiAnimator;
+    public GameObject zeiMobsNear;
+    public GameObject zeiMobsFar;
     // Start is called before the first frame update
     void Start()
     {
@@ -121,11 +124,21 @@ public class CaoMoSpriteController : MonoBehaviour
 
     void ZeiShowed()
     {
-        Invoke("ZeiShout", 1.0f);
+        Invoke("ZeiShout", 1.5f);
+        zeiMobsNear.transform.DOLocalMove(new Vector3(-464.0f, 0, 0), 0.3f);
+        zeiMobsFar.transform.DOLocalMove(new Vector3(-464.0f, 0, 0), 0.3f);
     }
 
     void ZeiShout()
     {
         zeiAnimator.Play("ZeiShout");
+        Invoke("ZhuangShrink",0.2f);
+    }
+
+    void ZhuangShrink()
+    {
+        float zx = zhuang.transform.localPosition.x;
+        float zy = zhuang.transform.localPosition.y - 45.0f;
+        zhuang.transform.DOLocalMove(new Vector3(zx, zy, 0), 1.5f);
     }
 }
