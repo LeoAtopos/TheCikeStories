@@ -20,12 +20,14 @@ public class CaoMoSpriteController : MonoBehaviour
     public Animator zeiAnimator;
     public GameObject zeiMobsNear;
     public GameObject zeiMobsFar;
+    public GameObject zeiShoutLine;
     // Start is called before the first frame update
     void Start()
     {
         isOKToMove = false;
         isOKToLead = false;
         zhuangLines.SetActive(false);
+        zeiShoutLine.SetActive(false);
     }
 
     // Update is called once per frame
@@ -132,7 +134,9 @@ public class CaoMoSpriteController : MonoBehaviour
     void ZeiShout()
     {
         zeiAnimator.Play("ZeiShout");
+        zeiShoutLine.SetActive(true);
         Invoke("ZhuangShrink",0.2f);
+        Invoke("HideZeiShoutLine", 1.3f);
     }
 
     void ZhuangShrink()
@@ -140,5 +144,9 @@ public class CaoMoSpriteController : MonoBehaviour
         float zx = zhuang.transform.localPosition.x;
         float zy = zhuang.transform.localPosition.y - 45.0f;
         zhuang.transform.DOLocalMove(new Vector3(zx, zy, 0), 1.5f);
+    }
+    void HideZeiShoutLine()
+    {
+        zeiShoutLine.SetActive(false);
     }
 }
