@@ -138,6 +138,10 @@ public class CaoMoSpriteController : MonoBehaviour
                 ShowThrowButton();
                 isDioZiShowed = true;
             }
+            if(trees.transform.localPosition.x <= -2800.0f)
+            {
+                isOKToLeadAgain = false;
+            }
         }
     }
 
@@ -309,5 +313,11 @@ public class CaoMoSpriteController : MonoBehaviour
         zPos.y += 2000;
         zei.transform.DOLocalMove(zPos, 2);
         zei.transform.DOLocalRotate(new Vector3(0, 0, 15000), 20.0f, RotateMode.FastBeyond360);
+        Invoke("ZhuangSayStop", 2.0f);
+    }
+    void ZhuangSayStop()
+    {
+        isOKToLeadAgain = false;
+        zhuangLines.SetActive(true);
     }
 }
