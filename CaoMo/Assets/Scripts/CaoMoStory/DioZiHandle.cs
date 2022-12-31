@@ -8,7 +8,7 @@ public class DioZiHandle : MonoBehaviour, IPointerClickHandler
     public CaoMoSpriteController cmSC;
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (cmSC.isOKToLeadAgain)
+        //if (cmSC.isOKToLeadAgain)
             cmSC.ThrowZeiBody();
         Debug.Log("clicked");
     }

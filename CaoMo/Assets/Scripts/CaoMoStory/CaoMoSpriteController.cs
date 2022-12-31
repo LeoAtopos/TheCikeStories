@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
+using TMPro;
 
 public class CaoMoSpriteController : MonoBehaviour
 {
@@ -39,6 +40,8 @@ public class CaoMoSpriteController : MonoBehaviour
     public GameObject dioZi;
     bool isZeiCought = false;
     bool isDioZiShowed = false;
+
+    public TextMeshProUGUI zhuangLineText;
     // Start is called before the first frame update
     void Start()
     {
@@ -319,5 +322,6 @@ public class CaoMoSpriteController : MonoBehaviour
     {
         isOKToLeadAgain = false;
         zhuangLines.SetActive(true);
+        zhuangLineText.text = " 等等";
     }
 }

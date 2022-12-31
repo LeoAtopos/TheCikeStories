@@ -9849,6 +9849,7 @@ MonoBehaviour:
   caoMoHeadShoutAnimator: {fileID: 1105654167}
   caoMoShoutLine: {fileID: 73354070}
   dioZi: {fileID: 823988272}
+  zhuangLineText: {fileID: 221579542}
 --- !u!1 &1597761982
 GameObject:
   m_ObjectHideFlags: 0
