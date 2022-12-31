@@ -10,6 +10,7 @@ public class CaoMoSpriteController : MonoBehaviour
     public Animator horseAnimator;
     public bool isOKToMove = false;
     public bool isOKToLead = false;
+    public bool isOKToLeadAgain = false;
 
     public GameObject maChe;
     public GameObject zhuang;
@@ -19,6 +20,11 @@ public class CaoMoSpriteController : MonoBehaviour
     public GameObject trees;
     public GameObject zei;
     public Animator zeiAnimator;
+    public GameObject zeiSword;
+    public GameObject zeiBody;
+    public Sprite zeiBodyDeadSprite;
+    public Sprite swordBloodSprite;
+    public GameObject zeiHead;
     public GameObject zeiMobsNear;
     public GameObject zeiMobsFar;
     public GameObject zeiShoutLine;
@@ -29,17 +35,23 @@ public class CaoMoSpriteController : MonoBehaviour
 
     public Animator caoMoHeadShoutAnimator;
     public GameObject caoMoShoutLine;
+
+    public GameObject dioZi;
+    bool isZeiCatched = false;
     // Start is called before the first frame update
     void Start()
     {
         isOKToMove = false;
         isOKToLead = false;
+        isOKToLeadAgain = false;
         zhuangLines.SetActive(false);
         zeiShoutLine.SetActive(false);
         xiZi.SetActive(false);
         isXiing = false;
         xiZiScale = 1;
         caoMoShoutLine.SetActive(false);
+        dioZi.SetActive(false);
+        isZeiCatched = false;
     }
 
     // Update is called once per frame
@@ -100,6 +112,27 @@ public class CaoMoSpriteController : MonoBehaviour
             {
                 isXiing = false;
                 CaoMoXiGou();
+            }
+        }
+
+        if(isOKToLeadAgain)
+        {
+            if (Input.GetMouseButton(0))
+            {
+                if (Input.mousePosition.x > transform.position.x + 10.0f)
+                {
+                    animator.Play("CaoMoMoving");
+                    horseAnimator.Play("HorseMoving");
+                    trees.transform.position += new Vector3(-100 * Time.deltaTime, 0, 0);
+                }
+            }
+            if (trees.transform.localPosition.x <= -840.0f)
+            {
+                CatchUpZei();
+            }
+            if (trees.transform.localPosition.x <= -940.0f && !isZeiCatched)
+            {
+                ShowThrowButton();
             }
         }
     }
@@ -202,11 +235,75 @@ public class CaoMoSpriteController : MonoBehaviour
     void CaMoShout()
     {
         caoMoHeadShoutAnimator.Play("CaoMoHeadShoutEnlarge");
-        
-        Invoke("ZeiMobFlyAway", 2.0f);
+        Invoke("ZeiMobFlyAway", 4.2f);
     }
     void ZeiMobFlyAway()
     {
-        // feizou
+        zeiMobsNear.transform.DOLocalMove(new Vector3(164.0f, 0, 0), 0.4f).OnComplete(() => ZeiMobGone());
+        zeiMobsFar.transform.DOLocalMove(new Vector3(164.0f, 0, 0), 0.3f);
+    }
+    void ZeiMobGone()
+    {
+        zeiMobsNear.SetActive(false);
+        zeiMobsFar.SetActive(false);
+    }
+    public void ZeiDoneShout()
+    {
+        Invoke("ZeiDropSword", 0.7f);
+    }
+    void ZeiDropSword()
+    {
+        Vector3 zeiSwordPos = zeiSword.transform.localPosition;
+        zeiSwordPos.y -= 170.0f;
+        //zeiSword.transform.SetParent(zeiBody.transform);
+        zeiSword.transform.SetSiblingIndex(1);
+        zeiSword.transform.DOLocalMove(zeiSwordPos, 0.2f, false).OnComplete(() => ZeiDropHead());
+    }
+    void ZeiDropHead()
+    {
+        zeiHead.GetComponent<Animator>().enabled = false;
+        Vector3 zeiHeadPos = zeiHead.transform.localPosition;
+        zeiHeadPos.y -= 210.0f;
+        zeiHead.transform.DOLocalMove(zeiHeadPos, 0.4f, false).SetEase(Ease.InQuart).OnComplete(() => ZeiBodyFall());
+        zeiHead.transform.DOLocalRotate(new Vector3(0, 0, 15.0f), 0.1f, RotateMode.Fast);
+    }
+    void ZeiBodyFall()
+    {
+        zeiBody.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.12f);
+        Vector3 zPos = zeiBody.transform.localPosition;
+        zPos.y -= 71.0f;
+        zeiBody.transform.localPosition = zPos;
+        zeiBody.transform.DOLocalRotate(new Vector3(0, 0, 35.0f), 0.3f, RotateMode.Fast).SetEase(Ease.InQuart).OnComplete(() => ZeiBodyDead());
+    }
+    void ZeiBodyDead()
+    {
+        zeiBody.GetComponent<Image>().sprite = zeiBodyDeadSprite;
+        zeiSword.GetComponent<Image>().sprite = swordBloodSprite;
+        isOKToLeadAgain = true;
+        Vector3 zhuangPos = zhuang.transform.localPosition;
+        zhuangPos.y += 45.0f;
+        zhuang.transform.DOLocalMove(zhuangPos, 1.0f);
+    }
+    void CatchUpZei()
+    {
+        //isOKToLeadAgain = false;
+        zeiHead.transform.SetParent(trees.transform);
+        zei.transform.SetParent(transform);
+        zei.transform.localPosition = new Vector3(148.3f, 78f, 0f);
+    }
+    void ShowThrowButton()
+    {
+        dioZi.SetActive(true);
+    }
+    public void ThrowZeiBody()
+    {
+        dioZi.SetActive(false);
+        zei.transform.SetParent(trees.transform);
+        zei.transform.SetAsLastSibling();
+        Vector3 zPos = zei.transform.localPosition;
+        zPos.x -= 3000;
+        zPos.y += 2000;
+        zei.transform.DOLocalMove(zPos, 4);
+        //zei.transform.DOLocalRotate(new Vector3(0, 0, 15000), 60.0f, RotateMode.FastBeyond360);
     }
 }

@@ -9,7 +9,6 @@ public class CaoMoShoutLineCtrl : MonoBehaviour
     void OnEnable()
     {
         transform.DOShakePosition(5.0f, 5.0f, 9, 80.0f, false, false);
-        Debug.Log("called");
     }
 
     // Update is called once per frame

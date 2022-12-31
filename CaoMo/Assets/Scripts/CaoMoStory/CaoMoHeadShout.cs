@@ -25,4 +25,8 @@ public class CaoMoHeadShout : MonoBehaviour
     {
         cmSC.caoMoShoutLine.SetActive(false);
     }
+    public void DoneShout()
+    {
+        cmSC.ZeiDoneShout();
+    }
 }
