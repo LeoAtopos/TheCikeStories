@@ -28,6 +28,7 @@ public class CaoMoSpriteController : MonoBehaviour
     public bool isXiing = false;
 
     public Animator caoMoHeadShoutAnimator;
+    public GameObject caoMoShoutLine;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +39,7 @@ public class CaoMoSpriteController : MonoBehaviour
         xiZi.SetActive(false);
         isXiing = false;
         xiZiScale = 1;
+        caoMoShoutLine.SetActive(false);
     }
 
     // Update is called once per frame
@@ -93,7 +95,6 @@ public class CaoMoSpriteController : MonoBehaviour
             xiZi.transform.DOScale( xiZiScale, 0);
             Color xiZiColor = xiZi.GetComponent<Image>().color;
             xiZiColor.a -= xiZiScale / 6000;
-            Debug.Log(xiZiColor.a);
             xiZi.GetComponent<Image>().color = xiZiColor;
             if (xiZiScale > 15.5f)
             {
@@ -201,6 +202,7 @@ public class CaoMoSpriteController : MonoBehaviour
     void CaMoShout()
     {
         caoMoHeadShoutAnimator.Play("CaoMoHeadShoutEnlarge");
+        
         Invoke("ZeiMobFlyAway", 2.0f);
     }
     void ZeiMobFlyAway()
