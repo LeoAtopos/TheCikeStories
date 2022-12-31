@@ -37,7 +37,8 @@ public class CaoMoSpriteController : MonoBehaviour
     public GameObject caoMoShoutLine;
 
     public GameObject dioZi;
-    bool isZeiCatched = false;
+    bool isZeiCought = false;
+    bool isDioZiShowed = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,7 +52,8 @@ public class CaoMoSpriteController : MonoBehaviour
         xiZiScale = 1;
         caoMoShoutLine.SetActive(false);
         dioZi.SetActive(false);
-        isZeiCatched = false;
+        isZeiCought = false;
+        isDioZiShowed = false;
     }
 
     // Update is called once per frame
@@ -103,7 +105,7 @@ public class CaoMoSpriteController : MonoBehaviour
 
         if(isXiing)
         {
-            xiZiScale += 0.5f * Time.deltaTime;
+            xiZiScale += 0.2f * Time.deltaTime;
             xiZi.transform.DOScale( xiZiScale, 0);
             Color xiZiColor = xiZi.GetComponent<Image>().color;
             xiZiColor.a -= xiZiScale / 6000;
@@ -126,13 +128,15 @@ public class CaoMoSpriteController : MonoBehaviour
                     trees.transform.position += new Vector3(-100 * Time.deltaTime, 0, 0);
                 }
             }
-            if (trees.transform.localPosition.x <= -840.0f)
+            if (trees.transform.localPosition.x <= -840.0f && !isZeiCought)
             {
                 CatchUpZei();
+                isZeiCought = true;
             }
-            if (trees.transform.localPosition.x <= -940.0f && !isZeiCatched)
+            if (trees.transform.localPosition.x <= -940.0f && !isDioZiShowed)
             {
                 ShowThrowButton();
+                isDioZiShowed = true;
             }
         }
     }
@@ -301,9 +305,9 @@ public class CaoMoSpriteController : MonoBehaviour
         zei.transform.SetParent(trees.transform);
         zei.transform.SetAsLastSibling();
         Vector3 zPos = zei.transform.localPosition;
-        zPos.x -= 3000;
+        zPos.x -= 1800;
         zPos.y += 2000;
-        zei.transform.DOLocalMove(zPos, 4);
-        //zei.transform.DOLocalRotate(new Vector3(0, 0, 15000), 60.0f, RotateMode.FastBeyond360);
+        zei.transform.DOLocalMove(zPos, 2);
+        zei.transform.DOLocalRotate(new Vector3(0, 0, 15000), 20.0f, RotateMode.FastBeyond360);
     }
 }
