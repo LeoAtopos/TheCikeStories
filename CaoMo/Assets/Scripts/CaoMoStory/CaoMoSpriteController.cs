@@ -49,6 +49,8 @@ public class CaoMoSpriteController : MonoBehaviour
 
     public GameObject CaoMoScript003;
     public GameObject CaoMoScript004;
+    public Sprite horseBigEye;
+    public GameObject horse;
     // Start is called before the first frame update
     void Start()
     {
@@ -380,6 +382,7 @@ public class CaoMoSpriteController : MonoBehaviour
         if (dioZhuangNum > 5)
         {
             zPos.y = 5000;
+            horse.GetComponent<Image>().sprite = horseBigEye;
             // 播放yeehayyy的开心的声音
         }
         zhuang.transform.DOLocalJump(zPos, 100 * dioZhuangNum * dioZhuangNum, 1, 0.5f * dioZhuangNum, false).OnComplete(()=> ZhuangFlyDone());

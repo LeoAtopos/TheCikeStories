@@ -9860,6 +9860,8 @@ MonoBehaviour:
   isDioZhuang: 0
   CaoMoScript003: {fileID: 1428274739}
   CaoMoScript004: {fileID: 1587473617}
+  horseBigEye: {fileID: 21300000, guid: 963f1122886374d678496322d87a2272, type: 3}
+  horse: {fileID: 1052137401}
 --- !u!1 &1587473617
 GameObject:
   m_ObjectHideFlags: 0
