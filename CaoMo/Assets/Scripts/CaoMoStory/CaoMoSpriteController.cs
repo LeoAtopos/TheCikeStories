@@ -42,6 +42,10 @@ public class CaoMoSpriteController : MonoBehaviour
     bool isDioZiShowed = false;
 
     public TextMeshProUGUI zhuangLineText;
+    public Sprite caoMoBodyCarrySprite;
+    public GameObject caoMoBody;
+    public bool isDioZhuang = false;
+    int dioZhuangNum = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +61,8 @@ public class CaoMoSpriteController : MonoBehaviour
         dioZi.SetActive(false);
         isZeiCought = false;
         isDioZiShowed = false;
+        isDioZhuang = false;
+        dioZhuangNum = 0;
     }
 
     // Update is called once per frame
@@ -323,5 +329,48 @@ public class CaoMoSpriteController : MonoBehaviour
         isOKToLeadAgain = false;
         zhuangLines.SetActive(true);
         zhuangLineText.text = " 等等";
+        Invoke("ZhuangJumpMaChe", 1.5f);
+    }
+    void ZhuangJumpMaChe()
+    {
+        zhuangLines.transform.SetParent(zhuang.transform);
+        zhuangLines.SetActive(false);
+        Vector3 zhuangPos = zhuang.transform.localPosition;
+        zhuangPos.x += 450;
+        zhuangPos.y -= 70;
+        zhuang.transform.DOLocalJump(zhuangPos, 200, 2, 0.5f, false);
+        Invoke("ZhuangAsk", 1.3f);
+    }
+    void ZhuangAsk()
+    {
+        zhuangLines.SetActive(true);
+        zhuangLineText.text = " 丢孤";
+        Invoke("CaoMoGet", 1.5f);
+    }
+    void CaoMoGet()
+    {
+        zhuangLines.SetActive(false);
+        Invoke("CaoMoCarryZhuang", 0.5f);
+    }
+    void CaoMoCarryZhuang()
+    {
+        caoMoBody.GetComponent<Image>().sprite = caoMoBodyCarrySprite;
+        Vector3 zPos = zhuang.transform.localPosition;
+        zPos.y += 150;
+        zhuang.transform.localPosition = zPos;
+        Invoke("DioShowAgain", 1.0f);
+    }
+    void DioShowAgain()
+    {
+        dioZi.SetActive(true);
+        Vector3 dioPos = dioZi.transform.localPosition;
+        dioPos.x += 200;
+        dioZi.transform.localPosition = dioPos;
+        isDioZhuang = true;
+    }
+    public void ThrowZhuang()
+    {
+        dioZhuangNum++;
+        zhuang.transform.DOLocalJump(zhuang.transform.localPosition, 100 * dioZhuangNum, 1, 0.5f * Mathf.Sqrt(dioZhuangNum), false);
     }
 }

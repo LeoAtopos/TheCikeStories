@@ -8,8 +8,10 @@ public class DioZiHandle : MonoBehaviour, IPointerClickHandler
     public CaoMoSpriteController cmSC;
     public void OnPointerClick(PointerEventData eventData)
     {
-        //if (cmSC.isOKToLeadAgain)
+        if (!cmSC.isDioZhuang)
             cmSC.ThrowZeiBody();
+        else
+            cmSC.ThrowZhuang();
         Debug.Log("clicked");
     }
 
