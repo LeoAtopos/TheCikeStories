@@ -9,7 +9,11 @@ public class XiZiHandle : MonoBehaviour ,IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         if(cmSC.isXiing)
+        {
+            cmSC.audioController.GetComponent<AudioSource>().clip = cmSC.audioController.GetComponent<AudioController>().audioClips[3];
+            cmSC.audioController.GetComponent<AudioSource>().Play();
             cmSC.xiZiScale += 1.5f;
+        }   
     }
 
     // Start is called before the first frame update

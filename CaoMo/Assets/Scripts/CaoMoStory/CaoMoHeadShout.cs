@@ -20,6 +20,8 @@ public class CaoMoHeadShout : MonoBehaviour
     public void StartShout()
     {
         cmSC.caoMoShoutLine.SetActive(true);
+        cmSC.audioController.GetComponent<AudioSource>().clip = cmSC.audioController.GetComponent<AudioController>().audioClips[4];
+        cmSC.audioController.GetComponent<AudioSource>().Play();
     }
     public void EndShout()
     {

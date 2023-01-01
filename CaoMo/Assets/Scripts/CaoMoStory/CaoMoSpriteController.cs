@@ -52,6 +52,8 @@ public class CaoMoSpriteController : MonoBehaviour
     public GameObject CaoMoScript004;
     public Sprite horseBigEye;
     public GameObject horse;
+
+    public GameObject audioController;
     // Start is called before the first frame update
     void Start()
     {
@@ -186,6 +188,8 @@ public class CaoMoSpriteController : MonoBehaviour
     void ShowZhuangLine()
     {
         zhuangLines.SetActive(true);
+        audioController.GetComponent<AudioSource>().clip = audioController.GetComponent<AudioController>().audioClips[0];
+        audioController.GetComponent<AudioSource>().Play();
         Invoke("HideZhuangLine", 2.0f);
     }
 
@@ -219,6 +223,8 @@ public class CaoMoSpriteController : MonoBehaviour
     {
         zeiAnimator.Play("ZeiShout");
         zeiShoutLine.SetActive(true);
+        audioController.GetComponent<AudioSource>().clip = audioController.GetComponent<AudioController>().audioClips[1];
+        audioController.GetComponent<AudioSource>().Play();
         Invoke("ZhuangShrink",0.2f);
         Invoke("HideZeiShoutLine", 1.3f);
     }
@@ -239,6 +245,8 @@ public class CaoMoSpriteController : MonoBehaviour
     {
         xiZi.SetActive(true);
         xiZi.transform.SetAsLastSibling();
+        audioController.GetComponent<AudioSource>().clip = audioController.GetComponent<AudioController>().audioClips[2];
+        audioController.GetComponent<AudioSource>().Play();
         isXiing = true;
     }
 
@@ -337,6 +345,8 @@ public class CaoMoSpriteController : MonoBehaviour
         isOKToLeadAgain = false;
         zhuangLines.SetActive(true);
         zhuangLineText.text = " 等等";
+        audioController.GetComponent<AudioSource>().clip = audioController.GetComponent<AudioController>().audioClips[8];
+        audioController.GetComponent<AudioSource>().Play();
         Invoke("ZhuangJumpMaChe", 1.5f);
     }
     void ZhuangJumpMaChe()
@@ -352,7 +362,9 @@ public class CaoMoSpriteController : MonoBehaviour
     void ZhuangAsk()
     {
         zhuangLines.SetActive(true);
-        zhuangLineText.text = " 丢孤";
+        zhuangLineText.text = "丢孤";
+        audioController.GetComponent<AudioSource>().clip = audioController.GetComponent<AudioController>().audioClips[5];
+        audioController.GetComponent<AudioSource>().Play();
         Invoke("CaoMoGet", 1.5f);
     }
     void CaoMoGet()
@@ -384,7 +396,8 @@ public class CaoMoSpriteController : MonoBehaviour
         {
             zPos.y = 5000;
             horse.GetComponent<Image>().sprite = horseBigEye;
-            // 播放yeehayyy的开心的声音
+            audioController.GetComponent<AudioSource>().clip = audioController.GetComponent<AudioController>().audioClips[7];
+            audioController.GetComponent<AudioSource>().Play();
         }
         zhuang.transform.DOLocalJump(zPos, 100 * dioZhuangNum * dioZhuangNum, 1, 0.5f * dioZhuangNum, false).OnComplete(()=> ZhuangFlyDone());
         dioZi.SetActive(false);
@@ -395,7 +408,9 @@ public class CaoMoSpriteController : MonoBehaviour
         if(dioZhuangNum <= 5)
         {
             zhuangLines.SetActive(true);
-            zhuangLineText.text = " 再高";
+            zhuangLineText.text = "再高";
+            audioController.GetComponent<AudioSource>().clip = audioController.GetComponent<AudioController>().audioClips[6];
+            audioController.GetComponent<AudioSource>().Play();
             Invoke("ZhuangAskHigherFin", 1.0f);
         }
         else
@@ -417,7 +432,7 @@ public class CaoMoSpriteController : MonoBehaviour
     void FocusCaoMo()
     {
         transform.DOScale(new Vector3(1f, 1f, 0), 1.0f).OnComplete(()=>CutToNextScene());
-        horse.GetComponent<SpriteRenderer>().DOFade(0, 0.3f);
+        horse.GetComponent<Image>().DOFade(0.0f, 0.5f);
     }
     void CutToNextScene()
     {
