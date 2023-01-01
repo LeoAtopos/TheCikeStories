@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CaoMoSpriteController : MonoBehaviour
 {
@@ -411,5 +412,15 @@ public class CaoMoSpriteController : MonoBehaviour
     {
         CaoMoScript003.SetActive(false);
         CaoMoScript004.SetActive(true);
+        Invoke("FocusCaoMo", 2.5f);
+    }
+    void FocusCaoMo()
+    {
+        transform.DOScale(new Vector3(1f, 1f, 0), 1.0f).OnComplete(()=>CutToNextScene());
+        horse.GetComponent<SpriteRenderer>().DOFade(0, 0.3f);
+    }
+    void CutToNextScene()
+    {
+        SceneManager.LoadScene("104GeneralCao");
     }
 }
