@@ -46,9 +46,14 @@ public class CaoMoSpriteController : MonoBehaviour
     public GameObject caoMoBody;
     public bool isDioZhuang = false;
     int dioZhuangNum = 0;
+
+    public GameObject CaoMoScript003;
+    public GameObject CaoMoScript004;
     // Start is called before the first frame update
     void Start()
     {
+        CaoMoScript003.SetActive(true);
+        CaoMoScript004.SetActive(false);
         isOKToMove = false;
         isOKToLead = false;
         isOKToLeadAgain = false;
@@ -371,6 +376,37 @@ public class CaoMoSpriteController : MonoBehaviour
     public void ThrowZhuang()
     {
         dioZhuangNum++;
-        zhuang.transform.DOLocalJump(zhuang.transform.localPosition, 100 * dioZhuangNum, 1, 0.5f * Mathf.Sqrt(dioZhuangNum), false);
+        Vector3 zPos = zhuang.transform.localPosition;
+        if (dioZhuangNum > 5)
+        {
+            zPos.y = 5000;
+            // 播放yeehayyy的开心的声音
+        }
+        zhuang.transform.DOLocalJump(zPos, 100 * dioZhuangNum * dioZhuangNum, 1, 0.5f * dioZhuangNum, false).OnComplete(()=> ZhuangFlyDone());
+        dioZi.SetActive(false);
+
+    }
+    void ZhuangFlyDone()
+    {
+        if(dioZhuangNum <= 5)
+        {
+            zhuangLines.SetActive(true);
+            zhuangLineText.text = " 再高";
+            Invoke("ZhuangAskHigherFin", 1.0f);
+        }
+        else
+        {
+            ZhuangFlyAway();
+        }
+    }
+    void ZhuangAskHigherFin()
+    {
+        zhuangLines.SetActive(false);
+        dioZi.SetActive(true);
+    }
+    void ZhuangFlyAway()
+    {
+        CaoMoScript003.SetActive(false);
+        CaoMoScript004.SetActive(true);
     }
 }
