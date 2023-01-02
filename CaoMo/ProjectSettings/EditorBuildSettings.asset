@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CaoMoStory/104GeneralCao.unity
     guid: 3cc789e3abf4742a89a0b3e50c2f4850
+  - enabled: 1
+    path: Assets/Scenes/CaoMoStory/105FightQi.unity
+    guid: b73d8e8be54ed4138af453abeb23fbd6
   m_configObjects: {}
