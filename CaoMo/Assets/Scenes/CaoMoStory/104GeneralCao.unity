@@ -1435,6 +1435,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MaCheBing (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 6297008453291720569, guid: 1b1ac15e6828f468ea07811215fef862, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b1ac15e6828f468ea07811215fef862, type: 3}
 --- !u!224 &476383180 stripped
@@ -2234,6 +2238,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MaCheBing (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6297008453291720569, guid: 1b1ac15e6828f468ea07811215fef862, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b1ac15e6828f468ea07811215fef862, type: 3}
 --- !u!224 &657508189 stripped
@@ -2928,6 +2936,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MaCheBing (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6297008453291720569, guid: 1b1ac15e6828f468ea07811215fef862, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b1ac15e6828f468ea07811215fef862, type: 3}
 --- !u!224 &868288573 stripped
@@ -3604,7 +3616,6 @@ GameObject:
   - component: {fileID: 1052137404}
   - component: {fileID: 1052137403}
   - component: {fileID: 1052137405}
-  - component: {fileID: 1052137406}
   m_Layer: 5
   m_Name: Horse
   m_TagString: Untagged
@@ -3688,20 +3699,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1052137406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1052137401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 499c91c745d554a7ea8c9eecb9484e3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cmTW: {fileID: 1564413178}
-  animator: {fileID: 1052137405}
 --- !u!1 &1062174459
 GameObject:
   m_ObjectHideFlags: 0
@@ -5351,6 +5348,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MaCheBing (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6297008453291720569, guid: 1b1ac15e6828f468ea07811215fef862, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b1ac15e6828f468ea07811215fef862, type: 3}
 --- !u!224 &1457070830 stripped
@@ -6395,6 +6396,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MaCheBing (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6297008453291720569, guid: 1b1ac15e6828f468ea07811215fef862, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b1ac15e6828f468ea07811215fef862, type: 3}
 --- !u!224 &1733907061 stripped
@@ -7044,6 +7049,10 @@ PrefabInstance:
     - target: {fileID: 6297008453291720569, guid: 1b1ac15e6828f468ea07811215fef862, type: 3}
       propertyPath: m_Name
       value: MaCheBing (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6297008453291720569, guid: 1b1ac15e6828f468ea07811215fef862, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b1ac15e6828f468ea07811215fef862, type: 3}
@@ -9227,6 +9236,10 @@ PrefabInstance:
       propertyPath: cmTW
       value: 
       objectReference: {fileID: 1564413178}
+    - target: {fileID: 6297008452550798365, guid: 1b1ac15e6828f468ea07811215fef862, type: 3}
+      propertyPath: m_Name
+      value: MaCheMa
+      objectReference: {fileID: 0}
     - target: {fileID: 6297008453291720568, guid: 1b1ac15e6828f468ea07811215fef862, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

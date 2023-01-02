@@ -66,7 +66,7 @@ public class CaoMoToWar : MonoBehaviour
         if(isChargeDone)
         {
             isCuttingScene = true;
-            transform.DOLocalMove(new Vector3(-2000, 0, 0), 5).OnComplete(() => CutScene());
+            transform.DOLocalMove(new Vector3(-1000, 0, 0), 3).OnComplete(() => CutScene());
             isChargeDone = false;
         }
         if(isCuttingScene)

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6297008452550798364}
   - component: {fileID: 6297008452550798366}
   - component: {fileID: 6297008452550798367}
-  - component: {fileID: 6297008452550798353}
   - component: {fileID: 6297008452550798352}
+  - component: {fileID: 2553704762457757529}
   m_Layer: 5
   m_Name: MaCheMa
   m_TagString: Untagged
@@ -77,25 +77,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &6297008452550798353
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6297008452550798365}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 14f1072f2f4c14e939d59ce180fe8282, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &6297008452550798352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,7 +90,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cmTW: {fileID: 0}
-  animator: {fileID: 6297008452550798353}
+  animator: {fileID: 2553704762457757529}
+--- !u!95 &2553704762457757529
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6297008452550798365}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2c817f13731434ed5911eeaf994f954e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6297008452828865359
 GameObject:
   m_ObjectHideFlags: 0
