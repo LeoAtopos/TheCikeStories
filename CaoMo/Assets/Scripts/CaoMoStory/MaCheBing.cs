@@ -15,8 +15,6 @@ public class MaCheBing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(animator.GetLayerName(0));
-        Debug.Log(gameObject.name);
         if (cmTW.isOKTOCharge || cmTW.isCuttingScene)
         {
             animator.Play("HorseBingMoving", 0);
