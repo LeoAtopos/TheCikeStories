@@ -9959,6 +9959,7 @@ MonoBehaviour:
   CaoMoScript004: {fileID: 1587473617}
   horseBigEye: {fileID: 21300000, guid: 963f1122886374d678496322d87a2272, type: 3}
   horse: {fileID: 1052137401}
+  maCheImage: {fileID: 1062174459}
   audioController: {fileID: 1686732922}
 --- !u!1 &1587473617
 GameObject:

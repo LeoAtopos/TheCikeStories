@@ -52,6 +52,7 @@ public class CaoMoSpriteController : MonoBehaviour
     public GameObject CaoMoScript004;
     public Sprite horseBigEye;
     public GameObject horse;
+    public GameObject maCheImage;
 
     public GameObject audioController;
     // Start is called before the first frame update
@@ -433,6 +434,7 @@ public class CaoMoSpriteController : MonoBehaviour
     {
         transform.DOScale(new Vector3(1f, 1f, 0), 1.0f).OnComplete(()=>CutToNextScene());
         horse.GetComponent<Image>().DOFade(0.0f, 0.5f);
+        maCheImage.GetComponent<Image>().DOFade(0.0f, 0.5f);
     }
     void CutToNextScene()
     {
