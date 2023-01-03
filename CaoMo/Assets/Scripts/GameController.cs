@@ -85,7 +85,9 @@ public class GameController : MonoBehaviour
         GameObject content = pausePanel.GetComponent<PausePanel>().content;
         levelList.Add(NewLevel(1,"101ChooseHeadIcon","曹沫者", content));
         levelList.Add(NewLevel(2,"102FindLuState","鲁人也", content));
-        levelList.Add(NewLevel(3,"103BraveOne","以勇力事鲁公", content));
+        levelList.Add(NewLevel(3,"103BraveOne","以勇力事鲁公 庄公好力", content));
+        levelList.Add(NewLevel(4, "104GeneralCao", "曹沫为鲁将", content));
+        levelList.Add(NewLevel(4, "105FightQi", "与齐战", content));
     }
 
     GameObject NewLevel(int ln, string ls, string ll,GameObject content)
