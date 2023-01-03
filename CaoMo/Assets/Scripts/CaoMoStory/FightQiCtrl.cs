@@ -8,9 +8,12 @@ public class FightQiCtrl : MonoBehaviour
     public GameObject battleMap;
     public GameObject caoArmy;
     public GameObject luArmy;
+
+    public bool isOKToMove = false;
     // Start is called before the first frame update
     void Start()
     {
+        isOKToMove = false;
         Invoke("BattleMapFlyIn", 2f);
     }
 
@@ -29,7 +32,11 @@ public class FightQiCtrl : MonoBehaviour
     }
     void CaoLuArmyMovingIn()
     {
-        caoArmy.transform.DOLocalMove(new Vector3(-274, -110, 0), 1.5f);
+        caoArmy.transform.DOLocalMove(new Vector3(-274, -110, 0), 1.5f).OnComplete(()=> CaoMoArmyCanMove());
         luArmy.transform.DOLocalMove(new Vector3(-309, -137, 0), 1.5f);
+    }
+    void CaoMoArmyCanMove()
+    {
+        isOKToMove = true;
     }
 }
