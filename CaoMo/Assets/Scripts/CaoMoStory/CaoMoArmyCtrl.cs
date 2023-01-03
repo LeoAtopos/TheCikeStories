@@ -5,16 +5,18 @@ using DG.Tweening;
 
 public class CaoMoArmyCtrl : MonoBehaviour
 {
-    public GameObject armyImage;
+    public GameObject armyText;
     public FightQiCtrl fqC;
 
     Vector3 targetPos;
     Vector3 dir;
     bool hasTarget = false;
+
+    public bool isHit = false;
     // Start is called before the first frame update
     void Start()
     {
-
+        isHit = false;
     }
 
     // Update is called once per frame
@@ -26,8 +28,8 @@ public class CaoMoArmyCtrl : MonoBehaviour
             {
                 targetPos = Input.mousePosition;
                 dir = targetPos - transform.position;
-                float ang = Vector3.SignedAngle(armyImage.transform.up, dir, Vector3.forward);
-                armyImage.transform.Rotate(new Vector3(0, 0, ang));
+                float ang = Vector3.SignedAngle(transform.up, dir, Vector3.forward);
+                transform.Rotate(new Vector3(0, 0, ang));
                 hasTarget = true;
             }
             if (hasTarget)
@@ -35,7 +37,16 @@ public class CaoMoArmyCtrl : MonoBehaviour
                 Vector3 d = targetPos - transform.position;
                 if (d.magnitude > 1)
                 {
-                    fqC.caoArmy.transform.position += 20 * Time.deltaTime * dir.normalized;
+                    if(isHit)
+                    {
+                        isHit = false;
+                        hasTarget = false;
+                        fqC.caoArmy.transform.position -= 80 * Time.deltaTime * dir.normalized;
+                    }
+                    else
+                    {
+                        fqC.caoArmy.transform.position += 40 * Time.deltaTime * dir.normalized;
+                    }
                 }
                 else
                 {
@@ -43,5 +54,15 @@ public class CaoMoArmyCtrl : MonoBehaviour
                 }
             }
         }
+        armyText.transform.rotation = Quaternion.identity;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        isHit = true;
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        isHit = true;
     }
 }
