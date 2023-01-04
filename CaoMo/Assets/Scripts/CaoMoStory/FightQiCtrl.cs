@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class FightQiCtrl : MonoBehaviour
 {
@@ -31,6 +34,17 @@ public class FightQiCtrl : MonoBehaviour
     public int fightTime;
 
     public GameObject qiArmyShock;
+    float luArmySpeed = 1;
+    public GameObject luArmySquard1;
+    public GameObject luArmySquard2;
+    public GameObject luArmySquard3;
+    public GameObject qiArmySquard2;
+    public GameObject qiArmySquard3;
+    public GameObject qiArmySquard4;
+
+    public Sprite qiArmySprite;
+    public GameObject lineText1;
+    public GameObject lineText2;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +64,11 @@ public class FightQiCtrl : MonoBehaviour
         isLerking = false;
         failText.SetActive(false);
         qiArmyShock.SetActive(false);
+        luArmySpeed = 1;
+        qiArmySquard2.SetActive(false);
+        qiArmySquard3.SetActive(false);
+        qiArmySquard4.SetActive(false);
+        lineText2.SetActive(false);
     }
 
     // Update is called once per frame
@@ -58,14 +77,21 @@ public class FightQiCtrl : MonoBehaviour
         if(fightTime == 1)
         {
             if (isLuArmyMovingForward)
-                luArmy.transform.position += luArmySquard.transform.up * 1 * Time.deltaTime;
+                luArmy.transform.position += luArmySquard.transform.up * luArmySpeed * Time.deltaTime;
             if (isQiArmyMovingForward)
                 qiArmy.transform.position += qiArmySquard.transform.up * 1 * Time.deltaTime;
         }
         if (fightTime == 2)
         {
             if (isLuArmyMovingForward)
-                luArmy.transform.position += luArmySquard.transform.up * 20 * Time.deltaTime;
+                luArmy.transform.position += luArmySquard.transform.up * luArmySpeed * Time.deltaTime;
+        }
+        if(fightTime == 3)
+        {
+            if (isLuArmyMovingForward)
+                luArmy.transform.position += luArmySquard.transform.up * luArmySpeed * Time.deltaTime;
+            if (isQiArmyMovingForward)
+                qiArmy.transform.position += qiArmySquard.transform.up * 5 * Time.deltaTime;
         }
 
     }
@@ -86,7 +112,13 @@ public class FightQiCtrl : MonoBehaviour
     {
         isOKToMove = true;
         Invoke("LuArmyMovingForward", 1.5f);
-        Invoke("QiArmyShowUp", 3f);
+        if (fightTime < 3)
+            Invoke("QiArmyShowUp", 3f);
+        else
+        {
+            isQiArmyMovingForward = true;
+            Invoke("LuArmyBetrayed", 6f);
+        }  
         leftBorder.SetActive(true);
         BottonBorder.SetActive(true);
     }
@@ -145,14 +177,99 @@ public class FightQiCtrl : MonoBehaviour
         luArmy.transform.position = luArmyStartPos;
         caoArmy.transform.rotation = caoArmyStartFacing;
         caoArmy.GetComponent<CaoMoArmyCtrl>().speed = 25f;
+        luArmySpeed = 20;
+
+        luArmySquard2.SetActive(false);
         //luArmy.transform.SetParent(caoArmy.transform);
         Invoke("CaoLuArmyMovingIn", 0.5f);
-        Invoke("ShockAttact", 3f);
+        Invoke("ShockAttact", 8f);
     }
     void ShockAttact()
     {
         qiArmyShock.SetActive(true);
-        qiArmyShock.transform.DOLocalMove(qiArmyShock.transform.localPosition + qiArmyShock.transform.up * 2000, 1f);
+        Invoke("ShockCharge", 2f);
+    }
+    void ShockCharge()
+    {
+        qiArmyShock.transform.DOLocalMove(qiArmyShock.transform.localPosition + qiArmyShock.transform.up * 600, 4f);
+        Invoke("LuArmyFallBack", 1);
+    }
+    void LuArmyFallBack()
+    {
         luArmy.transform.rotation *= Quaternion.Euler(0, 0, 180f);
+        luArmySpeed = 40;
+        Invoke("QiArmyShow2and3", 2f);
+    }
+    void QiArmyShow2and3()
+    {
+        qiArmySquard2.SetActive(true);
+        qiArmySquard3.SetActive(true);
+        Invoke("QiArmyOffence", 2.5f);
+    }
+    void QiArmyOffence()
+    {
+        qiArmy.transform.DOLocalMove(new Vector3(-175, -16, 0), 0.3f);
+        caoArmy.GetComponent<CaoMoArmyCtrl>().speed = 0;
+        Invoke("SecondFail", 2f);
+    }
+    void SecondFail()
+    {
+        failText.SetActive(true);
+        Invoke("ReadyThirdFight", 3);
+    }
+    void ReadyThirdFight()
+    {
+        fightTime++;
+
+        isOKToMove = false;
+        //qiArmy.SetActive(false);
+        isLuArmyMovingForward = false;
+        isQiArmyMovingForward = false;
+        leftBorder.SetActive(false);
+        BottonBorder.SetActive(false);
+        qiArmySurrounds.SetActive(false);
+        isLerking = false;
+        failText.SetActive(false);
+        qiArmyShock.SetActive(false);
+        qiArmySquard.SetActive(true);
+        //qiArmySquard.transform.localPosition = new Vector3(0, 0, 0);
+        qiArmySquard.transform.rotation = qiArmySquardFacing;
+
+        caoArmy.transform.position = caoArmyStartPos;
+        luArmy.transform.position = luArmyStartPos;
+        caoArmy.transform.rotation = caoArmyStartFacing;
+        caoArmy.GetComponent<CaoMoArmyCtrl>().speed = 15f;
+        luArmySpeed = 3;
+
+        luArmySquard3.SetActive(false);
+        luArmy.transform.rotation *= Quaternion.Euler(0, 0, 180f);
+        qiArmySquard4.SetActive(true);
+        //luArmy.transform.SetParent(caoArmy.transform);
+        Invoke("CaoLuArmyMovingIn", 0.5f);
+    }
+    void LuArmyBetrayed()
+    {
+        luArmySquard.GetComponent<Image>().sprite = qiArmySprite;
+        luArmySquard.GetComponentInChildren<TextMeshProUGUI>().text = "齐";
+        luArmySquard.GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
+        luArmySquard1.GetComponent<Image>().sprite = qiArmySprite;
+        luArmySquard1.GetComponentInChildren<TextMeshProUGUI>().text = "齐";
+        luArmySquard1.GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
+        Invoke("ThirdFail", 4f);
+    }
+    void ThirdFail()
+    {
+        failText.SetActive(true);
+        Invoke("ShowSecondLine", 3);
+    }
+    void ShowSecondLine()
+    {
+        lineText1.SetActive(false);
+        lineText2.SetActive(true);
+        Invoke("CutScene", 4);
+    }
+    void CutScene()
+    {
+        SceneManager.LoadScene("106LoseLand");
     }
 }
