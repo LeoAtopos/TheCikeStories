@@ -21,6 +21,7 @@ public class FightQiCtrl : MonoBehaviour
 
     public GameObject qiArmySurrounds;
     public bool isLerking = false;
+    public GameObject failText;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +34,7 @@ public class FightQiCtrl : MonoBehaviour
         BottonBorder.SetActive(false);
         qiArmySurrounds.SetActive(false);
         isLerking = false;
+        failText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -91,5 +93,10 @@ public class FightQiCtrl : MonoBehaviour
         qiArmySurrounds.SetActive(true);
         qiArmySurrounds.transform.SetParent(battleMap.transform);
         qiArmySquard.SetActive(false);
+        Invoke("FirstFail", 5f);
+    }
+    void FirstFail()
+    {
+        failText.SetActive(true);
     }
 }
