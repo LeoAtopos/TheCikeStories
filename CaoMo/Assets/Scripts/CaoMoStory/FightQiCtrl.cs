@@ -18,6 +18,9 @@ public class FightQiCtrl : MonoBehaviour
 
     public GameObject leftBorder;
     public GameObject BottonBorder;
+
+    public GameObject qiArmySurrounds;
+    public bool isLerking = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +31,8 @@ public class FightQiCtrl : MonoBehaviour
         isQiArmyMovingForward = false;
         leftBorder.SetActive(false);
         BottonBorder.SetActive(false);
+        qiArmySurrounds.SetActive(false);
+        isLerking = false;
     }
 
     // Update is called once per frame
@@ -75,6 +80,16 @@ public class FightQiCtrl : MonoBehaviour
         //Vector3 rot = qiArmySquard.transform.rotation.eulerAngles;
         //rot = new Vector3(rot.x, rot.y + 180, rot.z);
         qiArmySquard.transform.rotation *= Quaternion.Euler(0, 0, 180f);
-        qiArmySquard.transform.DOLocalMove(qiArmySquard.transform.up * 100 + qiArmySquard.transform.localPosition, 1.5f);
+        qiArmySquard.transform.DOLocalMove(qiArmySquard.transform.up * 100 + qiArmySquard.transform.localPosition, 1.5f).OnComplete(()=> LerkingCaoMo());
+    }
+    void LerkingCaoMo()
+    {
+        isLerking = true;
+    }
+    public void AnbushCaoMo()
+    {
+        qiArmySurrounds.SetActive(true);
+        qiArmySurrounds.transform.SetParent(battleMap.transform);
+        qiArmySquard.SetActive(false);
     }
 }

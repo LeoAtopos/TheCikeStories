@@ -69,7 +69,12 @@ public class CaoMoArmyCtrl : MonoBehaviour
         isHit = true;
         if (collision.gameObject.name == "QiArmySquard001")
         {
+            
             ShowFightSign(gameObject, collision.gameObject);
+            if (fqC.isLerking)
+            {
+                fqC.AnbushCaoMo();
+            }
         }   
     }
     private void OnCollisionStay2D(Collision2D collision)
