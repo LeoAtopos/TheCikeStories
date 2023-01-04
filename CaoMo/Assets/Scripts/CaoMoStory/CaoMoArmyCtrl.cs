@@ -16,6 +16,8 @@ public class CaoMoArmyCtrl : MonoBehaviour
     public bool isHit = false;
     public GameObject fightSign;
     int firstTimeFightNum = 0;
+
+    public float speed = 40f;
     
     // Start is called before the first frame update
     void Start()
@@ -47,11 +49,11 @@ public class CaoMoArmyCtrl : MonoBehaviour
                     {
                         isHit = false;
                         hasTarget = false;
-                        fqC.caoArmy.transform.position -= 80 * Time.deltaTime * dir.normalized;
+                        fqC.caoArmy.transform.position -= 2 * speed * Time.deltaTime * dir.normalized;
                     }
                     else
                     {
-                        fqC.caoArmy.transform.position += 40 * Time.deltaTime * dir.normalized;
+                        fqC.caoArmy.transform.position += speed * Time.deltaTime * dir.normalized;
                     }
                 }
                 else
