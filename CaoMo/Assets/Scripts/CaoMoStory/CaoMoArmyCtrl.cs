@@ -15,11 +15,14 @@ public class CaoMoArmyCtrl : MonoBehaviour
 
     public bool isHit = false;
     public GameObject fightSign;
+    int firstTimeFightNum = 0;
+    
     // Start is called before the first frame update
     void Start()
     {
         isHit = false;
         fightSign.SetActive(false);
+        firstTimeFightNum = 0;
     }
 
     // Update is called once per frame
@@ -57,6 +60,7 @@ public class CaoMoArmyCtrl : MonoBehaviour
                 }
             }
         }
+
         armyText.transform.rotation = Quaternion.identity;
     }
 
@@ -64,20 +68,31 @@ public class CaoMoArmyCtrl : MonoBehaviour
     {
         isHit = true;
         if (collision.gameObject.name == "QiArmySquard001")
+        {
             ShowFightSign(gameObject, collision.gameObject);
+        }   
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
         isHit = true;
     }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        fightSign.SetActive(false);
-    }
-
     private void ShowFightSign(GameObject gameObject1, GameObject gameObject2)
     {
         fightSign.SetActive(true);
         fightSign.transform.position = (gameObject1.transform.position + gameObject2.transform.position) / 2;
+        fightSign.transform.DOShakePosition(0.3f, 1, 8, 60, false, false).OnComplete(() => FirstFightHappened());
+    }
+    void FirstFightHappened()
+    {
+        firstTimeFightNum++;
+        fightSign.SetActive(false);
+        if(firstTimeFightNum == 3)
+        {
+            QiArmyFakeRunAway();
+        }
+    }
+    void QiArmyFakeRunAway()
+    {
+        fqC.QiArmyFakeRunAway();
     }
 }

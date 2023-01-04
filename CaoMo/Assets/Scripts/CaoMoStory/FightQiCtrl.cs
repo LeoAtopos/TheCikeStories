@@ -15,6 +15,9 @@ public class FightQiCtrl : MonoBehaviour
     public bool isOKToMove = false;
     public bool isLuArmyMovingForward = false;
     public bool isQiArmyMovingForward = false;
+
+    public GameObject leftBorder;
+    public GameObject BottonBorder;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +26,8 @@ public class FightQiCtrl : MonoBehaviour
         qiArmy.SetActive(false);
         isLuArmyMovingForward = false;
         isQiArmyMovingForward = false;
+        leftBorder.SetActive(false);
+        BottonBorder.SetActive(false);
     }
 
     // Update is called once per frame
@@ -36,7 +41,7 @@ public class FightQiCtrl : MonoBehaviour
     }
     void BattleMapFlyIn()
     {
-        battleMap.transform.DOLocalMove(new Vector3(0, 0, 0), 3f).OnComplete(()=> BattleMapFlyInDone());
+        battleMap.transform.DOLocalMove(new Vector3(0, 0, 0), 5f).OnComplete(()=> BattleMapFlyInDone());
     }
     void BattleMapFlyInDone()
     {
@@ -52,6 +57,8 @@ public class FightQiCtrl : MonoBehaviour
         isOKToMove = true;
         Invoke("LuArmyMovingForward", 1.5f);
         Invoke("QiArmyShowUp", 3f);
+        leftBorder.SetActive(true);
+        BottonBorder.SetActive(true);
     }
     void LuArmyMovingForward()
     {
@@ -61,5 +68,13 @@ public class FightQiCtrl : MonoBehaviour
     {
         qiArmy.SetActive(true);
         isQiArmyMovingForward = true;
+    }
+    public void QiArmyFakeRunAway()
+    {
+        isQiArmyMovingForward = false;
+        //Vector3 rot = qiArmySquard.transform.rotation.eulerAngles;
+        //rot = new Vector3(rot.x, rot.y + 180, rot.z);
+        qiArmySquard.transform.rotation *= Quaternion.Euler(0, 0, 180f);
+        qiArmySquard.transform.DOLocalMove(qiArmySquard.transform.up * 100 + qiArmySquard.transform.localPosition, 1.5f);
     }
 }
