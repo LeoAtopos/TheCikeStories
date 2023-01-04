@@ -10,9 +10,11 @@ public class FightQiCtrl : MonoBehaviour
     public GameObject luArmy;
     public GameObject luArmySquard;
     public GameObject qiArmy;
+    public GameObject qiArmySquard;
 
     public bool isOKToMove = false;
     public bool isLuArmyMovingForward = false;
+    public bool isQiArmyMovingForward = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,7 @@ public class FightQiCtrl : MonoBehaviour
         Invoke("BattleMapFlyIn", 1f);
         qiArmy.SetActive(false);
         isLuArmyMovingForward = false;
+        isQiArmyMovingForward = false;
     }
 
     // Update is called once per frame
@@ -27,6 +30,8 @@ public class FightQiCtrl : MonoBehaviour
     {
         if(isLuArmyMovingForward)
             luArmy.transform.position += luArmySquard.transform.up * 1 * Time.deltaTime;
+        if(isQiArmyMovingForward)
+            qiArmy.transform.position += qiArmySquard.transform.up * 1 * Time.deltaTime;
 
     }
     void BattleMapFlyIn()
@@ -55,5 +60,6 @@ public class FightQiCtrl : MonoBehaviour
     void QiArmyShowUp()
     {
         qiArmy.SetActive(true);
+        isQiArmyMovingForward = true;
     }
 }

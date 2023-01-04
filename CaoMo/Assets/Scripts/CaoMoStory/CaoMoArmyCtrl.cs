@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class CaoMoArmyCtrl : MonoBehaviour
 {
@@ -13,10 +14,12 @@ public class CaoMoArmyCtrl : MonoBehaviour
     bool hasTarget = false;
 
     public bool isHit = false;
+    public GameObject fightSign;
     // Start is called before the first frame update
     void Start()
     {
         isHit = false;
+        fightSign.SetActive(false);
     }
 
     // Update is called once per frame
@@ -60,9 +63,21 @@ public class CaoMoArmyCtrl : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         isHit = true;
+        if (collision.gameObject.name == "QiArmySquard001")
+            ShowFightSign(gameObject, collision.gameObject);
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
         isHit = true;
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        fightSign.SetActive(false);
+    }
+
+    private void ShowFightSign(GameObject gameObject1, GameObject gameObject2)
+    {
+        fightSign.SetActive(true);
+        fightSign.transform.position = (gameObject1.transform.position + gameObject2.transform.position) / 2;
     }
 }
