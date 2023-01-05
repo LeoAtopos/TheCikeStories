@@ -77,7 +77,7 @@ public class CaoMoSpriteController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(isOKToMove)
         {
@@ -86,12 +86,12 @@ public class CaoMoSpriteController : MonoBehaviour
                 if(Input.mousePosition.x - transform.position.x < -5.0f)
                 {
                     //left move
-                    transform.position += new Vector3(-250 * Time.deltaTime, 0 , 0);
+                    transform.position += new Vector3(-250 * Time.fixedDeltaTime, 0 , 0);
                     animator.Play("CaoMoMoving");
                 }else if(Input.mousePosition.x - transform.position.x > 5.0f)
                 {
                     //right move
-                    transform.position += new Vector3( 250 * Time.deltaTime, 0 , 0);
+                    transform.position += new Vector3( 250 * Time.fixedDeltaTime, 0 , 0);
                     animator.Play("CaoMoMoving");
                 }
             }
@@ -112,7 +112,7 @@ public class CaoMoSpriteController : MonoBehaviour
                 {
                     animator.Play("CaoMoMoving");
                     horseAnimator.Play("HorseMoving");
-                    trees.transform.position += new Vector3(-100 * Time.deltaTime,0,0);
+                    trees.transform.position += new Vector3(-100 * Time.fixedDeltaTime,0,0);
                 }
             }
 
@@ -125,7 +125,7 @@ public class CaoMoSpriteController : MonoBehaviour
 
         if(isXiing)
         {
-            xiZiScale += 0.2f * Time.deltaTime;
+            xiZiScale += 0.2f * Time.fixedDeltaTime;
             xiZi.transform.DOScale( xiZiScale, 0);
             Color xiZiColor = xiZi.GetComponent<Image>().color;
             xiZiColor.a -= xiZiScale / 6000;
@@ -145,7 +145,7 @@ public class CaoMoSpriteController : MonoBehaviour
                 {
                     animator.Play("CaoMoMoving");
                     horseAnimator.Play("HorseMoving");
-                    trees.transform.position += new Vector3(-100 * Time.deltaTime, 0, 0);
+                    trees.transform.position += new Vector3(-100 * Time.fixedDeltaTime, 0, 0);
                 }
             }
             if (trees.transform.localPosition.x <= -840.0f && !isZeiCought)
