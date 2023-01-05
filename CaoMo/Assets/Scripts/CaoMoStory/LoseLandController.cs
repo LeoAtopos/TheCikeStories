@@ -40,9 +40,15 @@ public class LoseLandController : MonoBehaviour
         stateMap.GetComponent<Image>().DOFade(1, 3f);
         qiArmy.GetComponent<Image>().DOFade(1, 3f);
         Invoke("StartShrinkStateMap", 2.8f);
+        Invoke("QiArmyMartchOn", 1.5f);
     }
     void StartShrinkStateMap()
     {
-        stateMap.transform.DOScale(0.1f, 3f);
+        stateMap.transform.DOScale(0.3f, 3f);
+        stateMap.transform.DOLocalMove(new Vector3(85, 40, 0), 3f);
+    }
+    void QiArmyMartchOn()
+    {
+        qiArmy.transform.DOLocalMove(qiArmy.transform.up * 500 + qiArmy.transform.localPosition, 9f);
     }
 }
