@@ -10,19 +10,24 @@ public class LoseLandController : MonoBehaviour
 {
     public GameObject battleMap;
     public GameObject stateMap;
-    public GameObject subText;
+    public GameObject subTextBoard;
     public GameObject qiArmy;
     public GameObject zhuangPos;
     public GameObject zhuangState;
+    public GameObject zhuangLine;
+    public GameObject subText1;
+    public GameObject subText2;
     // Start is called before the first frame update
     void Start()
     {
         stateMap.GetComponent<Image>().DOFade(0, 0f);
         qiArmy.GetComponent<Image>().DOFade(0, 0f);
         qiArmy.SetActive(false);
-        subText.SetActive(false);
+        subTextBoard.SetActive(false);
         Invoke("StartShrinkBattleMap", 1f);
         zhuangPos.SetActive(false);
+        zhuangLine.SetActive(false);
+        subText2.SetActive(false);
     }
 
     // Update is called once per frame
@@ -65,7 +70,31 @@ public class LoseLandController : MonoBehaviour
     }
     void ZhuangWalkUp()
     {
-        zhuangPos.transform.DOLocalMove(zhuangPos.transform.right * 130 + zhuangPos.transform.localPosition, 1.2f);
+        zhuangPos.transform.DOLocalMove(zhuangPos.transform.right * 130 + zhuangPos.transform.localPosition, 1.2f).OnComplete(()=> ZhuangWalkedUp());
         zhuangState.transform.DOShakePosition(1.2f, 5, 10, 30, false, true);
+    }
+    void ZhuangWalkedUp()
+    {
+        Invoke("ZhuangShock", 1.5f);
+    }
+    void ZhuangShock()
+    {
+        zhuangLine.SetActive(true);
+        zhuangLine.transform.DOShakePosition(1.5f, 5, 10, 80, false, true).OnComplete(()=> ZhuangShockDone());
+    }
+    void ZhuangShockDone()
+    {
+        subTextBoard.SetActive(true);
+        Invoke("NextSubText", 3f);
+    }
+    void NextSubText()
+    {
+        subText1.SetActive(false);
+        subText2.SetActive(true);
+        Invoke("CutScene", 5f);
+    }
+    void CutScene()
+    {
+        SceneManager.LoadScene("107CutLand");
     }
 }
