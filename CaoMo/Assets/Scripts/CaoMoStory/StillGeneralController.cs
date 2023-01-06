@@ -17,6 +17,9 @@ public class StillGeneralController : MonoBehaviour
     public TextMeshProUGUI zhuangLineText;
     public GameObject caoMoPos;
     public GameObject caoMoState;
+    public Image caoMoImage;
+    public Sprite caoMoCarry;
+    public GameObject caoMOGeneralState;
     public GameObject caoMoLine;
     public TextMeshProUGUI caoMoLineText;
     public GameObject bingPos;
@@ -25,7 +28,13 @@ public class StillGeneralController : MonoBehaviour
     public bool isOKToMove = false;
     public bool isCaoMoCanMove = false;
     public bool isOKToDio = false;
+    public bool isOKTOCharge = false;
     public Animator caoMoAnimator;
+    public Animator horseAnimator;
+    public GameObject trees;
+    bool isChargeDone = false;
+    private bool isCuttingScene = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,10 +42,16 @@ public class StillGeneralController : MonoBehaviour
         subTextBoard.SetActive(false);
         swordGeneral.SetActive(false);
         zhuangLine.SetActive(false);
+        caoMOGeneralState.SetActive(false);
         caoMoLine.SetActive(false);
+        trees.SetActive(false);
+        bingPos.SetActive(false);
         isOKToMove = false;
         isCaoMoCanMove = false;
         isOKToDio = false;
+        isOKTOCharge = false;
+        isChargeDone = false;
+        isCuttingScene = false;
         dioZi.SetActive(false);
         Invoke("CallCaoMo", 1f);
     }
@@ -64,6 +79,29 @@ public class StillGeneralController : MonoBehaviour
                 isCaoMoCanMove = false;
                 ZhuangActStart();
             }
+        }
+        if (isOKTOCharge)
+        {
+
+            horseAnimator.Play("HorseMoving");
+            trees.transform.position += new Vector3(-300 * Time.deltaTime, 0, 0);
+
+            if (trees.transform.localPosition.x <= -2500.0f)
+            {
+                isOKTOCharge = false;
+                isChargeDone = true;
+            }
+        }
+        if (isChargeDone)
+        {
+            isCuttingScene = true;
+            caoMoPos.transform.DOLocalMove(new Vector3(-1000, 0, 0), 3).OnComplete(() => CutScene());
+            isChargeDone = false;
+        }
+        if (isCuttingScene)
+        {
+            horseAnimator.Play("HorseMoving");
+            trees.transform.position += new Vector3(-300 * Time.deltaTime, 0, 0);
         }
     }
     void HideStateMap()
@@ -104,6 +142,7 @@ public class StillGeneralController : MonoBehaviour
     }
     void CaoMoCarryZhuang()
     {
+        caoMoImage.sprite = caoMoCarry;
         zhuangPos.transform.localPosition = new Vector3(-152, 109, 0);
         isOKToDio = true;
         Invoke("DioZiShow", 1.0f);
@@ -115,7 +154,7 @@ public class StillGeneralController : MonoBehaviour
     public void ThrowZhuang()
     {
         Vector3 cPos = caoMoPos.transform.localPosition;
-        cPos.y -= 300f;
+        cPos.y -= 500f;
         caoMoPos.transform.DOLocalMove(cPos, 0.3f).OnComplete(()=> FlyZhuangAway());
         dioZi.SetActive(false);
         
@@ -124,6 +163,10 @@ public class StillGeneralController : MonoBehaviour
     {
         Invoke("ZhuangFlyAway", 1f);
         Invoke("DropToCaoMo", 3f);
+        caoMoState.SetActive(false);
+        caoMOGeneralState.SetActive(true);
+        bingPos.SetActive(true);
+        swordGeneral.transform.localPosition = new Vector3(120, -93, 0);
     }
     void ZhuangFlyAway()
     {
@@ -134,11 +177,35 @@ public class StillGeneralController : MonoBehaviour
     void DropToCaoMo()
     {
         Vector3 cPos = caoMoPos.transform.localPosition;
-        cPos.y += 300f;
-        caoMoPos.transform.DOLocalMove(cPos, 0.3f).OnComplete(() => DropDownDone());
+        cPos.y += 600f;
+        caoMoPos.transform.DOLocalMove(cPos, 1.2f).OnComplete(() => DropDownDone());
     }
     void DropDownDone()
     {
-
+        subTextBoard.SetActive(true);
+        trees.SetActive(true);
+        Invoke("ZoomOut", 1.5f);
+    }
+    void ZoomOut()
+    {
+        caoMoPos.transform.DOScale(0.45f, 0.5f).OnComplete(() => MaCheBingGethered());
+    }
+    void MaCheBingGethered()
+    {
+        Invoke("ShowLine", 1f);
+        Invoke("ChargeOn", 2.5f);
+    }
+    void ShowLine()
+    {
+        caoMoLine.SetActive(true);
+    }
+    void ChargeOn()
+    {
+        isOKTOCharge = true;
+        caoMoLine.SetActive(false);
+    }
+    void CutScene()
+    {
+        SceneManager.LoadScene("109MakeMeeting");
     }
 }

@@ -25,7 +25,7 @@ public class MaCheBing : MonoBehaviour
         }
         if(sGC != null)
         {
-            if(sGC.isOKToMove)
+            if(sGC.isOKTOCharge)
             {
                 animator.Play("HorseBingMoving", 0);
             }
