@@ -69,7 +69,7 @@ public class CutLandController : MonoBehaviour
     void QiArmyFirstRespond()
     {
         qiArmyLine.SetActive(true);
-        qiArmyLineText.text = "鲁国风光真不错啊";
+        qiArmyLineText.text = "鲁国风光真不错啊";// 文本需要优化，体现点文化内涵，最好用上诗经里的外交辞令
         Invoke("GoCut2", 2f);
     }
     void GoCut2()
