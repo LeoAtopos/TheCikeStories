@@ -35,6 +35,8 @@ public class StillGeneralController : MonoBehaviour
     bool isChargeDone = false;
     private bool isCuttingScene = false;
 
+    public AudioClip dioWoAudioClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -112,10 +114,14 @@ public class StillGeneralController : MonoBehaviour
     {
         zhuangLine.SetActive(true);
         Invoke("CaoMoMovingIn", 1f);
+        Invoke("HideZhuangLine", 3f);
+    }
+    void HideZhuangLine()
+    {
+        zhuangLine.SetActive(false);
     }
     void CaoMoMovingIn()
     {
-        zhuangLine.SetActive(false);
         caoMoPos.transform.DOLocalMove(-200 * caoMoPos.transform.right + caoMoPos.transform.localPosition, 2f);
         zhuangPos.transform.DOLocalMove(-100 * zhuangPos.transform.right + zhuangPos.transform.localPosition, 2f).OnComplete(()=> CaoMoCanMove());
     }
@@ -132,7 +138,9 @@ public class StillGeneralController : MonoBehaviour
     void ZhuangAskDio()
     {
         zhuangLine.SetActive(true);
-        zhuangLineText.text = "丢我！";
+        zhuangLineText.text = "丢孤！";
+        zhuangLine.GetComponent<AudioSource>().clip = dioWoAudioClip;
+        zhuangLine.GetComponent<AudioSource>().Play();
         Invoke("ZhuangAskDioDone", 3f);
     }
     void ZhuangAskDioDone()
@@ -157,7 +165,7 @@ public class StillGeneralController : MonoBehaviour
         cPos.y -= 500f;
         caoMoPos.transform.DOLocalMove(cPos, 0.3f).OnComplete(()=> FlyZhuangAway());
         dioZi.SetActive(false);
-        
+        zhuangPos.GetComponent<AudioSource>().Play();
     }
     void FlyZhuangAway()
     {
