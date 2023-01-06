@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20ffff39af504160a1ab4a0599be751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cLC: {fileID: 1685856349}
+  cLC: {fileID: 0}
 --- !u!1 &345909163
 GameObject:
   m_ObjectHideFlags: 0
@@ -1168,7 +1168,7 @@ GameObject:
   - component: {fileID: 1685856348}
   - component: {fileID: 1685856349}
   m_Layer: 5
-  m_Name: CutLandController
+  m_Name: StillGeneralController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1202,23 +1202,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1685856347}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 036199e4c71fa46feb9290ec93cdb29f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1704f67df7bb64c3cb87b917f7b589b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  subTextBoard: {fileID: 2600993235552058731}
-  subText1: {fileID: 2600993235552058730}
-  subText2: {fileID: 1841051746}
-  geZi: {fileID: 328246903}
-  cutTime: 0
-  stateMap: {fileID: 1937718754}
-  stateMapCut: {fileID: 1213885887}
-  stateMapCut1: {fileID: 21300000, guid: 7a5f9425a338644e18a0218409e4c359, type: 3}
-  stateMapCut2: {fileID: 21300000, guid: d60f103c3a893429a9cb13c86b9e5520, type: 3}
-  stateMapCut3: {fileID: 21300000, guid: 2a548a6d92fb146069fda32b38dcd956, type: 3}
-  qiArmyLine: {fileID: 1862726071}
-  qiArmyLineText: {fileID: 1675833348}
-  qiArmy: {fileID: 499530042}
-  qiArmyName: {fileID: 1446850882}
 --- !u!1 &1841051746
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,7 +1223,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1841051747
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2052,13 +2038,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bc454ccb1f794beba9121b75c9164f2, type: 3}
---- !u!1 &2600993235552058730 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2600993235981249303, guid: 9bc454ccb1f794beba9121b75c9164f2, type: 3}
-  m_PrefabInstance: {fileID: 2600993235552058729}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2600993235552058731 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2600993236018355378, guid: 9bc454ccb1f794beba9121b75c9164f2, type: 3}
-  m_PrefabInstance: {fileID: 2600993235552058729}
-  m_PrefabAsset: {fileID: 0}

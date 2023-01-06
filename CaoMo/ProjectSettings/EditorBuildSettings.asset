@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CaoMoStory/107CutLand.unity
     guid: dc398983f2e2d4f339e5bca1fc9bcb78
+  - enabled: 1
+    path: Assets/Scenes/CaoMoStory/108StillGeneral.unity
+    guid: 8ea8d26eca0364b5fb48d5c2442f65ef
   m_configObjects: {}

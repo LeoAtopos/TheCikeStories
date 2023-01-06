@@ -14,6 +14,7 @@ public class CutLandController : MonoBehaviour
     public GameObject geZi;
     public int cutTime = 0;
     public Image stateMap;
+    public Image stateMapCut;
     public Sprite stateMapCut1;
     public Sprite stateMapCut2;
     public Sprite stateMapCut3;
@@ -45,25 +46,26 @@ public class CutLandController : MonoBehaviour
         geZi.SetActive(false);
         if (cutTime == 1)
         {
-            stateMap.sprite = stateMapCut1;
-            stateMap.color = new Color(stateMap.color.r, stateMap.color.g, stateMap.color.b, 0); ;
-            stateMap.DOFade(1, 2f).OnComplete(()=> FirstCutDone());
+            stateMapCut.sprite = stateMapCut1;
+            stateMapCut.color = new Color(stateMap.color.r, stateMap.color.g, stateMap.color.b, 0); ;
+            stateMapCut.DOFade(1, 2f).OnComplete(()=> FirstCutDone());
         }
         if (cutTime == 2)
         {
-            stateMap.sprite = stateMapCut2;
-            stateMap.color = new Color(stateMap.color.r, stateMap.color.g, stateMap.color.b, 0); ;
-            stateMap.DOFade(1, 2f).OnComplete(() => SecondCutDone());
+            stateMapCut.sprite = stateMapCut2;
+            stateMapCut.color = new Color(stateMap.color.r, stateMap.color.g, stateMap.color.b, 0); ;
+            stateMapCut.DOFade(1, 2f).OnComplete(() => SecondCutDone());
         }
         if (cutTime == 3)
         {
-            stateMap.sprite = stateMapCut3;
-            stateMap.color = new Color(stateMap.color.r, stateMap.color.g, stateMap.color.b, 0); ;
-            stateMap.DOFade(1, 2f).OnComplete(() => ThirdCutDone());
+            stateMapCut.sprite = stateMapCut3;
+            stateMapCut.color = new Color(stateMap.color.r, stateMap.color.g, stateMap.color.b, 0); ;
+            stateMapCut.DOFade(1, 2f).OnComplete(() => ThirdCutDone());
         }
     }
     void FirstCutDone()
     {
+        stateMap.sprite = stateMapCut1;
         Invoke("QiArmyFirstRespond", 1f);
     }
     void QiArmyFirstRespond()
@@ -79,6 +81,7 @@ public class CutLandController : MonoBehaviour
     }
     void SecondCutDone()
     {
+        stateMap.sprite = stateMapCut2;
         Invoke("QiArmySecondRespond", 1f);
     }
     void QiArmySecondRespond()
@@ -112,7 +115,12 @@ public class CutLandController : MonoBehaviour
     }
     void QiArmyFade()
     {
-        qiArmy.GetComponent<Image>().DOFade(0, 0.5f);
+        qiArmy.GetComponent<Image>().DOFade(0, 0.5f).OnComplete(()=> CutScene());
         qiArmyName.SetActive(false);
+    }
+    void CutScene()
+    {
+        geZi.transform.DOKill();
+        SceneManager.LoadScene("108StillGeneral");
     }
 }
