@@ -89,9 +89,9 @@ public class LoseLandController : MonoBehaviour
     }
     void NextSubText()
     {
-        subText1.SetActive(false);
-        subText2.SetActive(true);
-        Invoke("CutScene", 5f);
+        //subText1.SetActive(false);
+        //subText2.SetActive(true);
+        Invoke("CutScene", 2f);
     }
     void CutScene()
     {
