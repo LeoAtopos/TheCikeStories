@@ -114,8 +114,31 @@ public class StillGeneralController : MonoBehaviour
     }
     public void ThrowZhuang()
     {
-        Vector3 zPos = zhuangPos.transform.localPosition;
-        zhuangPos.transform.DOLocalJump(zPos, 8000, 1, 10f, false);
+        Vector3 cPos = caoMoPos.transform.localPosition;
+        cPos.y -= 300f;
+        caoMoPos.transform.DOLocalMove(cPos, 0.3f).OnComplete(()=> FlyZhuangAway());
         dioZi.SetActive(false);
+        
+    }
+    void FlyZhuangAway()
+    {
+        Invoke("ZhuangFlyAway", 1f);
+        Invoke("DropToCaoMo", 3f);
+    }
+    void ZhuangFlyAway()
+    {
+        Vector3 zPos = zhuangPos.transform.localPosition;
+        zPos.y += 2000;
+        zhuangPos.transform.DOLocalMove(zPos, 2);
+    }
+    void DropToCaoMo()
+    {
+        Vector3 cPos = caoMoPos.transform.localPosition;
+        cPos.y += 300f;
+        caoMoPos.transform.DOLocalMove(cPos, 0.3f).OnComplete(() => DropDownDone());
+    }
+    void DropDownDone()
+    {
+
     }
 }
