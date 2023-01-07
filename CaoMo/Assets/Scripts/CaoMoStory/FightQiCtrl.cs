@@ -49,8 +49,8 @@ public class FightQiCtrl : MonoBehaviour
     void Start()
     {
         fightTime = 1;
-        caoArmyStartPos = caoArmy.transform.position;
-        luArmyStartPos = luArmy.transform.position;
+        caoArmyStartPos = caoArmy.transform.localPosition;
+        luArmyStartPos = luArmy.transform.localPosition;
         caoArmyStartFacing = caoArmy.transform.rotation;
         qiArmySquardFacing = qiArmySquard.transform.rotation;
         isOKToMove = false;
@@ -77,21 +77,21 @@ public class FightQiCtrl : MonoBehaviour
         if(fightTime == 1)
         {
             if (isLuArmyMovingForward)
-                luArmy.transform.position += luArmySquard.transform.up * luArmySpeed * Time.deltaTime;
+                luArmy.transform.localPosition += luArmySquard.transform.up * luArmySpeed * Time.deltaTime;
             if (isQiArmyMovingForward)
-                qiArmy.transform.position += qiArmySquard.transform.up * 1 * Time.deltaTime;
+                qiArmy.transform.localPosition += qiArmySquard.transform.up * 1 * Time.deltaTime;
         }
         if (fightTime == 2)
         {
             if (isLuArmyMovingForward)
-                luArmy.transform.position += luArmySquard.transform.up * luArmySpeed * Time.deltaTime;
+                luArmy.transform.localPosition += luArmySquard.transform.up * luArmySpeed * Time.deltaTime;
         }
         if(fightTime == 3)
         {
             if (isLuArmyMovingForward)
-                luArmy.transform.position += luArmySquard.transform.up * luArmySpeed * Time.deltaTime;
+                luArmy.transform.localPosition += luArmySquard.transform.up * luArmySpeed * Time.deltaTime;
             if (isQiArmyMovingForward)
-                qiArmy.transform.position += qiArmySquard.transform.up * 5 * Time.deltaTime;
+                qiArmy.transform.localPosition += qiArmySquard.transform.up * 5 * Time.deltaTime;
         }
 
     }
@@ -173,8 +173,8 @@ public class FightQiCtrl : MonoBehaviour
         qiArmySquard.transform.localPosition = new Vector3(0, 0, 0);
         qiArmySquard.transform.rotation = qiArmySquardFacing;
 
-        caoArmy.transform.position = caoArmyStartPos;
-        luArmy.transform.position = luArmyStartPos;
+        caoArmy.transform.localPosition = caoArmyStartPos;
+        luArmy.transform.localPosition = luArmyStartPos;
         caoArmy.transform.rotation = caoArmyStartFacing;
         caoArmy.GetComponent<CaoMoArmyCtrl>().speed = 25f;
         luArmySpeed = 20;
@@ -235,8 +235,8 @@ public class FightQiCtrl : MonoBehaviour
         //qiArmySquard.transform.localPosition = new Vector3(0, 0, 0);
         qiArmySquard.transform.rotation = qiArmySquardFacing;
 
-        caoArmy.transform.position = caoArmyStartPos;
-        luArmy.transform.position = luArmyStartPos;
+        caoArmy.transform.localPosition = caoArmyStartPos;
+        luArmy.transform.localPosition = luArmyStartPos;
         caoArmy.transform.rotation = caoArmyStartFacing;
         caoArmy.GetComponent<CaoMoArmyCtrl>().speed = 15f;
         luArmySpeed = 3;

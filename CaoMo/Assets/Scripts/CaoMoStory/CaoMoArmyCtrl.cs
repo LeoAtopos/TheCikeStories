@@ -49,11 +49,11 @@ public class CaoMoArmyCtrl : MonoBehaviour
                     {
                         isHit = false;
                         hasTarget = false;
-                        fqC.caoArmy.transform.position -= 2 * speed * Time.deltaTime * dir.normalized;
+                        fqC.caoArmy.transform.localPosition -=  speed * Time.deltaTime * dir.normalized;
                     }
                     else
                     {
-                        fqC.caoArmy.transform.position += speed * Time.deltaTime * dir.normalized;
+                        fqC.caoArmy.transform.localPosition += speed * Time.deltaTime * dir.normalized;
                     }
                 }
                 else

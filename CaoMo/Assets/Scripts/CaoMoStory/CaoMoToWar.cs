@@ -42,7 +42,7 @@ public class CaoMoToWar : MonoBehaviour
                 if (Input.mousePosition.x > transform.position.x + 10.0f)
                 {
                     horseAnimator.Play("HorseMoving");
-                    trees.transform.position += new Vector3(-300 * Time.deltaTime, 0, 0);
+                    trees.transform.localPosition += new Vector3(-600 * Time.deltaTime, 0, 0);
                 }
             }
             if (trees.transform.localPosition.x <= -1400.0f)
@@ -55,7 +55,7 @@ public class CaoMoToWar : MonoBehaviour
         {
 
             horseAnimator.Play("HorseMoving");
-            trees.transform.position += new Vector3(-300 * Time.deltaTime, 0, 0);
+            trees.transform.localPosition += new Vector3(-600 * Time.deltaTime, 0, 0);
 
             if (trees.transform.localPosition.x <= -3500.0f)
             {
@@ -72,7 +72,7 @@ public class CaoMoToWar : MonoBehaviour
         if(isCuttingScene)
         {
             horseAnimator.Play("HorseMoving");
-            trees.transform.position += new Vector3(-300 * Time.deltaTime, 0, 0);
+            trees.transform.localPosition += new Vector3(-600 * Time.deltaTime, 0, 0);
         }
     }
     void NormalFitFlyAway()

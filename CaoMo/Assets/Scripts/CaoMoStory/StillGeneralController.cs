@@ -68,7 +68,7 @@ public class StillGeneralController : MonoBehaviour
                 if (Input.mousePosition.x - caoMoPos.transform.position.x < -5.0f)
                 {
                     //left move
-                    caoMoPos.transform.position += new Vector3(-30 * Time.fixedDeltaTime, 0, 0);
+                    caoMoPos.transform.localPosition += new Vector3(-30 * Time.fixedDeltaTime, 0, 0);
                     caoMoAnimator.Play("CaoMoCrippleMoving");
                 }
             }
@@ -86,7 +86,7 @@ public class StillGeneralController : MonoBehaviour
         {
 
             horseAnimator.Play("HorseMoving");
-            trees.transform.position += new Vector3(-300 * Time.deltaTime, 0, 0);
+            trees.transform.localPosition += new Vector3(-600 * Time.deltaTime, 0, 0);
 
             if (trees.transform.localPosition.x <= -2500.0f)
             {
@@ -103,7 +103,7 @@ public class StillGeneralController : MonoBehaviour
         if (isCuttingScene)
         {
             horseAnimator.Play("HorseMoving");
-            trees.transform.position += new Vector3(-300 * Time.deltaTime, 0, 0);
+            trees.transform.localPosition += new Vector3(-600 * Time.deltaTime, 0, 0);
         }
     }
     void HideStateMap()

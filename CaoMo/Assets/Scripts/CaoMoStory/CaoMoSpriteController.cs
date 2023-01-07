@@ -86,12 +86,12 @@ public class CaoMoSpriteController : MonoBehaviour
                 if(Input.mousePosition.x - transform.position.x < -5.0f)
                 {
                     //left move
-                    transform.position += new Vector3(-250 * Time.fixedDeltaTime, 0 , 0);
+                    transform.localPosition += new Vector3(-250 * Time.fixedDeltaTime, 0 , 0);
                     animator.Play("CaoMoMoving");
                 }else if(Input.mousePosition.x - transform.position.x > 5.0f)
                 {
                     //right move
-                    transform.position += new Vector3( 250 * Time.fixedDeltaTime, 0 , 0);
+                    transform.localPosition += new Vector3( 250 * Time.fixedDeltaTime, 0 , 0);
                     animator.Play("CaoMoMoving");
                 }
             }
@@ -112,7 +112,7 @@ public class CaoMoSpriteController : MonoBehaviour
                 {
                     animator.Play("CaoMoMoving");
                     horseAnimator.Play("HorseMoving");
-                    trees.transform.position += new Vector3(-100 * Time.fixedDeltaTime,0,0);
+                    trees.transform.localPosition += new Vector3(-250 * Time.fixedDeltaTime,0,0);
                 }
             }
 
@@ -145,7 +145,7 @@ public class CaoMoSpriteController : MonoBehaviour
                 {
                     animator.Play("CaoMoMoving");
                     horseAnimator.Play("HorseMoving");
-                    trees.transform.position += new Vector3(-100 * Time.fixedDeltaTime, 0, 0);
+                    trees.transform.localPosition += new Vector3(-250 * Time.fixedDeltaTime, 0, 0);
                 }
             }
             if (trees.transform.localPosition.x <= -840.0f && !isZeiCought)
