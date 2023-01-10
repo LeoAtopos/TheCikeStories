@@ -23,5 +23,5 @@ Trying to translate ancient history scripts to interactive gameplay with a serio
 - 如果真有价值的话，野心是把二十四史全做了。
 
 #### 开发资源
-- unity：unityhub://2020.3.28f1/f5400f52e03f
+- unity：unityhub://2021.3.16f1/
 - 音乐音效：https://soundimage.org/
