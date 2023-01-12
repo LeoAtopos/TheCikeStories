@@ -11,16 +11,18 @@ public class LineController : MonoBehaviour
     public TextMeshProUGUI lineTextMesh;
     public string wordText;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        //if(isToRight)
-        //{
-        //    transform.GetComponent<RectTransform>().pivot = new Vector2(0, 0);
-        //}
-        //else
-        //{
-        //    transform.GetComponent<RectTransform>().pivot = new Vector2(1, 1);
-        //}
+        Debug.Log(transform.GetComponent<RectTransform>().pivot);
+        if (isToRight)
+        {
+            transform.GetComponent<RectTransform>().pivot = new Vector2(0.1f, 0);
+        }
+        else
+        {
+            transform.GetComponent<RectTransform>().pivot = new Vector2(0.9f, 0);
+        }
+        Debug.Log(transform.GetComponent<RectTransform>().pivot);
     }
 
     // Update is called once per frame
