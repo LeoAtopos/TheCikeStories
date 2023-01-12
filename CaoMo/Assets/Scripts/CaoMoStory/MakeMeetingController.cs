@@ -123,7 +123,7 @@ public class MakeMeetingController : MonoBehaviour
     }
     void HuanLine3p()
     {
-        huanLine.GetComponent<LineController>().SetText("看谁不来，集体干他");
+        huanLine.GetComponent<LineController>().SetText("看谁不来，以多欺少");
         huanLine.SetActive(true);
         Invoke("HuanLine3pDone", 2.5f);
     }
@@ -134,7 +134,7 @@ public class MakeMeetingController : MonoBehaviour
     }
     void GuanLine3()
     {
-        guanLine.GetComponent<LineController>().SetText("再会盟诸侯");
+        guanLine.GetComponent<LineController>().SetText("积极帮助解决各国问题");
         guanLine.SetActive(true);
         Invoke("GuanLine3Done", 2.5f);
     }
@@ -154,7 +154,7 @@ public class MakeMeetingController : MonoBehaviour
     }
     void HuanLine4p()
     {
-        huanLine.GetComponent<LineController>().SetText("看谁不来，集体干他");
+        huanLine.GetComponent<LineController>().SetText("小的吞并，大的控制");
         huanLine.SetActive(true);
         Invoke("HuanLine4pDone", 2.5f);
     }
@@ -165,6 +165,27 @@ public class MakeMeetingController : MonoBehaviour
     }
     void GuanLine4()
     {
-
+        guanLine.GetComponent<LineController>().SetText("从简单的开始");
+        guanLine.SetActive(true);
+        Invoke("GuanLine4Done", 2.5f);
+    }
+    void GuanLine4Done()
+    {
+        guanLine.SetActive(false);
+        Invoke("HuanLine5", 1.3f);
+    }
+    void HuanLine5()
+    {
+        huanLine.GetComponent<LineController>().SetText("来人，叫鲁公开会");
+        huanLine.SetActive(true);
+        Invoke("HuanLine5Done", 2.5f);
+    }
+    void HuanLine5Done()
+    {
+        stage.transform.DOLocalMove(new Vector3(2500, 0, 0), 8f).OnComplete(() => StageOutDone());
+    }
+    void StageOutDone()
+    {
+        SceneManager.LoadScene("110WalkUp");
     }
 }
