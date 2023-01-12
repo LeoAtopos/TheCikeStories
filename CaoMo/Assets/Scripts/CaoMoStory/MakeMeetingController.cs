@@ -187,6 +187,11 @@ public class MakeMeetingController : MonoBehaviour
     }
     void HuanLine5Done()
     {
+        subText.SetActive(true);
+        Invoke("StageOut", 3.5f);
+    }
+    void StageOut()
+    {
         stage.transform.DOLocalMove(new Vector3(1500, 0, 0), 2f).OnComplete(() => StageOutDone());
     }
     void StageOutDone()
