@@ -13,9 +13,11 @@ public class MakeMeetingController : MonoBehaviour
     public GameObject huanTitleText;
     public GameObject guanPos;
     public GameObject guanTitleText;
+    public GameObject subText;
     // Start is called before the first frame update
     void Start()
     {
+        subText.SetActive(false);
         stage.transform.DOLocalMove(new Vector3(0, 0, 0), 8f).OnComplete(()=> StageInDone());
     }
 
