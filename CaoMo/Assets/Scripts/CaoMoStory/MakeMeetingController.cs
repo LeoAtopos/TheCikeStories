@@ -78,8 +78,9 @@ public class MakeMeetingController : MonoBehaviour
         ansCount++;
         options.SetActive(false);
         guanLine.SetActive(false);
-        if(t == 1) huanLine.GetComponent<LineController>().SetText("好的，仲父");
-        if(t == 2) huanLine.GetComponent<LineController>().SetText("明白，亚父");
+        if (t == 1) huanLine.GetComponent<LineController>().SetText("好的，仲父");
+        if (t == 2) huanLine.GetComponent<LineController>().SetText("明白，亚父");
+        if (t == 3) huanLine.GetComponent<LineController>().SetText("我懂，恩相");
         if (ansCount == 1) Invoke("HuanLine2", 0.1f);
         if (ansCount == 2) Invoke("HuanLine3", 0.1f);
         if (ansCount == 3) Invoke("HuanLine4", 0.1f);
@@ -92,7 +93,7 @@ public class MakeMeetingController : MonoBehaviour
     void HuanLine2Done()
     {
         huanLine.SetActive(false);
-        Invoke("HuanLine2p", 1.3f);
+        Invoke("HuanLine2p", 0.5f);
     }
     void HuanLine2p()
     {
@@ -123,7 +124,7 @@ public class MakeMeetingController : MonoBehaviour
     void HuanLine3Done()
     {
         huanLine.SetActive(false);
-        Invoke("HuanLine3p", 1.3f);
+        Invoke("HuanLine3p", 0.5f);
     }
     void HuanLine3p()
     {
@@ -138,7 +139,7 @@ public class MakeMeetingController : MonoBehaviour
     }
     void GuanLine3()
     {
-        guanLine.GetComponent<LineController>().SetText("积极帮助解决各国问题");
+        guanLine.GetComponent<LineController>().SetText("积极帮助解决\n各国问题");
         guanLine.SetActive(true);
         Invoke("GuanLine3Done", 2.5f);
     }
@@ -154,7 +155,7 @@ public class MakeMeetingController : MonoBehaviour
     void HuanLine4Done()
     {
         huanLine.SetActive(false);
-        Invoke("HuanLine4p", 1.3f);
+        Invoke("HuanLine4p", 0.5f);
     }
     void HuanLine4p()
     {
@@ -171,12 +172,12 @@ public class MakeMeetingController : MonoBehaviour
     {
         guanLine.GetComponent<LineController>().SetText("从简单的开始");
         guanLine.SetActive(true);
-        Invoke("GuanLine4Done", 2.5f);
+        Invoke("GuanLine4Done", 3.5f);
     }
     void GuanLine4Done()
     {
         guanLine.SetActive(false);
-        Invoke("HuanLine5", 1.3f);
+        Invoke("HuanLine5", 2.5f);
     }
     void HuanLine5()
     {

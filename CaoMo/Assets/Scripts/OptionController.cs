@@ -12,6 +12,8 @@ public class OptionController : MonoBehaviour, IPointerClickHandler
             mMC.HuanAns(1);
         if (gameObject.name == "Option2")
             mMC.HuanAns(2);
+        if (gameObject.name == "Option3")
+            mMC.HuanAns(3);
     }
 
     // Start is called before the first frame update
