@@ -13,21 +13,39 @@ public class LineController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        Debug.Log(transform.GetComponent<RectTransform>().pivot);
-        if (isToRight)
-        {
-            transform.GetComponent<RectTransform>().pivot = new Vector2(0.1f, 0);
-        }
-        else
-        {
-            transform.GetComponent<RectTransform>().pivot = new Vector2(0.9f, 0);
-        }
-        Debug.Log(transform.GetComponent<RectTransform>().pivot);
+        // 先就右出对话框吧，左出以后再说
+        //if (isToRight)
+        //{
+        //    transform.GetComponent<RectTransform>().pivot = new Vector2(0.1f, 0);
+        //}
+        //else
+        //{
+        //    transform.GetComponent<RectTransform>().pivot = new Vector2(0.9f, 0);
+        //    transform.localScale = new Vector3(-1, 1, 1);
+        //}
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.GetComponent<RectTransform>().sizeDelta = new Vector2(1.2f * (100 +  lineTextMesh.GetRenderedValues().x), 1.2f * (100 + lineTextMesh.GetRenderedValues().y));
+        //if (isToRight)
+        //{
+        //    transform.GetComponent<RectTransform>().pivot = new Vector2(0.1f, 0);
+        //}
+        //else
+        //{
+        //    transform.GetComponent<RectTransform>().pivot = new Vector2(0.9f, 0);
+        //    transform.localScale = new Vector3(-1, 1, 1);
+        //}
+        transform.GetComponent<RectTransform>().sizeDelta = new Vector2(1.3f * (70 +  lineTextMesh.GetRenderedValues().x), 1.3f * (70 + lineTextMesh.GetRenderedValues().y));
+    }
+    public void SetText(string t)
+    {
+        lineTextMesh.text = t;
+        Refresh();
+    }
+    public void Refresh()
+    {
+        transform.GetComponent<RectTransform>().sizeDelta = new Vector2(1.3f * (70 + lineTextMesh.GetRenderedValues().x), 1.3f * (70 + lineTextMesh.GetRenderedValues().y));
     }
 }
