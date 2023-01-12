@@ -10,6 +10,8 @@ using System;
 public class MakeMeetingController : MonoBehaviour
 {
     public GameObject stage;// 2944
+    public GameObject timeText;
+    public GameObject locationText;
     public GameObject huanPos;
     public GameObject huanTitleText;
 
@@ -40,6 +42,8 @@ public class MakeMeetingController : MonoBehaviour
     }
     void StageInDone()
     {
+        timeText.SetActive(false);
+        locationText.SetActive(false);
         Invoke("HideTitles", 2);
     }
     void HideTitles()
@@ -52,7 +56,7 @@ public class MakeMeetingController : MonoBehaviour
     {
         huanLine.GetComponent<LineController>().SetText("管相，请教我做事");
         huanLine.SetActive(true);
-        Invoke("HuanLine1Done", 2.5f);
+        Invoke("HuanLine1Done", 3f);
     }
     void HuanLine1Done()
     {
@@ -94,7 +98,7 @@ public class MakeMeetingController : MonoBehaviour
     {
         huanLine.GetComponent<LineController>().SetText("先立大义，政治动员");
         huanLine.SetActive(true);
-        Invoke("HuanLine2pDone", 2.5f);
+        Invoke("HuanLine2pDone", 3.5f);
     }
     void HuanLine2pDone()
     {
@@ -125,7 +129,7 @@ public class MakeMeetingController : MonoBehaviour
     {
         huanLine.GetComponent<LineController>().SetText("看谁不来，以多欺少");
         huanLine.SetActive(true);
-        Invoke("HuanLine3pDone", 2.5f);
+        Invoke("HuanLine3pDone", 3.5f);
     }
     void HuanLine3pDone()
     {
@@ -156,7 +160,7 @@ public class MakeMeetingController : MonoBehaviour
     {
         huanLine.GetComponent<LineController>().SetText("小的吞并，大的控制");
         huanLine.SetActive(true);
-        Invoke("HuanLine4pDone", 2.5f);
+        Invoke("HuanLine4pDone", 3.5f);
     }
     void HuanLine4pDone()
     {
@@ -178,11 +182,11 @@ public class MakeMeetingController : MonoBehaviour
     {
         huanLine.GetComponent<LineController>().SetText("来人，叫鲁公开会");
         huanLine.SetActive(true);
-        Invoke("HuanLine5Done", 2.5f);
+        Invoke("HuanLine5Done", 4f);
     }
     void HuanLine5Done()
     {
-        stage.transform.DOLocalMove(new Vector3(2500, 0, 0), 8f).OnComplete(() => StageOutDone());
+        stage.transform.DOLocalMove(new Vector3(1500, 0, 0), 2f).OnComplete(() => StageOutDone());
     }
     void StageOutDone()
     {

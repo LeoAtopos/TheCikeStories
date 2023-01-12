@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CaoMoStory/109MakeMeeting.unity
     guid: 17bc705431916446f98d30f0a2ed6b2c
+  - enabled: 1
+    path: Assets/Scenes/CaoMoStory/110WalkUp.unity
+    guid: 9ad7155204159479bba466c922b056c7
   m_configObjects: {}
