@@ -794,7 +794,7 @@ GameObject:
   - component: {fileID: 1034267144}
   - component: {fileID: 1034267145}
   m_Layer: 5
-  m_Name: MakeMeetingController
+  m_Name: WalkUpController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -829,18 +829,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1034267143}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9126ced1bac54f768a455c0b41f67a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 598174e3018a044c4a0e1dbe618567f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: {fileID: 1167494698}
-  huanPos: {fileID: 1550551675}
-  huanTitleText: {fileID: 572826770}
-  huanLine: {fileID: 1748820341}
-  guanPos: {fileID: 220833679}
-  guanTitleText: {fileID: 1474850436}
-  guanLine: {fileID: 1508164026}
-  options: {fileID: 694240562}
-  subText: {fileID: 1277312424}
 --- !u!1 &1062507833
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,7 +883,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b1e148d481e94ceb9315c2fdcbca2c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mMC: {fileID: 1034267145}
+  mMC: {fileID: 0}
+  hooveOverImage: {fileID: 0}
 --- !u!114 &1062507836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1039,11 +1031,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1167494698}
   m_CullTransparentMesh: 1
---- !u!1 &1277312424 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2600993236018355378, guid: 9bc454ccb1f794beba9121b75c9164f2, type: 3}
-  m_PrefabInstance: {fileID: 2600993235552058729}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1347499008
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,7 +1158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b1e148d481e94ceb9315c2fdcbca2c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mMC: {fileID: 1034267145}
+  mMC: {fileID: 0}
+  hooveOverImage: {fileID: 0}
 --- !u!114 &1406334724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1488,11 +1476,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1474850436}
   m_CullTransparentMesh: 1
---- !u!1 &1508164026 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8148324161357441172, guid: 9cf73ed1a5e204dbc8d0af68c6b6fbf5, type: 3}
-  m_PrefabInstance: {fileID: 601233555}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1550551675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1770,11 +1753,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2600993236018355381, guid: 9bc454ccb1f794beba9121b75c9164f2, type: 3}
   m_PrefabInstance: {fileID: 2600993235552058729}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1748820341 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8148324161357441172, guid: 9cf73ed1a5e204dbc8d0af68c6b6fbf5, type: 3}
-  m_PrefabInstance: {fileID: 8148324162026179041}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1748820342 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8148324161357441175, guid: 9cf73ed1a5e204dbc8d0af68c6b6fbf5, type: 3}
@@ -1960,7 +1938,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2600993235981249512, guid: 9bc454ccb1f794beba9121b75c9164f2, type: 3}
       propertyPath: m_text
-      value: "\u9F50\u6853\u516C\u8BB8\u4E0E\u9C81\u4F1A\u4E8E\u67EF\u800C\u76DF"
+      value: "\u6853\u516C\u4E0E\u5E84\u516C\u65E2\u76DF\u4E8E\u575B\u4E0A"
       objectReference: {fileID: 0}
     - target: {fileID: 2600993235981249513, guid: 9bc454ccb1f794beba9121b75c9164f2, type: 3}
       propertyPath: m_audioClip
