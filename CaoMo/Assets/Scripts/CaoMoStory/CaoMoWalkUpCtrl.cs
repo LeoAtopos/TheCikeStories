@@ -14,6 +14,7 @@ public class CaoMoWalkUpCtrl : MonoBehaviour
 
     public GameObject walkers;
     public GameObject opWalkers;
+    public GameObject opWalkers2;
     public GameObject luXiang;
     public GameObject qiBingLine;
     public GameObject weiXiangLine;
@@ -50,26 +51,27 @@ public class CaoMoWalkUpCtrl : MonoBehaviour
             if(Input.GetMouseButton(0))
             {
                 opWalkers.transform.localPosition -= 80f * opWalkers.transform.up  * Time.fixedDeltaTime;
+                opWalkers2.transform.localPosition -= 80f * opWalkers.transform.up * Time.fixedDeltaTime;
             }
             if (isNoteHaveStopped && opWalkers.transform.localPosition.y < -176)
                 StopZhuang();
-            if (opWalkers.transform.localPosition.y < -657)
+            if (opWalkers.transform.localPosition.y < -607)
                 weiXiangLine.SetActive(true);
-            if (opWalkers.transform.localPosition.y < -707)
+            if (opWalkers.transform.localPosition.y < -657)
             {
                 weiXiangLine.SetActive(false);
                 xingXiangLine.SetActive(true);
             }
-            if (opWalkers.transform.localPosition.y < -881)
+            if (opWalkers.transform.localPosition.y < -831)
                 zhengXiangLine.SetActive(true);
-            if (opWalkers.transform.localPosition.y < -931)
+            if (opWalkers.transform.localPosition.y < -881)
             {
                 zhengXiangLine.SetActive(false);
                 caoXiangLine.SetActive(true);
             }
-            if (opWalkers.transform.localPosition.y < -1091)
+            if (opWalkers.transform.localPosition.y < -1041)
                 songXiangLine.SetActive(true);
-            if (opWalkers.transform.localPosition.y < -1141)
+            if (opWalkers.transform.localPosition.y < -1091)
             {
                 songXiangLine.SetActive(false);
                 chuXiangLine.SetActive(true);

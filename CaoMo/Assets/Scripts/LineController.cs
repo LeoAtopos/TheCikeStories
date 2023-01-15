@@ -37,7 +37,7 @@ public class LineController : MonoBehaviour
         //    transform.GetComponent<RectTransform>().pivot = new Vector2(0.9f, 0);
         //    transform.localScale = new Vector3(-1, 1, 1);
         //}
-        transform.GetComponent<RectTransform>().sizeDelta = new Vector2(1.3f * (70 +  lineTextMesh.GetRenderedValues().x), 1.3f * (70 + lineTextMesh.GetRenderedValues().y));
+        transform.GetComponent<RectTransform>().sizeDelta = new Vector2(1f * (70 +  lineTextMesh.GetRenderedValues().x), 1f * (70 + lineTextMesh.GetRenderedValues().y));
     }
     public void SetText(string t)
     {
@@ -46,6 +46,6 @@ public class LineController : MonoBehaviour
     }
     public void Refresh()
     {
-        transform.GetComponent<RectTransform>().sizeDelta = new Vector2(1.3f * (70 + lineTextMesh.GetRenderedValues().x), 1.3f * (70 + lineTextMesh.GetRenderedValues().y));
+        transform.GetComponent<RectTransform>().sizeDelta = new Vector2(1f * (70 + lineTextMesh.GetRenderedValues().x), 1f * (70 + lineTextMesh.GetRenderedValues().y));
     }
 }
