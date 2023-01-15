@@ -44,8 +44,8 @@ public class CaoMoWalkUpCtrl : MonoBehaviour
         subText.SetActive(false);
         isOKToMove = false;
         isNoteHaveStopped = true;
-        //stage.transform.DOLocalMove(new Vector3(0, 0, 0), 5f).OnComplete(() => StageInDone());
-        stage.transform.DOLocalMove(new Vector3(0, 0, 0), 0.1f).OnComplete(() => StageInDone());
+        stage.transform.DOLocalMove(new Vector3(0, 0, 0), 5f).OnComplete(() => StageInDone());
+        //stage.transform.DOLocalMove(new Vector3(0, 0, 0), 0.1f).OnComplete(() => StageInDone());
     }
 
     // -176,-707,-931,-1141,-1600
