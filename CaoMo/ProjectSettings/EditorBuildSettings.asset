@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CaoMoStory/110WalkUp.unity
     guid: 9ad7155204159479bba466c922b056c7
+  - enabled: 1
+    path: Assets/Scenes/CaoMoStory/111Hijack.unity
+    guid: 72e8a1787406e444ca3fc35c11c71018
   m_configObjects: {}

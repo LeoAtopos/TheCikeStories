@@ -13,6 +13,9 @@ public class CaoMoWalkUpCtrl : MonoBehaviour
     public GameObject subText;
 
     public GameObject walkers;
+    public Animator caoMoAnimation;
+    public Animator luXiangAnimation;
+    public Animator ZhuangAnimation;
     public GameObject opWalkers;
     public GameObject opWalkers2;
     public GameObject luXiang;
@@ -26,6 +29,8 @@ public class CaoMoWalkUpCtrl : MonoBehaviour
 
     bool isOKToMove;
     bool isNoteHaveStopped;
+
+    public GameObject qiBingTrouble;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,15 +51,20 @@ public class CaoMoWalkUpCtrl : MonoBehaviour
     // -176,-707,-931,-1141,-1600
     void FixedUpdate()
     {
-        if(isOKToMove)
+        if (isOKToMove)
         {
-            if(Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0))
             {
-                opWalkers.transform.localPosition -= 80f * opWalkers.transform.up  * Time.fixedDeltaTime;
+                opWalkers.transform.localPosition -= 80f * opWalkers.transform.up * Time.fixedDeltaTime;
                 opWalkers2.transform.localPosition -= 80f * opWalkers.transform.up * Time.fixedDeltaTime;
+                caoMoAnimation.Play("CaoMoWalkUpMoving");
+                ZhuangAnimation.Play("ZhuangWalkUpMoving");
+                if (isNoteHaveStopped) luXiangAnimation.Play("LuXiangMoving");
             }
             if (isNoteHaveStopped && opWalkers.transform.localPosition.y < -176)
                 StopZhuang();
+            if (opWalkers.transform.localPosition.y < -315)
+                qiBingTrouble.transform.SetParent(opWalkers2.transform);
             if (opWalkers.transform.localPosition.y < -607)
                 weiXiangLine.SetActive(true);
             if (opWalkers.transform.localPosition.y < -657)
@@ -76,6 +86,10 @@ public class CaoMoWalkUpCtrl : MonoBehaviour
                 songXiangLine.SetActive(false);
                 chuXiangLine.SetActive(true);
             }
+            if (opWalkers.transform.localPosition.y < -1207)
+            {
+                SceneManager.LoadScene("111Hijack");
+            }
 
         }
     }
@@ -89,7 +103,7 @@ public class CaoMoWalkUpCtrl : MonoBehaviour
     void XiangMoveAway()
     {
         luXiang.transform.SetParent(opWalkers.transform);
-        luXiang.transform.DOLocalMove(luXiang.transform.localPosition + luXiang.transform.right * 100, 1f).OnComplete(() => LuXiangMoveDone());
+        luXiang.transform.DOLocalJump(luXiang.transform.localPosition + luXiang.transform.right * 100,2,10, 1f,false).OnComplete(() => LuXiangMoveDone());
     }
     void LuXiangMoveDone()
     {
