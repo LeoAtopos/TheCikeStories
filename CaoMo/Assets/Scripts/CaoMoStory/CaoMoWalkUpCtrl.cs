@@ -11,6 +11,16 @@ public class CaoMoWalkUpCtrl : MonoBehaviour
 {
     public GameObject stage;
     public GameObject subText;
+
+    public GameObject walkers;
+    public GameObject luXiang;
+    public GameObject qiBingLine;
+    public GameObject weiXiangLine;
+    public GameObject xingXiangLine;
+    public GameObject zhengXiangLine;
+    public GameObject caoXiangLine;
+    public GameObject chuXiangLine;
+    public GameObject songXiangLine;
     // Start is called before the first frame update
     void Start()
     {
