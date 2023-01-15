@@ -13,6 +13,7 @@ public class CaoMoWalkUpCtrl : MonoBehaviour
     public GameObject subText;
 
     public GameObject walkers;
+    public GameObject opWalkers;
     public GameObject luXiang;
     public GameObject qiBingLine;
     public GameObject weiXiangLine;
@@ -21,21 +22,82 @@ public class CaoMoWalkUpCtrl : MonoBehaviour
     public GameObject caoXiangLine;
     public GameObject chuXiangLine;
     public GameObject songXiangLine;
+
+    bool isOKToMove;
+    bool isNoteHaveStopped;
     // Start is called before the first frame update
     void Start()
     {
+        qiBingLine.SetActive(false);
+        weiXiangLine.SetActive(false);
+        xingXiangLine.SetActive(false);
+        zhengXiangLine.SetActive(false);
+        caoXiangLine.SetActive(false);
+        chuXiangLine.SetActive(false);
+        songXiangLine.SetActive(false);
         subText.SetActive(false);
-        stage.transform.DOLocalMove(new Vector3(0, 0, 0), 5f).OnComplete(() => StageInDone());
-        //stage.transform.DOLocalMove(new Vector3(0, 0, 0), 0.1f).OnComplete(() => StageInDone());
+        isOKToMove = false;
+        isNoteHaveStopped = true;
+        //stage.transform.DOLocalMove(new Vector3(0, 0, 0), 5f).OnComplete(() => StageInDone());
+        stage.transform.DOLocalMove(new Vector3(0, 0, 0), 0.1f).OnComplete(() => StageInDone());
     }
 
-    // Update is called once per frame
-    void Update()
+    // -176,-707,-931,-1141,-1600
+    void FixedUpdate()
     {
-        
+        if(isOKToMove)
+        {
+            if(Input.GetMouseButton(0))
+            {
+                opWalkers.transform.localPosition -= 80f * opWalkers.transform.up  * Time.fixedDeltaTime;
+            }
+            if (isNoteHaveStopped && opWalkers.transform.localPosition.y < -176)
+                StopZhuang();
+            if (opWalkers.transform.localPosition.y < -657)
+                weiXiangLine.SetActive(true);
+            if (opWalkers.transform.localPosition.y < -707)
+            {
+                weiXiangLine.SetActive(false);
+                xingXiangLine.SetActive(true);
+            }
+            if (opWalkers.transform.localPosition.y < -881)
+                zhengXiangLine.SetActive(true);
+            if (opWalkers.transform.localPosition.y < -931)
+            {
+                zhengXiangLine.SetActive(false);
+                caoXiangLine.SetActive(true);
+            }
+            if (opWalkers.transform.localPosition.y < -1091)
+                songXiangLine.SetActive(true);
+            if (opWalkers.transform.localPosition.y < -1141)
+            {
+                songXiangLine.SetActive(false);
+                chuXiangLine.SetActive(true);
+            }
+
+        }
+    }
+
+    private void StopZhuang()
+    {
+        isOKToMove = false;
+        qiBingLine.SetActive(true);
+        Invoke("XiangMoveAway", 2.5f);
+    }
+    void XiangMoveAway()
+    {
+        luXiang.transform.SetParent(opWalkers.transform);
+        luXiang.transform.DOLocalMove(luXiang.transform.localPosition + luXiang.transform.right * 100, 1f).OnComplete(() => LuXiangMoveDone());
+    }
+    void LuXiangMoveDone()
+    {
+        qiBingLine.SetActive(false);
+        isOKToMove = true;
+        isNoteHaveStopped = false;
     }
     void StageInDone()
     {
         subText.SetActive(true);
+        isOKToMove = true;
     }
 }
