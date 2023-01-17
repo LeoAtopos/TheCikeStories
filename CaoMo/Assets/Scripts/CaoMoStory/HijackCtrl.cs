@@ -36,6 +36,7 @@ public class HijackCtrl : MonoBehaviour
     //bool isNoteHaveStopped;
     public GameObject dagger;
     public bool isOKToCatch;
+    public bool isOKToHijack;
 
     //public GameObject qiBingTrouble;
     //// Start is called before the first frame update
@@ -56,6 +57,7 @@ public class HijackCtrl : MonoBehaviour
         subText.SetActive(false);
 
         isOKToCatch = false;
+        isOKToHijack = false;
 
         //Vector3 sPos = stage.transform.localPosition;
 
@@ -111,23 +113,6 @@ public class HijackCtrl : MonoBehaviour
         }
     }
 
-    //private void StopZhuang()
-    //{
-    //    isOKToMove = false;
-    //    qiBingLine.SetActive(true);
-    //    Invoke("XiangMoveAway", 2.5f);
-    //}
-    //void XiangMoveAway()
-    //{
-    //    luXiang.transform.SetParent(opWalkers.transform);
-    //    luXiang.transform.DOLocalJump(luXiang.transform.localPosition + luXiang.transform.right * 100,2,10, 1f,false).OnComplete(() => LuXiangMoveDone());
-    //}
-    //void LuXiangMoveDone()
-    //{
-    //    qiBingLine.SetActive(false);
-    //    isOKToMove = true;
-    //    isNoteHaveStopped = false;
-    //}
     void StageInDone()
     {
         stage.transform.DOLocalMove(new Vector3(0, -227, 0), 1.5f);
@@ -161,13 +146,15 @@ public class HijackCtrl : MonoBehaviour
     //23,-61
     void DaggerFlyIn()
     {
-        dagger.transform.DOLocalMove(new Vector3(0, 333, 0), 8f);
+        dagger.transform.DOLocalMove(new Vector3(0, 333, 0), 8f).OnComplete(()=> FailCatchDagger());
         dagger.transform.DORotate(new Vector3(0, 0, 540), 8f, RotateMode.FastBeyond360);
         isOKToCatch = true;
         subText.SetActive(true);
     }
     public void CheckDaggerClick()
     {
+        isOKToCatch = false;
+        isOKToHijack = true;
         dagger.transform.DOKill();
         Vector3 cP = dagger.transform.position;
         cP.x -= 50;
@@ -179,4 +166,15 @@ public class HijackCtrl : MonoBehaviour
         subTextline2.SetActive(true);
     }
     //103,-60; -28
+    //75,203
+    void FailCatchDagger()
+    {
+        SceneManager.LoadScene("111Hijack");
+    }
+    public void HijackMOve()
+    {
+        caoMoPos.transform.localPosition = new Vector3(75, 203, 0);
+        stage.transform.DOLocalMove(new Vector3(0, -465, 0), 0.2f);
+        stage.transform.DOScale(1, 0.2f);
+    }
 }
