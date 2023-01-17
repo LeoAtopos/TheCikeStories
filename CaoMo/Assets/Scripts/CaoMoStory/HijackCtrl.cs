@@ -13,11 +13,13 @@ public class HijackCtrl : MonoBehaviour
     public GameObject subText;
     public GameObject subTextline1;
     public GameObject subTextline2;
+    public GameObject subTextline3;
 
     public GameObject walkers;
     public GameObject zhuangPos;
     public GameObject caoMoPos;
     public Animator caoMoAnimation;
+    public GameObject xiZi;
     public Animator luXiangAnimation;
     public Animator ZhuangAnimation;
     public GameObject opWalkers;
@@ -38,6 +40,14 @@ public class HijackCtrl : MonoBehaviour
     public bool isOKToCatch;
     public bool isOKToHijack;
 
+    public GameObject qiBing1;
+    public GameObject qiBing2;
+    public GameObject qiBing3;
+    public GameObject qiBing4;
+    public GameObject guanPos;
+
+    public GameObject shoutText;
+
     //public GameObject qiBingTrouble;
     //// Start is called before the first frame update
     void Start()
@@ -54,7 +64,9 @@ public class HijackCtrl : MonoBehaviour
         subTextline2.SetActive(false);
         isOKToMove = false;
         isCaoMoStopped = false;
+        xiZi.SetActive(false);
         subText.SetActive(false);
+        shoutText.SetActive(false);
 
         isOKToCatch = false;
         isOKToHijack = false;
@@ -171,10 +183,46 @@ public class HijackCtrl : MonoBehaviour
     {
         SceneManager.LoadScene("111Hijack");
     }
-    public void HijackMOve()
+    public void HijackMove()
     {
+        isOKToHijack = false;
         caoMoPos.transform.localPosition = new Vector3(75, 203, 0);
-        stage.transform.DOLocalMove(new Vector3(0, -465, 0), 0.2f);
+        qiBing1.transform.DOLocalJump(new Vector3(-127, 238, 0), 5, 2, 0.5f);
+        qiBing2.transform.DOLocalJump(new Vector3(253, 245, 0), 5, 2, 0.5f);
+        qiBing3.transform.DOLocalJump(new Vector3(-163, 60, 0), 5, 2, 0.5f);
+        qiBing4.transform.DOLocalJump(new Vector3(317, 58, 0), 5, 2, 0.5f);
+        guanPos.transform.DOLocalJump(new Vector3(204, 1535, 0), 5, 2, 0.5f);
+        stage.transform.DOLocalMove(new Vector3(0, -465, 0), 0.2f).OnComplete(()=>HijackMoveDone());
         stage.transform.DOScale(1, 0.2f);
+        Invoke("ZhuangHide", 0.4f);
+    }
+    //30,153,zhuang
+    void ZhuangHide()
+    {
+        zhuangPos.transform.DOLocalJump(new Vector3(30, 153, 0), 3, 5, 0.3f, false);
+    }
+    void HijackMoveDone()
+    {
+        xiZi.SetActive(true);
+        subTextline2.SetActive(false);
+        subText.SetActive(false);
+    }
+    //-127,238;253,245;-163,60;317,58;
+    //204,1535
+    public void XiQiClicked()
+    {
+        xiZi.SetActive(false);
+        CaoMoShout();
+    }
+    void CaoMoShout()
+    {
+        shoutText.SetActive(true);
+        Invoke("ShoutDone", 3);
+    }
+    void ShoutDone()
+    {
+        shoutText.SetActive(false);
+        subText.SetActive(true);
+        subTextline3.SetActive(true);
     }
 }

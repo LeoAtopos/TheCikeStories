@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class HuanClick : MonoBehaviour, IPointerClickHandler
+public class XiZiHandler111 : MonoBehaviour, IPointerClickHandler
 {
-    public HijackCtrl hJC;
+    public HijackCtrl hC;
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (hJC.isOKToHijack)
-            hJC.HijackMove();
+        hC.XiQiClicked();
     }
     // Start is called before the first frame update
     void Start()
