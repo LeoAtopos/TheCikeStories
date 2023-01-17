@@ -43,6 +43,7 @@ public class HijackCtrl : MonoBehaviour
 
     bool isOKToMove;
     bool isCaoMoStopped;
+    bool isOKToWalkDown;
     //bool isNoteHaveStopped;
     public GameObject dagger;
     public bool isOKToCatch;
@@ -108,6 +109,7 @@ public class HijackCtrl : MonoBehaviour
 
         isOKToCatch = false;
         isOKToHijack = false;
+        isOKToWalkDown = false;
 
         cutBackCount = 0;
         //Vector3 sPos = stage.transform.localPosition;
@@ -161,6 +163,16 @@ public class HijackCtrl : MonoBehaviour
             //            SceneManager.LoadScene("111Hijack");
             //        }
 
+        }
+        if(isOKToWalkDown)
+        {
+            if (Input.GetMouseButton(0))
+            {
+                opWalkers.transform.localPosition += 80f * opWalkers.transform.up * Time.fixedDeltaTime;
+                opWalkers2.transform.localPosition += 80f * opWalkers.transform.up * Time.fixedDeltaTime;
+                caoMoAnimation.Play("CaoMoWalkUpMoving");
+            }
+            
         }
     }
 
@@ -379,5 +391,7 @@ public class HijackCtrl : MonoBehaviour
     {
         subTextline8.SetActive(false);
         subTextline9.SetActive(true);
+        zhuangPos.transform.SetParent(opWalkers.transform);
+        isOKToWalkDown = true;
     }
 }
