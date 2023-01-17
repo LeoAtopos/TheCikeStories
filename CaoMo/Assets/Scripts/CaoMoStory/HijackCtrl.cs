@@ -12,7 +12,9 @@ public class HijackCtrl : MonoBehaviour
     public GameObject stage;
     public GameObject subText;
 
-    //public GameObject walkers;
+    public GameObject walkers;
+    public GameObject zhuangPos;
+    public GameObject caoMoPos;
     public Animator caoMoAnimation;
     public Animator luXiangAnimation;
     public Animator ZhuangAnimation;
@@ -28,6 +30,7 @@ public class HijackCtrl : MonoBehaviour
     public GameObject songXiangLine;
 
     bool isOKToMove;
+    bool isCaoMoStopped;
     //bool isNoteHaveStopped;
 
     //public GameObject qiBingTrouble;
@@ -43,6 +46,7 @@ public class HijackCtrl : MonoBehaviour
         songXiangLine.SetActive(false);
         subText.SetActive(false);
         isOKToMove = false;
+        isCaoMoStopped = false;
         subText.SetActive(false);
 
         //Vector3 sPos = stage.transform.localPosition;
@@ -58,14 +62,14 @@ public class HijackCtrl : MonoBehaviour
     {
         if (isOKToMove)
         {
-            if (Input.GetMouseButton(0))
-            {
-                opWalkers.transform.localPosition -= 80f * opWalkers.transform.up * Time.fixedDeltaTime;
-                opWalkers2.transform.localPosition -= 80f * opWalkers.transform.up * Time.fixedDeltaTime;
-                caoMoAnimation.Play("CaoMoWalkUpMoving");
-                ZhuangAnimation.Play("ZhuangWalkUpMoving");
+            //if (Input.GetMouseButton(0))
+            //{
+            //    opWalkers.transform.localPosition -= 80f * opWalkers.transform.up * Time.fixedDeltaTime;
+            //    opWalkers2.transform.localPosition -= 80f * opWalkers.transform.up * Time.fixedDeltaTime;
+            if(!isCaoMoStopped) caoMoAnimation.Play("CaoMoWalkUpMoving");
+            ZhuangAnimation.Play("ZhuangWalkUpMoving");
                 //if (isNoteHaveStopped) luXiangAnimation.Play("LuXiangMoving");
-            }
+            //}
             //        if (isNoteHaveStopped && opWalkers.transform.localPosition.y < -176)
             //            StopZhuang();
             //        if (opWalkers.transform.localPosition.y < -315)
@@ -118,7 +122,20 @@ public class HijackCtrl : MonoBehaviour
     //}
     void StageInDone()
     {
+        stage.transform.DOLocalMove(new Vector3(0, -227, 0), 1.5f);
+        stage.transform.DOScale(0.5f,1.5f).OnComplete(() => StageZoomDone());
         //subText.SetActive(false);
         //isOKToMove = true;
+    }
+    void StageZoomDone()//0,376;-81,140
+    {
+        walkers.transform.DOLocalMove(new Vector3(0, 376, 0), 2.0f).OnComplete(() => WalkersMoveUpDone());
+        isOKToMove = true;
+    }
+    void WalkersMoveUpDone()
+    {
+        isOKToMove = false;
+        isCaoMoStopped = true;
+        zhuangPos.transform.DOLocalMove(new Vector3(-81, 140, 0), 1.5f);
     }
 }

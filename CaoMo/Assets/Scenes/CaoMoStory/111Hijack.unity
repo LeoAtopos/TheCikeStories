@@ -579,7 +579,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -341, y: 310}
+  m_AnchoredPosition: {x: -232, y: 301}
   m_SizeDelta: {x: 169.5972, y: 283.2253}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &323683580
@@ -790,7 +790,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -403, y: 46}
+  m_AnchoredPosition: {x: -312, y: 40}
   m_SizeDelta: {x: 169.5972, y: 283.2253}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &362779784
@@ -1816,7 +1816,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000050861, y: 247.78}
+  m_AnchoredPosition: {x: 15, y: 287}
   m_SizeDelta: {x: 226.5985, y: 191.4324}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &850250097
@@ -2176,6 +2176,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage: {fileID: 1167494698}
   subText: {fileID: 1208907598}
+  walkers: {fileID: 992614274}
+  zhuangPos: {fileID: 392408339}
+  caoMoPos: {fileID: 2062447440}
   caoMoAnimation: {fileID: 689673373}
   luXiangAnimation: {fileID: 2026499269}
   ZhuangAnimation: {fileID: 408849075}
@@ -3036,7 +3039,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 37, y: 73}
+  m_AnchoredPosition: {x: -9, y: 104}
   m_SizeDelta: {x: 141.393, y: 182.8034}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1347499010
@@ -3588,7 +3591,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 175, y: 1657}
+  m_AnchoredPosition: {x: 169, y: 1696}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1566267937 stripped
@@ -4054,7 +4057,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 469, y: 51}
+  m_AnchoredPosition: {x: 394, y: 44}
   m_SizeDelta: {x: 169.5972, y: 283.2253}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1641416858
@@ -4279,7 +4282,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 452, y: 310}
+  m_AnchoredPosition: {x: 332, y: 304}
   m_SizeDelta: {x: 169.5972, y: 283.2253}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1667977457
@@ -5245,7 +5248,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2600993235981249512, guid: 9bc454ccb1f794beba9121b75c9164f2, type: 3}
       propertyPath: m_text
-      value: "\u6853\u516C\u4E0E\u5E84\u516C\u65E2\u76DF\u4E8E\u575B\u4E0A"
+      value: "\u66F9\u6CAB\u6267\u5315\u9996\u52AB\u9F50\u6853\u516C"
       objectReference: {fileID: 0}
     - target: {fileID: 2600993235981249513, guid: 9bc454ccb1f794beba9121b75c9164f2, type: 3}
       propertyPath: m_audioClip
