@@ -19,6 +19,9 @@ public class HijackCtrl : MonoBehaviour
     public GameObject subTextline6;
     public GameObject subTextline7;
     public GameObject subTextline8;
+    public GameObject subTextline9;
+    public GameObject subTextline10;
+    public GameObject subTextline11;
 
     public GameObject walkers;
     public GameObject zhuangPos;
@@ -67,6 +70,8 @@ public class HijackCtrl : MonoBehaviour
     public GameObject option2;
     public GameObject option3;
     int cutBackCount;
+
+    public GameObject dioZi;
     //public GameObject qiBingTrouble;
     //// Start is called before the first frame update
     void Start()
@@ -96,6 +101,7 @@ public class HijackCtrl : MonoBehaviour
         stateMapPos.SetActive(false);
         stateMap3.SetActive(true);
         optionPos.SetActive(false);
+        dioZi.SetActive(false);
         //stateMap2.SetActive(false);
         //stateMap1.SetActive(false);
         //stateMap.SetActive(false);
@@ -357,5 +363,21 @@ public class HijackCtrl : MonoBehaviour
     {
         subTextline8.SetActive(true);
         subText.SetActive(true);
+        Invoke("DioZiShowUp", 2f);
+    }
+    void DioZiShowUp()
+    {
+        dioZi.SetActive(true);
+    }
+    public void DaggerFlyAway()
+    {
+        dioZi.SetActive(false);
+        dagger.transform.DOLocalMove(dagger.transform.localPosition + new Vector3(0, 1000f,0), 1f);
+        Invoke("WalkDown", 2.5f);
+    }
+    void WalkDown()
+    {
+        subTextline8.SetActive(false);
+        subTextline9.SetActive(true);
     }
 }
