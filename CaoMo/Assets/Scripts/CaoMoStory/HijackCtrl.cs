@@ -273,13 +273,13 @@ public class HijackCtrl : MonoBehaviour
         subTextline4.SetActive(false);
         subTextline5.SetActive(true);
         caoMoLine.SetActive(true);
-        Invoke("CaoMoAns2", 2.5f);
+        Invoke("CaoMoAns2", 5.5f);
     }
     void CaoMoAns2()
     {
         subTextline5.SetActive(false);
         subTextline6.SetActive(true);
-        Invoke("HuanPromiss", 2.5f);
+        Invoke("HuanPromiss", 5.5f);
     }
     void HuanPromiss()
     {
@@ -350,10 +350,12 @@ public class HijackCtrl : MonoBehaviour
         caoMoLine.SetActive(false);
         stateMapPos.SetActive(false);
         subTextline7.SetActive(false);
+        subText.SetActive(false);
         stage.transform.DOScale(1f, 1).OnComplete(() => DropDagger());
     }
     void DropDagger()
     {
         subTextline8.SetActive(true);
+        subText.SetActive(true);
     }
 }

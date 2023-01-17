@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1680
     height: 997
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Game
   m_RootView: {fileID: 8}
   m_MinSize: {x: 875, y: 471}
   m_MaxSize: {x: 10000, y: 10000}
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 1181
+  controlID: 56
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 1180
+  controlID: 32
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 62
+  controlID: 33
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -449,7 +449,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 41858
+  m_LastSelectedObjectID: 47478
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -491,22 +491,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Audios/CaoMoStory/103
+    - Assets/Scenes/CaoMoStory
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Audios/CaoMoStory/103
+  - Assets/Scenes/CaoMoStory
   m_LastFoldersGridSize: 16
   m_LastProjectPath: /Library/Projects/TheCikeStories/CaoMo
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 6e680000
-    m_LastClickedID: 26734
-    m_ExpandedIDs: 000000000e56000010560000125600001456000016560000185600001a5600006069000000ca9a3b
+    scrollPos: {x: 0, y: 13}
+    m_SelectedIDs: 7e560000
+    m_LastClickedID: 22142
+    m_ExpandedIDs: 000000004a5600004c5600004e560000505600005256000054560000565600006256000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -534,7 +534,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000000e56000010560000125600001456000016560000185600001a560000
+    m_ExpandedIDs: 000000004a5600004c5600004e56000050560000525600005456000056560000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -578,7 +578,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 2}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -661,21 +661,21 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 82a30000
-      m_LastClickedID: 41858
-      m_ExpandedIDs: f0c0ffff36c1ffff10c2ffff2afbffffca530000dc530000e8530000065400006a540000c0540000d2540000e0540000ec540000a69f000094a1000086a20000e2a300000aa4000028a40000e2a4000002a50000
+      scrollPos: {x: 0, y: 375}
+      m_SelectedIDs: 76b90000
+      m_LastClickedID: 47478
+      m_ExpandedIDs: beb6ffff8cb7ffff6ac9ffff6ec9ffff70c9ffff70caffff9ecbffffb0ccffffc2dfffffcadfffff0ee1ffff5ee3ffff2afbfffff25300000e5400001a5400009c540000f254000012550000f08b0000008c0000ee8c00000a8d0000168d0000048e0000b8a20000d8a2000006a3000032a3000056a300006ca30000c8a300005aa4000082a400007ca5000064b70000b4b70000c4b70000d4b70000f2b7000036b8000060b800009ab80000b0b800000eb900002ab9000036b9000054b900006ab9000040ba000060ba000068ba0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: GuanPos
-        m_OriginalName: GuanPos
+        m_Name: Image
+        m_OriginalName: Image
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 21326
+        m_UserData: 47168
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
@@ -968,9 +968,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1039.3529, y: 376.39032, z: -6.195889}
+    m_Target: {x: -157.21838, y: 646.0968, z: -66.61791}
     speed: 2
-    m_Value: {x: 1039.3529, y: 376.39032, z: -6.195889}
+    m_Value: {x: -157.21838, y: 646.0968, z: -66.61791}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1021,9 +1021,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 510.6689
+    m_Target: 2586.0847
     speed: 2
-    m_Value: 510.6689
+    m_Value: 2586.0847
   m_Ortho:
     m_Target: 1
     speed: 2
