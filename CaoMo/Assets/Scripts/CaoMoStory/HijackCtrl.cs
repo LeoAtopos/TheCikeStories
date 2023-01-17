@@ -18,6 +18,7 @@ public class HijackCtrl : MonoBehaviour
     public GameObject subTextline5;
     public GameObject subTextline6;
     public GameObject subTextline7;
+    public GameObject subTextline8;
 
     public GameObject walkers;
     public GameObject zhuangPos;
@@ -53,7 +54,19 @@ public class HijackCtrl : MonoBehaviour
     public GameObject shoutText;
     public GameObject huanLine;
     public GameObject caoMoLine;
+    public TextMeshProUGUI caoMoLineText;
 
+    public GameObject stateMapPos;
+    public GameObject stateMap3;
+    public GameObject stateMap2;
+    public GameObject stateMap1;
+    public GameObject stateMap;
+
+    public GameObject optionPos;
+    public GameObject option1;
+    public GameObject option2;
+    public GameObject option3;
+    int cutBackCount;
     //public GameObject qiBingTrouble;
     //// Start is called before the first frame update
     void Start()
@@ -80,10 +93,17 @@ public class HijackCtrl : MonoBehaviour
         shoutText.SetActive(false);
         huanLine.SetActive(false);
         caoMoLine.SetActive(false);
+        stateMapPos.SetActive(false);
+        stateMap3.SetActive(true);
+        optionPos.SetActive(false);
+        //stateMap2.SetActive(false);
+        //stateMap1.SetActive(false);
+        //stateMap.SetActive(false);
 
         isOKToCatch = false;
         isOKToHijack = false;
 
+        cutBackCount = 0;
         //Vector3 sPos = stage.transform.localPosition;
 
         //isNoteHaveStopped = true;
@@ -266,5 +286,74 @@ public class HijackCtrl : MonoBehaviour
         caoMoLine.SetActive(false);
         subTextline6.SetActive(false);
         subTextline7.SetActive(true);
+        stateMapPos.SetActive(true);
+        stage.transform.DOScale(0.7f, 1).OnComplete(()=> CutBack1());
+    }
+    void CutBack1()
+    {
+        cutBackCount++;
+        stateMap3.GetComponent<Image>().DOFade(0, 3.5f).OnComplete(()=> CutBack1Done());
+    }
+    void CutBack1Done()
+    {
+        optionPos.SetActive(true);
+    }
+    public void OptionChecked(int n, GameObject g)
+    {
+        g.SetActive(false);
+        optionPos.SetActive(false);
+        
+        if(n == 1)
+        {
+            caoMoLineText.text = "鲁国风光不如你们齐国啊";
+            caoMoLine.SetActive(true);
+        }
+        if (n == 2)
+        {
+            caoMoLineText.text = "齐侯大方也是天下闻名啊";
+            caoMoLine.SetActive(true);
+        }
+        if (n == 3)
+        {
+            caoMoLineText.text = "鲁齐兄弟永存共亡";
+            caoMoLine.SetActive(true);
+        }
+        if (cutBackCount == 1)
+            Invoke("CutBack2", 3.5f);
+        if (cutBackCount == 2)
+            Invoke("CutBack3", 3.5f);
+        if (cutBackCount == 3)
+            Invoke("CutAllDone", 3.5f);
+    }
+    void CutBack2()
+    {
+        cutBackCount++;
+        caoMoLine.SetActive(false);
+        stateMap2.GetComponent<Image>().DOFade(0, 3.5f).OnComplete(() => CutBack2Done());
+    }
+    void CutBack2Done()
+    {
+        optionPos.SetActive(true);
+    }
+    void CutBack3()
+    {
+        cutBackCount++;
+        caoMoLine.SetActive(false);
+        stateMap1.GetComponent<Image>().DOFade(0, 3.5f).OnComplete(() => CutBack3Done());
+    }
+    void CutBack3Done()
+    {
+        optionPos.SetActive(true);
+    }
+    void CutAllDone()
+    {
+        caoMoLine.SetActive(false);
+        stateMapPos.SetActive(false);
+        subTextline7.SetActive(false);
+        stage.transform.DOScale(1f, 1).OnComplete(() => DropDagger());
+    }
+    void DropDagger()
+    {
+        subTextline8.SetActive(true);
     }
 }
