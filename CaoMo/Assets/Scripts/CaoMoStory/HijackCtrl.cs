@@ -14,6 +14,10 @@ public class HijackCtrl : MonoBehaviour
     public GameObject subTextline1;
     public GameObject subTextline2;
     public GameObject subTextline3;
+    public GameObject subTextline4;
+    public GameObject subTextline5;
+    public GameObject subTextline6;
+    public GameObject subTextline7;
 
     public GameObject walkers;
     public GameObject zhuangPos;
@@ -47,6 +51,8 @@ public class HijackCtrl : MonoBehaviour
     public GameObject guanPos;
 
     public GameObject shoutText;
+    public GameObject huanLine;
+    public GameObject caoMoLine;
 
     //public GameObject qiBingTrouble;
     //// Start is called before the first frame update
@@ -62,11 +68,18 @@ public class HijackCtrl : MonoBehaviour
         subText.SetActive(false);
         subTextline1.SetActive(true);
         subTextline2.SetActive(false);
+        subTextline3.SetActive(false);
+        subTextline4.SetActive(false);
+        subTextline5.SetActive(false);
+        subTextline6.SetActive(false);
+        subTextline7.SetActive(false);
         isOKToMove = false;
         isCaoMoStopped = false;
         xiZi.SetActive(false);
         subText.SetActive(false);
         shoutText.SetActive(false);
+        huanLine.SetActive(false);
+        caoMoLine.SetActive(false);
 
         isOKToCatch = false;
         isOKToHijack = false;
@@ -172,6 +185,7 @@ public class HijackCtrl : MonoBehaviour
         cP.x -= 50;
         caoMoPos.transform.position = cP;
         dagger.transform.SetParent(caoMoPos.transform);
+        dagger.transform.SetAsFirstSibling();
         dagger.transform.localPosition = new Vector3(103, -60, 0);
         dagger.transform.rotation = Quaternion.Euler(0, 0, -28);
         subTextline1.SetActive(false);
@@ -224,5 +238,33 @@ public class HijackCtrl : MonoBehaviour
         shoutText.SetActive(false);
         subText.SetActive(true);
         subTextline3.SetActive(true);
+        Invoke("HuanAsk", 3f);
+    }
+    void HuanAsk()
+    {
+        huanLine.SetActive(true);
+        subTextline3.SetActive(false);
+        subTextline4.SetActive(true);
+        Invoke("CaoMoAns1", 2.5f);
+    }
+    void CaoMoAns1()
+    {
+        huanLine.SetActive(false);
+        subTextline4.SetActive(false);
+        subTextline5.SetActive(true);
+        caoMoLine.SetActive(true);
+        Invoke("CaoMoAns2", 2.5f);
+    }
+    void CaoMoAns2()
+    {
+        subTextline5.SetActive(false);
+        subTextline6.SetActive(true);
+        Invoke("HuanPromiss", 2.5f);
+    }
+    void HuanPromiss()
+    {
+        caoMoLine.SetActive(false);
+        subTextline6.SetActive(false);
+        subTextline7.SetActive(true);
     }
 }

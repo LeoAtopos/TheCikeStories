@@ -8,7 +8,7 @@ public class CaoMoShoutLineCtrl : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
-        transform.DOShakePosition(5.0f, 5.0f, 9, 80.0f, false, false);
+        transform.DOShakePosition(5.0f, 10.0f, 30, 80.0f, false, false);
     }
 
     // Update is called once per frame
