@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CaoMoStory/112End.unity
     guid: 7e6bb9d1e4ad74de49aecf018ba0945e
+  - enabled: 1
+    path: Assets/Scenes/ZhuanZhuStory/Start02.unity
+    guid: 53e589b05a42042b7a8b2abe9829aa12
   m_configObjects: {}
