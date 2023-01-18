@@ -94,6 +94,9 @@ public class GameController : MonoBehaviour
         levelList.Add(NewLevel(7, "107CutLand", "乃献遂邑之地以和", content));
         levelList.Add(NewLevel(8, "108StillGeneral", "犹复以为将", content));
         levelList.Add(NewLevel(9, "109MakeMeeting", "齐桓公许与鲁会于柯而盟", content));
+        levelList.Add(NewLevel(10, "110WalkUp", "桓公与庄公既盟于坛上", content));
+        levelList.Add(NewLevel(11, "111Hijack", "曹沫执匕首劫齐桓公...", content));
+        levelList.Add(NewLevel(12, "112End", "曹沫三战所亡地尽复予鲁...", content));
     }
 
     GameObject NewLevel(int ln, string ls, string ll,GameObject content)
