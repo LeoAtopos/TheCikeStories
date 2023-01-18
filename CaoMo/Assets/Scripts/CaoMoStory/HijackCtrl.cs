@@ -112,6 +112,7 @@ public class HijackCtrl : MonoBehaviour
         shoutText.SetActive(false);
         huanLine.SetActive(false);
         huanOption.SetActive(false);
+        guanLine.SetActive(false);
         caoMoLine.SetActive(false);
         stateMapPos.SetActive(false);
         stateMap3.SetActive(true);
@@ -547,5 +548,10 @@ public class HijackCtrl : MonoBehaviour
         huanLine.SetActive(false);
         subTextline14.SetActive(false);
         subTextline15.SetActive(true);
+        Invoke("CutScene", 4.5f);
+    }
+    void CutScene()
+    {
+        SceneManager.LoadScene("112End");
     }
 }
