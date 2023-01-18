@@ -40,6 +40,7 @@ public class HijackCtrl : MonoBehaviour
     public GameObject caoXiangLine;
     public GameObject chuXiangLine;
     public GameObject songXiangLine;
+    public GameObject luXiangLine;
 
     bool isOKToMove;
     bool isCaoMoStopped;
@@ -84,6 +85,7 @@ public class HijackCtrl : MonoBehaviour
         caoXiangLine.SetActive(false);
         chuXiangLine.SetActive(false);
         songXiangLine.SetActive(false);
+        luXiangLine.SetActive(false);
         subText.SetActive(false);
         subTextline1.SetActive(true);
         subTextline2.SetActive(false);
@@ -172,7 +174,45 @@ public class HijackCtrl : MonoBehaviour
                 opWalkers2.transform.localPosition += 80f * opWalkers.transform.up * Time.fixedDeltaTime;
                 caoMoAnimation.Play("CaoMoWalkUpMoving");
             }
-            
+            //14,78;-322;-66;154;350;
+            if(opWalkers2.transform.localPosition.y > -322)
+            {
+                chuXiangLine.SetActive(true);
+            }
+            if (opWalkers2.transform.localPosition.y > -272)
+            {
+                chuXiangLine.SetActive(false);
+                songXiangLine.SetActive(true);
+            }
+            if (opWalkers2.transform.localPosition.y > -116)
+            {
+                songXiangLine.SetActive(false);
+                caoXiangLine.SetActive(true);
+            }
+            if (opWalkers2.transform.localPosition.y > -66)
+            {
+                caoXiangLine.SetActive(false);
+                zhengXiangLine.SetActive(true);
+            }
+            if (opWalkers2.transform.localPosition.y > 104)
+            {
+                zhengXiangLine.SetActive(false);
+                xingXiangLine.SetActive(true);
+            }
+            if (opWalkers2.transform.localPosition.y > 154)
+            {
+                xingXiangLine.SetActive(false);
+                weiXiangLine.SetActive(true);
+            }
+            if (opWalkers2.transform.localPosition.y > 224)
+            {
+                weiXiangLine.SetActive(false);
+            }
+            if (opWalkers2.transform.localPosition.y > 350)
+            {
+                luXiangLine.SetActive(true);
+                isOKToWalkDown = false;
+            }
         }
     }
 
@@ -392,6 +432,7 @@ public class HijackCtrl : MonoBehaviour
         subTextline8.SetActive(false);
         subTextline9.SetActive(true);
         zhuangPos.transform.SetParent(opWalkers.transform);
-        isOKToWalkDown = true;
+        caoMoPos.transform.DOLocalJump(new Vector3(14, 78, 0), 4, 3, 0.4f, false).OnComplete(()=> { isOKToWalkDown = true; });
     }
+    //14,78;-322;-66;154;350;
 }
