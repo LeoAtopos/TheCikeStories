@@ -22,6 +22,12 @@ public class HijackCtrl : MonoBehaviour
     public GameObject subTextline9;
     public GameObject subTextline10;
     public GameObject subTextline11;
+    public GameObject subTextline12;
+    public GameObject subTextline13;
+    public GameObject subTextline14;
+    public GameObject subTextline15;
+    public GameObject subTextline16;
+    public GameObject subTextline17;
 
     public GameObject walkers;
     public GameObject zhuangPos;
@@ -31,6 +37,9 @@ public class HijackCtrl : MonoBehaviour
     public Animator luXiangAnimation;
     public Animator ZhuangAnimation;
     public GameObject opWalkers;
+    public GameObject huanState;
+    public GameObject huanOption;
+    public GameObject guanLine;
     public GameObject opWalkers2;
     public GameObject luXiang;
     //public GameObject qiBingLine;
@@ -58,6 +67,7 @@ public class HijackCtrl : MonoBehaviour
 
     public GameObject shoutText;
     public GameObject huanLine;
+    public TextMeshProUGUI huanLineText;
     public GameObject caoMoLine;
     public TextMeshProUGUI caoMoLineText;
 
@@ -72,6 +82,7 @@ public class HijackCtrl : MonoBehaviour
     public GameObject option2;
     public GameObject option3;
     int cutBackCount;
+    public GameObject ansOptionPos;
 
     public GameObject dioZi;
     //public GameObject qiBingTrouble;
@@ -100,10 +111,12 @@ public class HijackCtrl : MonoBehaviour
         subText.SetActive(false);
         shoutText.SetActive(false);
         huanLine.SetActive(false);
+        huanOption.SetActive(false);
         caoMoLine.SetActive(false);
         stateMapPos.SetActive(false);
         stateMap3.SetActive(true);
         optionPos.SetActive(false);
+        ansOptionPos.SetActive(false);
         dioZi.SetActive(false);
         //stateMap2.SetActive(false);
         //stateMap1.SetActive(false);
@@ -212,6 +225,7 @@ public class HijackCtrl : MonoBehaviour
             {
                 luXiangLine.SetActive(true);
                 isOKToWalkDown = false;
+                Invoke("AnsLuXiangOptionShowUp", 2.5f);
             }
         }
     }
@@ -435,4 +449,103 @@ public class HijackCtrl : MonoBehaviour
         caoMoPos.transform.DOLocalJump(new Vector3(14, 78, 0), 4, 3, 0.4f, false).OnComplete(()=> { isOKToWalkDown = true; });
     }
     //14,78;-322;-66;154;350;
+    void AnsLuXiangOptionShowUp()
+    {
+        ansOptionPos.SetActive(true);
+    }
+    public void AnsLuXiang(int n)
+    {
+        luXiangLine.SetActive(false);
+        luXiang.transform.SetParent(opWalkers.transform);
+        ansOptionPos.SetActive(false);
+        if (n == 1)
+        {
+            caoMoLineText.text = "劫持了齐侯\n齐侯答应还地了";
+            caoMoLine.SetActive(true);
+        }
+        if (n == 2)
+        {
+            caoMoLineText.text = "谈谈条件\n齐侯答应还地了";
+            caoMoLine.SetActive(true);
+        }
+        if (n == 3)
+        {
+            caoMoLineText.text = "会盟而已\n齐侯答应还地了";
+            caoMoLine.SetActive(true);
+        }
+        Invoke("AnsLuXiangDone", 2.5f);
+    }
+    void AnsLuXiangDone()
+    {
+        subTextline9.SetActive(false);
+        subTextline10.SetActive(true);
+        Invoke("BackToMentTan", 2.5f);
+    }
+    void BackToMentTan()
+    {
+        subText.SetActive(false);
+        stage.transform.DOLocalMove(new Vector3(-60, -2038, 0), 0.3f, false).OnComplete(()=> HuanAngry());
+    }
+    void HuanAngry()
+    {
+        huanState.transform.DOShakePosition(600, 4, 10, 60, false, false);
+        subTextline10.SetActive(false);
+        subTextline11.SetActive(true);
+        subText.SetActive(true);
+        Invoke("GuanSaid1", 4f);
+    }
+    void GuanSaid1()
+    {
+        subTextline11.SetActive(false);
+        subTextline12.SetActive(true);
+        guanLine.SetActive(true);
+        huanState.transform.DOKill();
+        Invoke("GuanSaid2", 2.5f);
+    }
+    void GuanSaid2()
+    {
+        subTextline12.SetActive(false);
+        subTextline13.SetActive(true);
+        Invoke("GuanSaid3", 7f);
+    }
+    void GuanSaid3()
+    {
+        subTextline13.SetActive(false);
+        subTextline14.SetActive(true);
+        Invoke("HuanOptionShowUp", 3f);
+    }
+    void HuanOptionShowUp()
+    {
+        huanOption.SetActive(true);
+    }
+    public void HuanAns(int n)
+    {
+        huanOption.SetActive(false);
+        guanLine.SetActive(false);
+        if (n == 1)
+        {
+            huanLineText.text = "好的，仲父";
+        }
+        if (n == 2)
+        {
+            huanLineText.text = "明白，亚父";
+        }
+        if (n == 3)
+        {
+            huanLineText.text = "我懂，恩相";
+        }
+        huanLine.SetActive(true);
+        Invoke("HuanAns2", 3.5f);
+    }
+    void HuanAns2()
+    {
+        huanLineText.text = "别人的国土\n换自己的名声";
+        Invoke("DealSet", 4.5f);
+    }
+    void DealSet()
+    {
+        huanLine.SetActive(false);
+        subTextline14.SetActive(false);
+        subTextline15.SetActive(true);
+    }
 }
