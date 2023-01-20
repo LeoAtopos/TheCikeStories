@@ -91,6 +91,12 @@ public class HijackCtrl : MonoBehaviour
     private bool isQTE3;
     int qteSpeed = 20;
 
+    public AudioSource huanAudioSource;
+    public AudioClip huanGet;
+    public AudioClip huanAgree;
+    public AudioSource caoMoAudioSource;
+    public AudioClip caoMoTalkLand;
+    public AudioClip caoMoExplain;
     //public GameObject qiBingTrouble;
     //// Start is called before the first frame update
     void Start()
@@ -408,7 +414,7 @@ public class HijackCtrl : MonoBehaviour
     {
         g.SetActive(false);
         optionPos.SetActive(false);
-        
+        caoMoAudioSource.clip = caoMoTalkLand;
         if(n == 1)
         {
             caoMoLineText.text = "鲁国风光不如你们齐国啊";
@@ -492,6 +498,7 @@ public class HijackCtrl : MonoBehaviour
         luXiangLine.SetActive(false);
         luXiang.transform.SetParent(opWalkers.transform);
         ansOptionPos.SetActive(false);
+        caoMoAudioSource.clip = caoMoExplain;
         if (n == 1)
         {
             caoMoLineText.text = "劫持了齐侯\n齐侯答应还地了";
@@ -568,12 +575,16 @@ public class HijackCtrl : MonoBehaviour
         {
             huanLineText.text = "我懂，恩相";
         }
+        huanAudioSource.clip = huanGet;
         huanLine.SetActive(true);
         Invoke("HuanAns2", 3.5f);
     }
     void HuanAns2()
     {
+        huanLine.SetActive(false);
+        huanAudioSource.clip = huanAgree;
         huanLineText.text = "别人的国土\n换自己的名声";
+        huanLine.SetActive(true);
         Invoke("DealSet", 4.5f);
     }
     void DealSet()

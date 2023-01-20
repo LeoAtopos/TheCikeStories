@@ -24,6 +24,11 @@ public class MakeMeetingController : MonoBehaviour
 
     int ansCount = 0;
 
+    public AudioSource huanLineAudio;
+    public AudioClip huanGet;
+    public AudioClip huanAgree;
+    public AudioClip huanCallLu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -84,6 +89,7 @@ public class MakeMeetingController : MonoBehaviour
         if (ansCount == 1) Invoke("HuanLine2", 0.1f);
         if (ansCount == 2) Invoke("HuanLine3", 0.1f);
         if (ansCount == 3) Invoke("HuanLine4", 0.1f);
+        huanLineAudio.clip = huanGet;
     }
     void HuanLine2()
     {
@@ -97,6 +103,7 @@ public class MakeMeetingController : MonoBehaviour
     }
     void HuanLine2p()
     {
+        huanLineAudio.clip = huanAgree;
         huanLine.GetComponent<LineController>().SetText("先立大义，政治动员");
         huanLine.SetActive(true);
         Invoke("HuanLine2pDone", 3.5f);
@@ -128,6 +135,7 @@ public class MakeMeetingController : MonoBehaviour
     }
     void HuanLine3p()
     {
+        huanLineAudio.clip = huanAgree;
         huanLine.GetComponent<LineController>().SetText("看谁不来，以多欺少");
         huanLine.SetActive(true);
         Invoke("HuanLine3pDone", 3.5f);
@@ -159,6 +167,7 @@ public class MakeMeetingController : MonoBehaviour
     }
     void HuanLine4p()
     {
+        huanLineAudio.clip = huanAgree;
         huanLine.GetComponent<LineController>().SetText("小的吞并，大的控制");
         huanLine.SetActive(true);
         Invoke("HuanLine4pDone", 3.5f);
@@ -181,6 +190,7 @@ public class MakeMeetingController : MonoBehaviour
     }
     void HuanLine5()
     {
+        huanLineAudio.clip = huanCallLu;
         huanLine.GetComponent<LineController>().SetText("来人，叫鲁公开会");
         huanLine.SetActive(true);
         Invoke("HuanLine5Done", 4f);
