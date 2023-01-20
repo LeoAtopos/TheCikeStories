@@ -87,6 +87,10 @@ public class HijackCtrl : MonoBehaviour
     public GameObject ansOptionPos;
 
     public GameObject dioZi;
+    private bool isQTE2;
+    private bool isQTE3;
+    int qteSpeed = 20;
+
     //public GameObject qiBingTrouble;
     //// Start is called before the first frame update
     void Start()
@@ -121,6 +125,7 @@ public class HijackCtrl : MonoBehaviour
         optionPos.SetActive(false);
         ansOptionPos.SetActive(false);
         dioZi.SetActive(false);
+        hitSlider.SetActive(false);
         //stateMap2.SetActive(false);
         //stateMap1.SetActive(false);
         //stateMap.SetActive(false);
@@ -128,6 +133,8 @@ public class HijackCtrl : MonoBehaviour
         isOKToCatch = false;
         isOKToHijack = false;
         isOKToWalkDown = false;
+        isQTE2 = false;
+        qteSpeed = 20;
 
         cutBackCount = 0;
         //Vector3 sPos = stage.transform.localPosition;
@@ -231,6 +238,11 @@ public class HijackCtrl : MonoBehaviour
                 Invoke("AnsLuXiangOptionShowUp", 2.5f);
             }
         }
+        if(isOKToCatch || isQTE2 || isQTE3)
+        {
+            hitSlider.GetComponent<Slider>().value -= Time.fixedDeltaTime * qteSpeed;
+            if (hitSlider.GetComponent<Slider>().value < 1) FailHijack();
+        }
     }
 
     void StageInDone()
@@ -238,8 +250,13 @@ public class HijackCtrl : MonoBehaviour
         stage.transform.DOLocalMove(new Vector3(0, -227, 0), 1.5f);
         daggerPos.transform.SetParent(stage.transform);
         stage.transform.DOScale(0.5f, 1.5f).OnComplete(() => StageZoomDone());
+        
         //subText.SetActive(false);
         //isOKToMove = true;
+    }
+    void ShowDaggerSlider()
+    {
+        hitSlider.SetActive(true);
     }
     void StageZoomDone()//0,376;-81,140
     {
@@ -266,9 +283,10 @@ public class HijackCtrl : MonoBehaviour
     //23,-61
     void DaggerFlyIn()
     {
-        daggerPos.transform.DOLocalMove(new Vector3(0, 333, 0), 8f).OnComplete(()=> FailCatchDagger());
+        daggerPos.transform.DOLocalMove(new Vector3(0, 333, 0), 8f).OnComplete(()=> FailHijack());
         dagger.transform.DORotate(new Vector3(0, 0, 540), 8f, RotateMode.FastBeyond360);
         isOKToCatch = true;
+        Invoke("ShowDaggerSlider", 0.3f);
         subText.SetActive(true);
     }
     public void CheckDaggerClick()
@@ -286,10 +304,15 @@ public class HijackCtrl : MonoBehaviour
         dagger.transform.rotation = Quaternion.Euler(0, 0, -28);
         subTextline1.SetActive(false);
         subTextline2.SetActive(true);
+        hitSlider.transform.SetParent(huanState.transform);
+        hitSlider.transform.localPosition = Vector3.zero;
+        hitSlider.GetComponent<Slider>().value = 100;
+        qteSpeed = 40;
+        isQTE2 = true;
     }
     //103,-60; -28
     //75,203
-    void FailCatchDagger()
+    void FailHijack()
     {
         SceneManager.LoadScene("111Hijack");
     }
@@ -305,6 +328,7 @@ public class HijackCtrl : MonoBehaviour
         stage.transform.DOLocalMove(new Vector3(0, -465, 0), 0.2f).OnComplete(()=>HijackMoveDone());
         stage.transform.DOScale(1, 0.2f);
         Invoke("ZhuangHide", 0.4f);
+        isQTE2 = false;
     }
     //30,153,zhuang
     void ZhuangHide()
@@ -316,6 +340,11 @@ public class HijackCtrl : MonoBehaviour
         xiZi.SetActive(true);
         subTextline2.SetActive(false);
         subText.SetActive(false);
+        hitSlider.transform.SetParent(xiZi.transform);
+        hitSlider.transform.localPosition = Vector3.zero;
+        hitSlider.GetComponent<Slider>().value = 100;
+        qteSpeed = 80;
+        isQTE3 = true;
     }
     //-127,238;253,245;-163,60;317,58;
     //204,1535
@@ -323,6 +352,7 @@ public class HijackCtrl : MonoBehaviour
     {
         xiZi.SetActive(false);
         CaoMoShout();
+        isQTE3 = false;
     }
     void CaoMoShout()
     {
