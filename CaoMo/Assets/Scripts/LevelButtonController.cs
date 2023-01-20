@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LevelButtonController : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class LevelButtonController : MonoBehaviour
     public string levelSceneName;
     public string levelLine;
 
-    public Text leveltext;
+    public TextMeshProUGUI leveltext;
     // Start is called before the first frame update
     void Start()
     {
