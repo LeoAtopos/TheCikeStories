@@ -55,7 +55,9 @@ public class HijackCtrl : MonoBehaviour
     bool isCaoMoStopped;
     bool isOKToWalkDown;
     //bool isNoteHaveStopped;
+    public GameObject daggerPos;
     public GameObject dagger;
+    public GameObject hitSlider;
     public bool isOKToCatch;
     public bool isOKToHijack;
 
@@ -234,7 +236,7 @@ public class HijackCtrl : MonoBehaviour
     void StageInDone()
     {
         stage.transform.DOLocalMove(new Vector3(0, -227, 0), 1.5f);
-        dagger.transform.SetParent(stage.transform);
+        daggerPos.transform.SetParent(stage.transform);
         stage.transform.DOScale(0.5f, 1.5f).OnComplete(() => StageZoomDone());
         //subText.SetActive(false);
         //isOKToMove = true;
@@ -264,7 +266,7 @@ public class HijackCtrl : MonoBehaviour
     //23,-61
     void DaggerFlyIn()
     {
-        dagger.transform.DOLocalMove(new Vector3(0, 333, 0), 8f).OnComplete(()=> FailCatchDagger());
+        daggerPos.transform.DOLocalMove(new Vector3(0, 333, 0), 8f).OnComplete(()=> FailCatchDagger());
         dagger.transform.DORotate(new Vector3(0, 0, 540), 8f, RotateMode.FastBeyond360);
         isOKToCatch = true;
         subText.SetActive(true);
@@ -273,13 +275,14 @@ public class HijackCtrl : MonoBehaviour
     {
         isOKToCatch = false;
         isOKToHijack = true;
+        daggerPos.transform.DOKill();
         dagger.transform.DOKill();
-        Vector3 cP = dagger.transform.position;
+        Vector3 cP = daggerPos.transform.position;
         cP.x -= 50;
         caoMoPos.transform.position = cP;
-        dagger.transform.SetParent(caoMoPos.transform);
-        dagger.transform.SetAsFirstSibling();
-        dagger.transform.localPosition = new Vector3(103, -60, 0);
+        daggerPos.transform.SetParent(caoMoPos.transform);
+        daggerPos.transform.SetAsFirstSibling();
+        daggerPos.transform.localPosition = new Vector3(103, -60, 0);
         dagger.transform.rotation = Quaternion.Euler(0, 0, -28);
         subTextline1.SetActive(false);
         subTextline2.SetActive(true);
@@ -439,7 +442,7 @@ public class HijackCtrl : MonoBehaviour
     public void DaggerFlyAway()
     {
         dioZi.SetActive(false);
-        dagger.transform.DOLocalMove(dagger.transform.localPosition + new Vector3(0, 1000f,0), 1f);
+        daggerPos.transform.DOLocalMove(daggerPos.transform.localPosition + new Vector3(0, 1000f,0), 1f);
         Invoke("WalkDown", 2.5f);
     }
     void WalkDown()
