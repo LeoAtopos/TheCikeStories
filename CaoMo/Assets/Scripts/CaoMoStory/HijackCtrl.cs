@@ -557,6 +557,7 @@ public class HijackCtrl : MonoBehaviour
     }
     void HuanOptionShowUp()
     {
+        guanLine.SetActive(false);
         huanOption.SetActive(true);
     }
     public void HuanAns(int n)
