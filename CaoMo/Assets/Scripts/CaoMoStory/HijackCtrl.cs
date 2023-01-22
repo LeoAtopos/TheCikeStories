@@ -100,6 +100,8 @@ public class HijackCtrl : MonoBehaviour
     public AudioClip caoMoExplain;
 
     public GameObject failText;
+
+    public GameObject dirCursor;
     //public GameObject qiBingTrouble;
     //// Start is called before the first frame update
     void Start()
@@ -137,6 +139,7 @@ public class HijackCtrl : MonoBehaviour
         dioZi.SetActive(false);
         hitSlider.SetActive(false);
         failText.SetActive(false);
+        dirCursor.SetActive(false);
         //stateMap2.SetActive(false);
         //stateMap1.SetActive(false);
         //stateMap.SetActive(false);
@@ -208,9 +211,20 @@ public class HijackCtrl : MonoBehaviour
                 opWalkers.transform.localPosition += 80f * opWalkers.transform.up * Time.fixedDeltaTime;
                 opWalkers2.transform.localPosition += 80f * opWalkers.transform.up * Time.fixedDeltaTime;
                 caoMoAnimation.Play("CaoMoWalkUpMoving");
+                dirCursor.SetActive(false);
+            }
+            else if (Input.mousePosition.y < transform.position.y - 10.0f)
+            {
+                dirCursor.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
+                dirCursor.SetActive(true);
+            }
+            else
+            {
+                dirCursor.SetActive(false);
+                Cursor.visible = true;
             }
             //14,78;-322;-66;154;350;
-            if(opWalkers2.transform.localPosition.y > -322)
+            if (opWalkers2.transform.localPosition.y > -322)
             {
                 chuXiangLine.SetActive(true);
             }

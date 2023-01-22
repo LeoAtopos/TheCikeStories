@@ -31,6 +31,8 @@ public class CaoMoWalkUpCtrl : MonoBehaviour
     bool isNoteHaveStopped;
 
     public GameObject qiBingTrouble;
+
+    public GameObject dirCursor;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +46,7 @@ public class CaoMoWalkUpCtrl : MonoBehaviour
         subText.SetActive(false);
         isOKToMove = false;
         isNoteHaveStopped = true;
+        dirCursor.SetActive(false);
         stage.transform.DOLocalMove(new Vector3(0, 0, 0), 5f).OnComplete(() => StageInDone());
         //stage.transform.DOLocalMove(new Vector3(0, 0, 0), 0.1f).OnComplete(() => StageInDone());
     }
@@ -60,7 +63,19 @@ public class CaoMoWalkUpCtrl : MonoBehaviour
                 caoMoAnimation.Play("CaoMoWalkUpMoving");
                 ZhuangAnimation.Play("ZhuangWalkUpMoving");
                 if (isNoteHaveStopped) luXiangAnimation.Play("LuXiangMoving");
+                dirCursor.SetActive(false);
             }
+            else if (Input.mousePosition.y > transform.position.y + 10.0f)
+            {
+                //dirCursor.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
+                dirCursor.SetActive(true);
+            }
+            else
+            {
+                dirCursor.SetActive(false);
+                Cursor.visible = true;
+            }
+
             if (isNoteHaveStopped && opWalkers.transform.localPosition.y < -176)
                 StopZhuang();
             if (opWalkers.transform.localPosition.y < -315)

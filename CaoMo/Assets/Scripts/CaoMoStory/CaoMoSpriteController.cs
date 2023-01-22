@@ -55,6 +55,8 @@ public class CaoMoSpriteController : MonoBehaviour
     public GameObject maCheImage;
 
     public GameObject audioController;
+
+    public GameObject dirCursor;
     // Start is called before the first frame update
     void Start()
     {
@@ -74,6 +76,7 @@ public class CaoMoSpriteController : MonoBehaviour
         isDioZiShowed = false;
         isDioZhuang = false;
         dioZhuangNum = 0;
+        dirCursor.SetActive(false);
     }
 
     // Update is called once per frame
@@ -83,20 +86,29 @@ public class CaoMoSpriteController : MonoBehaviour
         {
             if(Input.GetMouseButton(0))
             {
-                if(Input.mousePosition.x - transform.position.x < -5.0f)
+                if (Input.mousePosition.x - transform.position.x < -5.0f)
                 {
                     //left move
                     transform.localPosition += new Vector3(-250 * Time.fixedDeltaTime, 0 , 0);
                     animator.Play("CaoMoMoving");
-                }else if(Input.mousePosition.x - transform.position.x > 5.0f)
+                    dirCursor.SetActive(false);
+                }
+                else if(Input.mousePosition.x - transform.position.x > 5.0f)
                 {
                     //right move
                     transform.localPosition += new Vector3( 250 * Time.fixedDeltaTime, 0 , 0);
                     animator.Play("CaoMoMoving");
                 }
+            }else if (Input.mousePosition.x - transform.position.x < -5.0f)
+            {
+                dirCursor.SetActive(true);
+            }else
+            {
+                dirCursor.SetActive(false);
+                Cursor.visible = true;
             }
 
-            if(gameObject.GetComponent<RectTransform>().localPosition.x < -290.0f)
+            if (gameObject.GetComponent<RectTransform>().localPosition.x < -290.0f)
             {
                 isOKToMove = false;
                 maChe.transform.SetParent(transform);
@@ -108,15 +120,26 @@ public class CaoMoSpriteController : MonoBehaviour
         {
             if(Input.GetMouseButton(0))
             {
-                if(Input.mousePosition.x > transform.position.x + 10.0f)
+                if (Input.mousePosition.x > transform.position.x + 10.0f)
                 {
                     animator.Play("CaoMoMoving");
                     horseAnimator.Play("HorseMoving");
                     trees.transform.localPosition += new Vector3(-250 * Time.fixedDeltaTime,0,0);
+                    dirCursor.SetActive(false);
                 }
             }
+            else if (Input.mousePosition.x > transform.position.x + 10.0f)
+            {
+                dirCursor.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
+                dirCursor.SetActive(true);
+            }
+            else
+            {
+                dirCursor.SetActive(false);
+                Cursor.visible = true;
+            }
 
-            if(trees.transform.localPosition.x <= -470.0f)
+            if (trees.transform.localPosition.x <= -470.0f)
             {
                 isOKToLead = false;
                 ZeiJump();
@@ -147,7 +170,18 @@ public class CaoMoSpriteController : MonoBehaviour
                     animator.Play("CaoMoMoving");
                     horseAnimator.Play("HorseMoving");
                     trees.transform.localPosition += new Vector3(-250 * Time.fixedDeltaTime, 0, 0);
+                    dirCursor.SetActive(false);
                 }
+            }
+            else if (Input.mousePosition.x > transform.position.x + 10.0f)
+            {
+                dirCursor.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
+                dirCursor.SetActive(true);
+            }
+            else
+            {
+                dirCursor.SetActive(false);
+                Cursor.visible = true;
             }
             if (trees.transform.localPosition.x <= -840.0f && !isZeiCought)
             {

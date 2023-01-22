@@ -37,6 +37,8 @@ public class StillGeneralController : MonoBehaviour
 
     public AudioClip dioWoAudioClip;
 
+    public GameObject dirCursor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +57,7 @@ public class StillGeneralController : MonoBehaviour
         isChargeDone = false;
         isCuttingScene = false;
         dioZi.SetActive(false);
+        dirCursor.SetActive(false);
         Invoke("CallCaoMo", 1f);
     }
 
@@ -70,9 +73,20 @@ public class StillGeneralController : MonoBehaviour
                     //left move
                     caoMoPos.transform.localPosition += new Vector3(-30 * Time.fixedDeltaTime, 0, 0);
                     caoMoAnimator.Play("CaoMoCrippleMoving");
+                    dirCursor.SetActive(false);
                 }
             }
-            if(caoMoPos.transform.localPosition.x <130f)
+            else if (Input.mousePosition.x - caoMoPos.transform.position.x < -5.0f)
+            {
+                //dirCursor.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
+                dirCursor.SetActive(true);
+            }
+            else
+            {
+                dirCursor.SetActive(false);
+                Cursor.visible = true;
+            }
+            if (caoMoPos.transform.localPosition.x <130f)
             {
                 swordGeneral.SetActive(true);
             }

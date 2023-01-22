@@ -21,6 +21,8 @@ public class CaoMoToWar : MonoBehaviour
     public GameObject caoMoLine;
     public bool isChargeDone = false;
     public bool isCuttingScene = false;
+
+    public GameObject dirCursor;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,7 @@ public class CaoMoToWar : MonoBehaviour
         caoMoLine.SetActive(false);
         isChargeDone = false;
         isCuttingScene = false;
+        dirCursor.SetActive(false);
         Invoke("NormalFitFlyAway", 1.5f);
     }
 
@@ -43,7 +46,18 @@ public class CaoMoToWar : MonoBehaviour
                 {
                     horseAnimator.Play("HorseMoving");
                     trees.transform.localPosition += new Vector3(-600 * Time.deltaTime, 0, 0);
+                    dirCursor.SetActive(false);
                 }
+            }
+            else if (Input.mousePosition.x > transform.position.x + 10.0f)
+            {
+                dirCursor.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
+                dirCursor.SetActive(true);
+            }
+            else
+            {
+                dirCursor.SetActive(false);
+                Cursor.visible = true;
             }
             if (trees.transform.localPosition.x <= -1400.0f)
             {
