@@ -128,7 +128,8 @@ public class CaoMoSpriteController : MonoBehaviour
             xiZiScale += 0.2f * Time.fixedDeltaTime;
             xiZi.transform.DOScale( xiZiScale, 0);
             Color xiZiColor = xiZi.GetComponent<Image>().color;
-            xiZiColor.a -= xiZiScale / 6000;
+         
+            xiZiColor.a = (xiZiColor.a >0.1f)? (xiZiColor.a - 0.001f) : 0.1f;
             xiZi.GetComponent<Image>().color = xiZiColor;
             if (xiZiScale > 15.5f)
             {
@@ -254,12 +255,12 @@ public class CaoMoSpriteController : MonoBehaviour
     void CaoMoXiGou()
     {
         // 需要声音演出，这里zeng的一身
-        Invoke("XiZiShrink", 2);
+        Invoke("XiZiShrink", 1);
     }
 
     void XiZiShrink()
     {
-        xiZi.transform.DOScale(1.0f, 1.5f).OnComplete(() => XiZiHide());
+        xiZi.transform.DOScale(1.0f, 1.0f).OnComplete(() => XiZiHide());
         CaMoShout();
     }
     void XiZiHide()
@@ -393,7 +394,7 @@ public class CaoMoSpriteController : MonoBehaviour
     {
         dioZhuangNum++;
         Vector3 zPos = zhuang.transform.localPosition;
-        if (dioZhuangNum > 5)
+        if (dioZhuangNum > 4)
         {
             zPos.y = 5000;
             horse.GetComponent<Image>().sprite = horseBigEye;
@@ -406,7 +407,7 @@ public class CaoMoSpriteController : MonoBehaviour
     }
     void ZhuangFlyDone()
     {
-        if(dioZhuangNum <= 5)
+        if(dioZhuangNum <= 4)
         {
             zhuangLines.SetActive(true);
             zhuangLineText.text = "再高";

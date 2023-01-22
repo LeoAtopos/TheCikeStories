@@ -37,27 +37,27 @@ public class LoseLandController : MonoBehaviour
     }
     void StartShrinkBattleMap()
     {
-        battleMap.transform.DOScale(0.1f, 3f);
-        battleMap.GetComponent<Image>().DOFade(0, 3f);
+        battleMap.transform.DOScale(0.1f, 1.5f);
+        battleMap.GetComponent<Image>().DOFade(0, 1.5f);
         
-        Invoke("StartShowStateMap", 2.5f);
+        Invoke("StartShowStateMap", 1.0f);
     }
     void StartShowStateMap()
     {
         qiArmy.SetActive(true);
-        stateMap.GetComponent<Image>().DOFade(1, 3f);
-        qiArmy.GetComponent<Image>().DOFade(1, 3f);
-        Invoke("StartShrinkStateMap", 2.8f);
-        Invoke("QiArmyMartchOn", 1.5f);
+        stateMap.GetComponent<Image>().DOFade(1, 1.5f);
+        qiArmy.GetComponent<Image>().DOFade(1, 1.5f);
+        Invoke("StartShrinkStateMap", 1.4f);
+        Invoke("QiArmyMartchOn", 0.7f);
     }
     void StartShrinkStateMap()
     {
-        stateMap.transform.DOScale(0.2f, 3f);
-        stateMap.transform.DOLocalMove(new Vector3(85, 40, 0), 3f).OnComplete(()=> ZhuangFallDown());
+        stateMap.transform.DOScale(0.2f, 1.5f);
+        stateMap.transform.DOLocalMove(new Vector3(85, 40, 0), 1.5f).OnComplete(()=> ZhuangFallDown());
     }
     void QiArmyMartchOn()
     {
-        qiArmy.transform.DOLocalMove(qiArmy.transform.up * 500 + qiArmy.transform.localPosition, 16f);
+        qiArmy.transform.DOLocalMove(qiArmy.transform.up * 500 + qiArmy.transform.localPosition, 8f);
     }
     void ZhuangFallDown()
     {

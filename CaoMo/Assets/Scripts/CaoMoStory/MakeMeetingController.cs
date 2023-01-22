@@ -37,7 +37,7 @@ public class MakeMeetingController : MonoBehaviour
         huanLine.SetActive(false);
         guanLine.SetActive(false);
         options.SetActive(false);
-        stage.transform.DOLocalMove(new Vector3(0, 0, 0), 8f).OnComplete(()=> StageInDone());
+        stage.transform.DOLocalMove(new Vector3(0, 0, 0), 6f).SetEase(Ease.Linear).OnComplete(()=> StageInDone());
     }
 
     // Update is called once per frame

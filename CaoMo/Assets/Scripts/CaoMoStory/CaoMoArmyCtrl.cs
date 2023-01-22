@@ -28,7 +28,7 @@ public class CaoMoArmyCtrl : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (fqC.isOKToMove)
         {
@@ -49,11 +49,11 @@ public class CaoMoArmyCtrl : MonoBehaviour
                     {
                         isHit = false;
                         hasTarget = false;
-                        fqC.caoArmy.transform.localPosition -=  speed * Time.deltaTime * dir.normalized;
+                        fqC.caoArmy.transform.localPosition -= 0.01f * speed * Time.fixedDeltaTime * dir.normalized;
                     }
                     else
                     {
-                        fqC.caoArmy.transform.localPosition += speed * Time.deltaTime * dir.normalized;
+                        fqC.caoArmy.transform.localPosition += speed * Time.fixedDeltaTime * dir.normalized;
                     }
                 }
                 else
@@ -69,14 +69,14 @@ public class CaoMoArmyCtrl : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         isHit = true;
-        if (collision.gameObject.name == "QiArmySquard001")
+        if (collision.gameObject.name.Contains("QiArmy"))
         {
-            
             ShowFightSign(gameObject, collision.gameObject);
-            if (fqC.isLerking)
+            if (fqC.isLerking && collision.gameObject.name == "QiArmySquard001")
             {
                 fqC.AnbushCaoMo();
             }
+            
         }   
     }
     private void OnCollisionStay2D(Collision2D collision)
