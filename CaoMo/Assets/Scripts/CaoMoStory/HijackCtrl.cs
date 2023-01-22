@@ -54,6 +54,7 @@ public class HijackCtrl : MonoBehaviour
     bool isOKToMove;
     bool isCaoMoStopped;
     bool isOKToWalkDown;
+    bool isFailing;
     //bool isNoteHaveStopped;
     public GameObject daggerPos;
     public GameObject dagger;
@@ -97,10 +98,13 @@ public class HijackCtrl : MonoBehaviour
     public AudioSource caoMoAudioSource;
     public AudioClip caoMoTalkLand;
     public AudioClip caoMoExplain;
+
+    public GameObject failText;
     //public GameObject qiBingTrouble;
     //// Start is called before the first frame update
     void Start()
     {
+        //Time.timeScale = 1;
         //qiBingLine.SetActive(false);
         weiXiangLine.SetActive(false);
         xingXiangLine.SetActive(false);
@@ -132,6 +136,7 @@ public class HijackCtrl : MonoBehaviour
         ansOptionPos.SetActive(false);
         dioZi.SetActive(false);
         hitSlider.SetActive(false);
+        failText.SetActive(false);
         //stateMap2.SetActive(false);
         //stateMap1.SetActive(false);
         //stateMap.SetActive(false);
@@ -140,6 +145,7 @@ public class HijackCtrl : MonoBehaviour
         isOKToHijack = false;
         isOKToWalkDown = false;
         isQTE2 = false;
+        isFailing = false;
         qteSpeed = 20;
 
         cutBackCount = 0;
@@ -244,10 +250,14 @@ public class HijackCtrl : MonoBehaviour
                 Invoke("AnsLuXiangOptionShowUp", 2.5f);
             }
         }
-        if(isOKToCatch || isQTE2 || isQTE3)
+        if(isOKToCatch || isQTE2 || isQTE3 && !isFailing)
         {
             hitSlider.GetComponent<Slider>().value -= Time.fixedDeltaTime * qteSpeed;
-            if (hitSlider.GetComponent<Slider>().value < 1) FailHijack();
+            if (hitSlider.GetComponent<Slider>().value < 1)
+            {
+                isFailing = true;
+                StartCoroutine("FailHijack");
+            }
         }
     }
 
@@ -316,10 +326,16 @@ public class HijackCtrl : MonoBehaviour
         qteSpeed = 40;
         isQTE2 = true;
     }
+
     //103,-60; -28
     //75,203
-    void FailHijack()
+    public IEnumerator FailHijack()
     {
+        failText.SetActive(true);
+        DOTween.KillAll();
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(3);
+        Time.timeScale = 1;
         SceneManager.LoadScene("111Hijack");
     }
     public void HijackMove()
