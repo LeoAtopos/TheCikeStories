@@ -23,6 +23,10 @@ public class GameController : MonoBehaviour
 
     public GameObject ChooseLevelPanel;
 
+    public AudioSource bgm;
+    public AudioClip mainMenuBGM;
+    public AudioClip plotBGM;
+
     void Awake()
     {
         instance = this;
@@ -34,6 +38,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         levelList = new List<GameObject>();
+        SceneManager.activeSceneChanged += OnSceneChange;
     }
 
     // Update is called once per frame
@@ -120,5 +125,48 @@ public class GameController : MonoBehaviour
         {
 
         }
+    }
+    void OnSceneChange(Scene current, Scene next)
+    {
+        if (bgm != null)
+        {
+            if (next.name == "MainMenu")
+            {
+                bgm.clip = mainMenuBGM;
+                bgm.volume = 1f;
+                bgm.Play();
+            }
+            if (next.name == "Start")
+            {
+                bgm.Stop();
+            }
+            if (next.name == "101ChooseHeadIcon"
+                || next.name == "101ChooseHeadIcon"
+                || next.name == "102FindLuState"
+                || next.name == "103BraveOne"
+                || next.name == "104GeneralCao"
+                || next.name == "106LoseLand"
+                || next.name == "107CutLand"
+                || next.name == "108StillGeneral"
+                || next.name == "109MakeMeeting"
+                || next.name == "110WalkUp"
+                || next.name == "112End")
+            {
+                if(bgm.clip != plotBGM)
+                {
+                    bgm.clip = plotBGM;
+                    bgm.volume = 0.4f;
+                    bgm.Play();
+                }
+            }
+            if(next.name == "105FightQi")
+            {
+
+            }
+            if (next.name == "111Hijack")
+            {
+
+            }
+        }   
     }
 }

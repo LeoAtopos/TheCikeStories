@@ -1339,7 +1339,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1108935344}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1022629554
 MonoBehaviour:
@@ -1514,7 +1514,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1395585451}
   - {fileID: 1022629553}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1557,6 +1556,9 @@ MonoBehaviour:
   levelList: []
   LevelButtonPrefab: {fileID: 4560728424230411334, guid: 0cd94442efdf5b048b10fe20ed2557d7, type: 3}
   ChooseLevelPanel: {fileID: 0}
+  bgm: {fileID: 1395585452}
+  mainMenuBGM: {fileID: 8300000, guid: d80fe6d531d4ccf43a0544d1013e715d, type: 3}
+  plotBGM: {fileID: 8300000, guid: 4b0dbf499010749c2b9d0430cc6aa4c3, type: 3}
 --- !u!4 &1181376667
 Transform:
   m_ObjectHideFlags: 0
@@ -1568,7 +1570,8 @@ Transform:
   m_LocalPosition: {x: 474, y: 250, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1395585451}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1764,12 +1767,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1395585450}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -474, y: -250, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1108935344}
+  m_Father: {fileID: 1181376667}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1395585452
