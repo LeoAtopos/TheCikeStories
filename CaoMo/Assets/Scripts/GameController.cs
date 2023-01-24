@@ -27,6 +27,8 @@ public class GameController : MonoBehaviour
     public AudioClip mainMenuBGM;
     public AudioClip plotBGM;
 
+    public GameObject introPanel;
+
     void Awake()
     {
         instance = this;
@@ -37,6 +39,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        introPanel.SetActive(false);
         levelList = new List<GameObject>();
         SceneManager.activeSceneChanged += OnSceneChange;
     }
@@ -168,5 +171,9 @@ public class GameController : MonoBehaviour
 
             }
         }   
+    }
+    public void ShowIntroPanel()
+    {
+        introPanel.SetActive(true);
     }
 }
