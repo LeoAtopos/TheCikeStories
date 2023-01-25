@@ -164,11 +164,19 @@ public class GameController : MonoBehaviour
             }
             if(next.name == "105FightQi")
             {
-
+                bgm.Stop();
             }
             if (next.name == "111Hijack")
             {
-
+                bgm.Stop();
+            }
+            if (next.name == "Start02")
+            {
+                bgm.Stop();
+            }
+            if (next.name == "Future")
+            {
+                bgm.Stop();
             }
         }   
     }

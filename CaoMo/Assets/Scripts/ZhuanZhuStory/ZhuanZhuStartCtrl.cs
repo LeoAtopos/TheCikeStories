@@ -16,7 +16,7 @@ public class ZhuanZhuStartCtrl : MonoBehaviour
     {
         if (Input.GetMouseButton(0))// && !GameController.Instance.pausePanel.activeSelf
         {
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("Future");
         }
     }
 }
