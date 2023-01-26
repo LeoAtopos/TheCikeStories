@@ -27,6 +27,8 @@ public class GameController : MonoBehaviour
     public AudioSource bgm;
     public AudioClip mainMenuBGM;
     public AudioClip plotBGM;
+    public AudioClip warBGM;
+    public AudioClip hijackBGM;
 
     public GameObject introPanel;
     public GameObject moodPanel;
@@ -169,11 +171,21 @@ public class GameController : MonoBehaviour
             }
             if(next.name == "105FightQi")
             {
-                bgm.Stop();
+                if (bgm.clip != warBGM)
+                {
+                    bgm.clip = warBGM;
+                }
+                bgm.volume = 0.05f;
+                bgm.Play();
             }
             if (next.name == "111Hijack")
             {
-                bgm.Stop();
+                if (bgm.clip != hijackBGM)
+                {
+                    bgm.clip = hijackBGM;
+                }
+                bgm.volume = 0.5f;
+                bgm.Play();
             }
             if (next.name == "Start02")
             {

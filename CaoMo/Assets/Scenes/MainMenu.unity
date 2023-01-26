@@ -2113,6 +2113,8 @@ MonoBehaviour:
   bgm: {fileID: 1395585452}
   mainMenuBGM: {fileID: 8300000, guid: d80fe6d531d4ccf43a0544d1013e715d, type: 3}
   plotBGM: {fileID: 8300000, guid: 4b0dbf499010749c2b9d0430cc6aa4c3, type: 3}
+  warBGM: {fileID: 8300000, guid: c98e494ff38574fd4af66ac4aead097c, type: 3}
+  hijackBGM: {fileID: 8300000, guid: e074fd876cdd14969bc64afe99cf2d91, type: 3}
   introPanel: {fileID: 1020537292}
   moodPanel: {fileID: 1440427857}
 --- !u!4 &1181376667
