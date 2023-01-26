@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class GameController : MonoBehaviour
 {
@@ -28,18 +29,22 @@ public class GameController : MonoBehaviour
     public AudioClip plotBGM;
 
     public GameObject introPanel;
+    public GameObject moodPanel;
 
     void Awake()
     {
         instance = this;
         DontDestroyOnLoad(this);
-        QualitySettings.vSyncCount = 0;  // VSync must be disabled
+        QualitySettings.vSyncCount = 1;  // VSync must be disabled
         Application.targetFrameRate = 60;
     }
     // Start is called before the first frame update
     void Start()
     {
+        DOTween.KillAll();
         introPanel.SetActive(false);
+        moodPanel.SetActive(false);
+        if (GameObject.Find("EndTag") != null) moodPanel.SetActive(true);
         levelList = new List<GameObject>();
         SceneManager.activeSceneChanged += OnSceneChange;
     }
@@ -178,7 +183,7 @@ public class GameController : MonoBehaviour
             {
                 bgm.Stop();
             }
-        }   
+        }
     }
     public void ShowIntroPanel()
     {

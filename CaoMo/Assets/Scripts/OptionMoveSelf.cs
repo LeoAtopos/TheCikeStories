@@ -5,15 +5,15 @@ using DG.Tweening;
 
 public class OptionMoveSelf : MonoBehaviour
 {
-    public float strength;
-    public int vibrato;
-    public float randomness;
+    public float strength = 0.9f;
+    public int vibrato = 1;
+    public float randomness = 80;
     // Start is called before the first frame update
     void Start()
     {
-        strength = 0.9f;
-        vibrato = 1;
-        randomness = 80;
+        //strength = 0.9f;
+        //vibrato = 1;
+        //randomness = 80;
         transform.DOShakePosition(600, strength, vibrato, randomness, false, false);
     }
 

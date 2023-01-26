@@ -1300,9 +1300,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f3fcecc761514e26ab40bc0c2036f58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 0
-  vibrato: 0
-  randomness: 0
+  strength: 0.9
+  vibrato: 1
+  randomness: 80
 --- !u!1 &1166274905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1467,9 +1467,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f3fcecc761514e26ab40bc0c2036f58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 0
-  vibrato: 0
-  randomness: 0
+  strength: 0.9
+  vibrato: 1
+  randomness: 80
 --- !u!1 &1167494698
 GameObject:
   m_ObjectHideFlags: 0
@@ -1764,9 +1764,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f3fcecc761514e26ab40bc0c2036f58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 0
-  vibrato: 0
-  randomness: 0
+  strength: 0.9
+  vibrato: 1
+  randomness: 80
 --- !u!1 &1472127716
 GameObject:
   m_ObjectHideFlags: 0
