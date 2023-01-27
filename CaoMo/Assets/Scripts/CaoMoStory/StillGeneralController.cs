@@ -39,6 +39,8 @@ public class StillGeneralController : MonoBehaviour
 
     public GameObject dirCursor;
 
+    public AudioSource dioSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -175,6 +177,7 @@ public class StillGeneralController : MonoBehaviour
     }
     public void ThrowZhuang()
     {
+        dioSound.Play();
         Vector3 cPos = caoMoPos.transform.localPosition;
         cPos.y -= 500f;
         caoMoPos.transform.DOLocalMove(cPos, 0.3f).OnComplete(()=> FlyZhuangAway());

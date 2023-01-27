@@ -57,6 +57,8 @@ public class CaoMoSpriteController : MonoBehaviour
     public GameObject audioController;
 
     public GameObject dirCursor;
+
+    public AudioSource dioSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -192,6 +194,8 @@ public class CaoMoSpriteController : MonoBehaviour
             {
                 ShowThrowButton();
                 isDioZiShowed = true;
+                dirCursor.SetActive(false);
+                Cursor.visible = true;
             }
             if(trees.transform.localPosition.x <= -2800.0f)
             {
@@ -366,6 +370,7 @@ public class CaoMoSpriteController : MonoBehaviour
     }
     public void ThrowZeiBody()
     {
+        dioSound.Play();
         dioZi.SetActive(false);
         zei.transform.SetParent(trees.transform);
         zei.transform.SetAsLastSibling();
@@ -426,6 +431,7 @@ public class CaoMoSpriteController : MonoBehaviour
     }
     public void ThrowZhuang()
     {
+        dioSound.Play();
         dioZhuangNum++;
         Vector3 zPos = zhuang.transform.localPosition;
         if (dioZhuangNum > 4)

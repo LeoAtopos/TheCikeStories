@@ -102,6 +102,8 @@ public class HijackCtrl : MonoBehaviour
     public GameObject failText;
 
     public GameObject dirCursor;
+
+    public AudioSource dioSound;
     //public GameObject qiBingTrouble;
     //// Start is called before the first frame update
     void Start()
@@ -476,6 +478,7 @@ public class HijackCtrl : MonoBehaviour
     }
     public void DaggerFlyAway()
     {
+        dioSound.Play();
         dioZi.SetActive(false);
         daggerPos.transform.DOLocalMove(daggerPos.transform.localPosition + new Vector3(0, 1000f,0), 1f);
         Invoke("WalkDown", 2.5f);
