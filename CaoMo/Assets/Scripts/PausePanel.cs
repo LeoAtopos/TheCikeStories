@@ -24,10 +24,12 @@ public class PausePanel : MonoBehaviour
     }
     public void ToMainManu()
     {
+        GameController.Instance.PlaySound("click");
         GameController.Instance.PauseToMainmanu();
     }
     public void Continue()
     {
+        GameController.Instance.PlaySound("click");
         GameController.Instance.ContinueGame();
     }
 }

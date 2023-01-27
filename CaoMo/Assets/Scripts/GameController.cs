@@ -29,6 +29,8 @@ public class GameController : MonoBehaviour
     public AudioClip plotBGM;
     public AudioClip warBGM;
     public AudioClip hijackBGM;
+    public AudioSource sfx;
+    public AudioClip clickSound;
 
     public GameObject introPanel;
     public GameObject moodPanel;
@@ -43,6 +45,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sfx.clip = clickSound;
         DOTween.KillAll();
         introPanel.SetActive(false);
         moodPanel.SetActive(false);
@@ -82,7 +85,8 @@ public class GameController : MonoBehaviour
 
     public void ContinueGame()
     {
-        if(pausePanel != null)
+        PlaySound("click");
+        if (pausePanel != null)
             pausePanel.SetActive(false);
         isPausing = false;
         Time.timeScale = 1f;
@@ -90,6 +94,7 @@ public class GameController : MonoBehaviour
 
     public void PauseToMainmanu()
     {
+        PlaySound("click");
         isGaming = false;
         isPausing = false;
         Time.timeScale = 1;
@@ -125,7 +130,8 @@ public class GameController : MonoBehaviour
 
     public void ShowChooseLevelPanel()
     {
-        if(ChooseLevelPanel == null)
+        PlaySound("click");
+        if (ChooseLevelPanel == null)
         {
             gamingCanvas = GameObject.Find("Canvas");
             ChooseLevelPanel = Instantiate(pausePanelPrefab, gamingCanvas.transform);
@@ -166,7 +172,7 @@ public class GameController : MonoBehaviour
                 {
                     bgm.clip = plotBGM;
                 }
-                bgm.volume = 0.05f;
+                bgm.volume = 0.2f;
                 bgm.Play();
             }
             if(next.name == "105FightQi")
@@ -175,7 +181,7 @@ public class GameController : MonoBehaviour
                 {
                     bgm.clip = warBGM;
                 }
-                bgm.volume = 0.05f;
+                bgm.volume = 0.1f;
                 bgm.Play();
             }
             if (next.name == "111Hijack")
@@ -199,6 +205,15 @@ public class GameController : MonoBehaviour
     }
     public void ShowIntroPanel()
     {
+        PlaySound("click");
         introPanel.SetActive(true);
+    }
+    public void PlaySound(string sn)
+    {
+        if(sn == "click")
+        {
+            sfx.clip = clickSound;
+            sfx.Play();
+        }
     }
 }

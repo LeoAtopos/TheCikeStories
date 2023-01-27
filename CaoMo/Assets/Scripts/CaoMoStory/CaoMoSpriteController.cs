@@ -249,6 +249,9 @@ public class CaoMoSpriteController : MonoBehaviour
     // 走到tree的位置是-470
     void ZeiJump()
     {
+        audioController.GetComponent<AudioSource>().clip = audioController.GetComponent<AudioController>().audioClips[9];
+        audioController.GetComponent<AudioSource>().volume = 1f;
+        audioController.GetComponent<AudioSource>().Play();
         zei.transform.DOLocalJump(new Vector3(1000f, 0 , 0), 50.0f, 1, 0.2f, false).OnComplete(() => ZeiShowed());
     }
 
@@ -387,6 +390,7 @@ public class CaoMoSpriteController : MonoBehaviour
         zhuangLines.SetActive(true);
         zhuangLineText.text = " 等等";
         audioController.GetComponent<AudioSource>().clip = audioController.GetComponent<AudioController>().audioClips[8];
+        audioController.GetComponent<AudioSource>().volume = 1f;
         audioController.GetComponent<AudioSource>().Play();
         Invoke("ZhuangJumpMaChe", 1.5f);
     }

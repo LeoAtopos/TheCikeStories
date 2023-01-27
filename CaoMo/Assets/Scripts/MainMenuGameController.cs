@@ -19,6 +19,7 @@ public class MainMenuGameController : MonoBehaviour
 
     public void LoadGameStartScene()
     {
+        GameController.Instance.PlaySound("click");
         SceneManager.LoadScene("Start");
         GameController.Instance.isGaming = true;
     }

@@ -17,6 +17,8 @@ public class LoseLandController : MonoBehaviour
     public GameObject zhuangLine;
     public GameObject subText1;
     public GameObject subText2;
+
+    public AudioSource sfx;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,7 @@ public class LoseLandController : MonoBehaviour
     void StartShrinkBattleMap()
     {
         battleMap.transform.DOScale(0.1f, 1.5f);
+        sfx.Play();
         battleMap.GetComponent<Image>().DOFade(0, 1.5f);
         
         Invoke("StartShowStateMap", 1.0f);
@@ -52,6 +55,7 @@ public class LoseLandController : MonoBehaviour
     }
     void StartShrinkStateMap()
     {
+        sfx.Play();
         stateMap.transform.DOScale(0.2f, 1.5f);
         stateMap.transform.DOLocalMove(new Vector3(85, 40, 0), 1.5f).OnComplete(()=> ZhuangFallDown());
     }
