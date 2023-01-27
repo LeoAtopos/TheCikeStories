@@ -6,11 +6,9 @@ using UnityEngine.EventSystems;
 public class DioZiHandler111 : MonoBehaviour, IPointerClickHandler
 {
     public HijackCtrl hC;
-    public AudioSource dioSound;
     public void OnPointerClick(PointerEventData eventData)
     {
         hC.DaggerFlyAway();
-        dioSound.Play();
     }
     // Start is called before the first frame update
     void Start()
