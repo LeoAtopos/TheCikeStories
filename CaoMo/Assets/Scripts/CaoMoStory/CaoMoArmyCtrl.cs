@@ -87,7 +87,7 @@ public class CaoMoArmyCtrl : MonoBehaviour
     {
         fightSign.SetActive(true);
         fightSign.transform.position = (gameObject1.transform.position + gameObject2.transform.position) / 2;
-        fightSign.transform.DOShakePosition(0.3f, 1, 8, 60, false, false).OnComplete(() => FirstFightHappened());
+        fightSign.transform.DOShakePosition(1f, 1, 8, 60, false, false).OnComplete(() => FirstFightHappened());
     }
     void FirstFightHappened()
     {

@@ -62,6 +62,7 @@ public class CaoMoSpriteController : MonoBehaviour
     public AudioSource xiZiDingSound;
     public AudioSource foodstepSound;
     public AudioSource horseStepSound;
+    public AudioSource stabSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -384,6 +385,7 @@ public class CaoMoSpriteController : MonoBehaviour
     }
     void ZeiBodyDead()
     {
+        stabSound.Play();
         zeiBody.GetComponent<Image>().sprite = zeiBodyDeadSprite;
         zeiSword.GetComponent<Image>().sprite = swordBloodSprite;
         isOKToLeadAgain = true;
