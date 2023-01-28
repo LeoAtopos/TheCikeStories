@@ -19,6 +19,7 @@ public class LoseLandController : MonoBehaviour
     public GameObject subText2;
 
     public AudioSource sfx;
+    
     // Start is called before the first frame update
     void Start()
     {

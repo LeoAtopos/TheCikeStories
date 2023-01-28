@@ -2113,6 +2113,7 @@ MonoBehaviour:
   subText1: {fileID: 2600993235552058730}
   subText2: {fileID: 1841051746}
   sfx: {fileID: 1685856350}
+  cutLandSound: {fileID: 0}
 --- !u!82 &1685856350
 AudioSource:
   m_ObjectHideFlags: 0

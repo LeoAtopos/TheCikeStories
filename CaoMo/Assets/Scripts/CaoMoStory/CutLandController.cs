@@ -22,6 +22,8 @@ public class CutLandController : MonoBehaviour
     public TextMeshProUGUI qiArmyLineText;
     public GameObject qiArmy;
     public GameObject qiArmyName;
+
+    public AudioSource cutLandSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +44,7 @@ public class CutLandController : MonoBehaviour
     }
     public void CutLand()
     {
+        cutLandSound.Play();
         cutTime++;
         geZi.SetActive(false);
         if (cutTime == 1)

@@ -107,6 +107,7 @@ public class HijackCtrl : MonoBehaviour
     public AudioSource foodstepSound;
     public AudioSource catchDaggerSound;
     public AudioSource hijackSound;
+    public AudioSource cutLandSound;
     //public GameObject qiBingTrouble;
     //// Start is called before the first frame update
     void Start()
@@ -415,6 +416,7 @@ public class HijackCtrl : MonoBehaviour
     }
     void CutBack1()
     {
+        cutLandSound.Play();
         cutBackCount++;
         stateMap3.GetComponent<Image>().DOFade(0, 3.5f).OnComplete(()=> CutBack1Done());
     }
@@ -451,6 +453,7 @@ public class HijackCtrl : MonoBehaviour
     }
     void CutBack2()
     {
+        cutLandSound.Play();
         cutBackCount++;
         caoMoLine.SetActive(false);
         stateMap2.GetComponent<Image>().DOFade(0, 3.5f).OnComplete(() => CutBack2Done());
@@ -461,6 +464,7 @@ public class HijackCtrl : MonoBehaviour
     }
     void CutBack3()
     {
+        cutLandSound.Play();
         cutBackCount++;
         caoMoLine.SetActive(false);
         stateMap1.GetComponent<Image>().DOFade(0, 3.5f).OnComplete(() => CutBack3Done());
