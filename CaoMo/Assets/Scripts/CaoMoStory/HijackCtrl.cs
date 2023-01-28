@@ -105,6 +105,8 @@ public class HijackCtrl : MonoBehaviour
 
     public AudioSource dioSound;
     public AudioSource foodstepSound;
+    public AudioSource catchDaggerSound;
+    public AudioSource hijackSound;
     //public GameObject qiBingTrouble;
     //// Start is called before the first frame update
     void Start()
@@ -299,6 +301,7 @@ public class HijackCtrl : MonoBehaviour
     }
     public void CheckDaggerClick()
     {
+        catchDaggerSound.Play();
         isOKToCatch = false;
         isOKToHijack = true;
         daggerPos.transform.DOKill();
@@ -332,6 +335,7 @@ public class HijackCtrl : MonoBehaviour
     }
     public void HijackMove()
     {
+        hijackSound.Play();
         isOKToHijack = false;
         caoMoPos.transform.localPosition = new Vector3(75, 203, 0);
         qiBing1.transform.DOLocalJump(new Vector3(-127, 238, 0), 5, 2, 0.5f);
