@@ -40,7 +40,8 @@ public class StillGeneralController : MonoBehaviour
     public AudioSource dioSound;
 
     public AudioSource bladeOn;
-
+    public AudioSource foodstepSound;
+    public AudioSource horseStepSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -75,18 +76,23 @@ public class StillGeneralController : MonoBehaviour
                     //left move
                     caoMoPos.transform.localPosition += new Vector3(-30 * Time.fixedDeltaTime, 0, 0);
                     caoMoAnimator.Play("CaoMoCrippleMoving");
+                    if (!foodstepSound.isPlaying) foodstepSound.Play();
                     dirCursor.SetActive(false);
                 }
             }
-            else if (Input.mousePosition.x - caoMoPos.transform.position.x < -5.0f)
-            {
-                //dirCursor.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
-                dirCursor.SetActive(true);
-            }
             else
             {
-                dirCursor.SetActive(false);
-                Cursor.visible = true;
+                foodstepSound.Stop();
+                if (Input.mousePosition.x - caoMoPos.transform.position.x < -5.0f)
+                {
+                    //dirCursor.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
+                    dirCursor.SetActive(true);
+                }
+                else
+                {
+                    dirCursor.SetActive(false);
+                    Cursor.visible = true;
+                }
             }
             if (caoMoPos.transform.localPosition.x <130f)
             {
@@ -94,6 +100,7 @@ public class StillGeneralController : MonoBehaviour
             }
             if (caoMoPos.transform.localPosition.x < -80f)
             {
+                foodstepSound.Stop();
                 bladeOn.Play();
                 isCaoMoCanMove = false;
                 ZhuangActStart();
@@ -101,7 +108,7 @@ public class StillGeneralController : MonoBehaviour
         }
         if (isOKTOCharge)
         {
-
+            if (!horseStepSound.isPlaying) horseStepSound.Play();
             horseAnimator.Play("HorseMoving");
             trees.transform.localPosition += new Vector3(-600 * Time.deltaTime, 0, 0);
 
@@ -119,6 +126,7 @@ public class StillGeneralController : MonoBehaviour
         }
         if (isCuttingScene)
         {
+            if (!horseStepSound.isPlaying) horseStepSound.Play();
             horseAnimator.Play("HorseMoving");
             trees.transform.localPosition += new Vector3(-600 * Time.deltaTime, 0, 0);
         }

@@ -23,6 +23,7 @@ public class CaoMoToWar : MonoBehaviour
     public bool isCuttingScene = false;
 
     public GameObject dirCursor;
+    public AudioSource horseStepSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,29 +46,35 @@ public class CaoMoToWar : MonoBehaviour
                 if (Input.mousePosition.x > transform.position.x + 10.0f)
                 {
                     horseAnimator.Play("HorseMoving");
+                    if (!horseStepSound.isPlaying) horseStepSound.Play();
                     trees.transform.localPosition += new Vector3(-600 * Time.deltaTime, 0, 0);
                     dirCursor.SetActive(false);
                 }
             }
-            else if (Input.mousePosition.x > transform.position.x + 10.0f)
-            {
-                dirCursor.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
-                dirCursor.SetActive(true);
-            }
             else
             {
-                dirCursor.SetActive(false);
-                Cursor.visible = true;
+                horseStepSound.Stop();
+                if (Input.mousePosition.x > transform.position.x + 10.0f)
+                {
+                    dirCursor.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
+                    dirCursor.SetActive(true);
+                }
+                else
+                {
+                    dirCursor.SetActive(false);
+                    Cursor.visible = true;
+                }
             }
             if (trees.transform.localPosition.x <= -1400.0f)
             {
+                horseStepSound.Stop();
                 isOKToMove = false;
                 maCheBingPos.transform.DOLocalMove(new Vector3(990f, 0, 0), 1f).OnComplete(() => MaCheBingGethered());
             }
         }
         if (isOKTOCharge)
         {
-
+            if (!horseStepSound.isPlaying) horseStepSound.Play();
             horseAnimator.Play("HorseMoving");
             trees.transform.localPosition += new Vector3(-600 * Time.deltaTime, 0, 0);
 
@@ -85,6 +92,7 @@ public class CaoMoToWar : MonoBehaviour
         }
         if(isCuttingScene)
         {
+            if (!horseStepSound.isPlaying) horseStepSound.Play();
             horseAnimator.Play("HorseMoving");
             trees.transform.localPosition += new Vector3(-600 * Time.deltaTime, 0, 0);
         }

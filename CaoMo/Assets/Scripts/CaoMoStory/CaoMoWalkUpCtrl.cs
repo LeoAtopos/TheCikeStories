@@ -33,6 +33,7 @@ public class CaoMoWalkUpCtrl : MonoBehaviour
     public GameObject qiBingTrouble;
 
     public GameObject dirCursor;
+    public AudioSource foodstepSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +59,7 @@ public class CaoMoWalkUpCtrl : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
+                if (!foodstepSound.isPlaying) foodstepSound.Play();
                 opWalkers.transform.localPosition -= 80f * opWalkers.transform.up * Time.fixedDeltaTime;
                 opWalkers2.transform.localPosition -= 80f * opWalkers.transform.up * Time.fixedDeltaTime;
                 caoMoAnimation.Play("CaoMoWalkUpMoving");
@@ -65,15 +67,19 @@ public class CaoMoWalkUpCtrl : MonoBehaviour
                 if (isNoteHaveStopped) luXiangAnimation.Play("LuXiangMoving");
                 dirCursor.SetActive(false);
             }
-            else if (Input.mousePosition.y > transform.position.y + 10.0f)
-            {
-                //dirCursor.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
-                dirCursor.SetActive(true);
-            }
             else
             {
-                dirCursor.SetActive(false);
-                Cursor.visible = true;
+                foodstepSound.Stop();
+                if (Input.mousePosition.y > transform.position.y + 10.0f)
+                {
+                    //dirCursor.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
+                    dirCursor.SetActive(true);
+                }
+                else
+                {
+                    dirCursor.SetActive(false);
+                    Cursor.visible = true;
+                }
             }
 
             if (isNoteHaveStopped && opWalkers.transform.localPosition.y < -176)
@@ -111,6 +117,7 @@ public class CaoMoWalkUpCtrl : MonoBehaviour
 
     private void StopZhuang()
     {
+        foodstepSound.Stop();
         isOKToMove = false;
         qiBingLine.SetActive(true);
         Invoke("XiangMoveAway", 2.5f);
