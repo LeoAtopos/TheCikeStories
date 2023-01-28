@@ -36,10 +36,10 @@ public class StillGeneralController : MonoBehaviour
     private bool isCuttingScene = false;
 
     public AudioClip dioWoAudioClip;
-
     public GameObject dirCursor;
-
     public AudioSource dioSound;
+
+    public AudioSource bladeOn;
 
     // Start is called before the first frame update
     void Start()
@@ -94,6 +94,7 @@ public class StillGeneralController : MonoBehaviour
             }
             if (caoMoPos.transform.localPosition.x < -80f)
             {
+                bladeOn.Play();
                 isCaoMoCanMove = false;
                 ZhuangActStart();
             }

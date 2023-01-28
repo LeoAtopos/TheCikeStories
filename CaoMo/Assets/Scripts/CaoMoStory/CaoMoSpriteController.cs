@@ -59,6 +59,9 @@ public class CaoMoSpriteController : MonoBehaviour
     public GameObject dirCursor;
 
     public AudioSource dioSound;
+    public AudioSource xiZiDingSound;
+    public AudioSource foodstepSound;
+    public AudioSource horseStepSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -86,32 +89,41 @@ public class CaoMoSpriteController : MonoBehaviour
     {
         if(isOKToMove)
         {
-            if(Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0))
             {
                 if (Input.mousePosition.x - transform.position.x < -5.0f)
                 {
                     //left move
-                    transform.localPosition += new Vector3(-250 * Time.fixedDeltaTime, 0 , 0);
+                    transform.localPosition += new Vector3(-250 * Time.fixedDeltaTime, 0, 0);
                     animator.Play("CaoMoMoving");
+                    if (!foodstepSound.isPlaying) foodstepSound.Play();
                     dirCursor.SetActive(false);
                 }
-                else if(Input.mousePosition.x - transform.position.x > 5.0f)
+                else if (Input.mousePosition.x - transform.position.x > 5.0f)
                 {
                     //right move
-                    transform.localPosition += new Vector3( 250 * Time.fixedDeltaTime, 0 , 0);
+                    transform.localPosition += new Vector3(250 * Time.fixedDeltaTime, 0, 0);
                     animator.Play("CaoMoMoving");
+                    if (!foodstepSound.isPlaying) foodstepSound.Play();
                 }
-            }else if (Input.mousePosition.x - transform.position.x < -5.0f)
+            }
+            else
             {
-                dirCursor.SetActive(true);
-            }else
-            {
-                dirCursor.SetActive(false);
-                Cursor.visible = true;
+                foodstepSound.Stop();
+                if (Input.mousePosition.x - transform.position.x < -5.0f)
+                {
+                    dirCursor.SetActive(true);
+                }
+                else
+                {
+                    dirCursor.SetActive(false);
+                    Cursor.visible = true;
+                }
             }
 
             if (gameObject.GetComponent<RectTransform>().localPosition.x < -290.0f)
             {
+                foodstepSound.Stop();
                 isOKToMove = false;
                 maChe.transform.SetParent(transform);
                 PlayInToStep2();
@@ -120,29 +132,38 @@ public class CaoMoSpriteController : MonoBehaviour
 
         if(isOKToLead)
         {
-            if(Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0))
             {
                 if (Input.mousePosition.x > transform.position.x + 10.0f)
                 {
                     animator.Play("CaoMoMoving");
+                    if (!foodstepSound.isPlaying) foodstepSound.Play();
                     horseAnimator.Play("HorseMoving");
-                    trees.transform.localPosition += new Vector3(-250 * Time.fixedDeltaTime,0,0);
+                    if (!horseStepSound.isPlaying) horseStepSound.Play();
+                    trees.transform.localPosition += new Vector3(-250 * Time.fixedDeltaTime, 0, 0);
                     dirCursor.SetActive(false);
                 }
             }
-            else if (Input.mousePosition.x > transform.position.x + 10.0f)
-            {
-                dirCursor.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
-                dirCursor.SetActive(true);
-            }
             else
             {
-                dirCursor.SetActive(false);
-                Cursor.visible = true;
+                foodstepSound.Stop();
+                horseStepSound.Stop();
+                if (Input.mousePosition.x > transform.position.x + 10.0f)
+                {
+                    dirCursor.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
+                    dirCursor.SetActive(true);
+                }
+                else
+                {
+                    dirCursor.SetActive(false);
+                    Cursor.visible = true;
+                }
             }
 
             if (trees.transform.localPosition.x <= -470.0f)
             {
+                foodstepSound.Stop();
+                horseStepSound.Stop();
                 isOKToLead = false;
                 ZeiJump();
             }
@@ -159,6 +180,7 @@ public class CaoMoSpriteController : MonoBehaviour
             if (xiZiScale > 15.5f)
             {
                 isXiing = false;
+                xiZiDingSound.Play();
                 CaoMoXiGou();
             }
         }
@@ -170,20 +192,27 @@ public class CaoMoSpriteController : MonoBehaviour
                 if (Input.mousePosition.x > transform.position.x + 10.0f)
                 {
                     animator.Play("CaoMoMoving");
+                    if (!foodstepSound.isPlaying) foodstepSound.Play();
                     horseAnimator.Play("HorseMoving");
+                    if (!horseStepSound.isPlaying) horseStepSound.Play();
                     trees.transform.localPosition += new Vector3(-250 * Time.fixedDeltaTime, 0, 0);
                     dirCursor.SetActive(false);
                 }
             }
-            else if (Input.mousePosition.x > transform.position.x + 10.0f)
-            {
-                dirCursor.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
-                dirCursor.SetActive(true);
-            }
             else
             {
-                dirCursor.SetActive(false);
-                Cursor.visible = true;
+                foodstepSound.Stop();
+                horseStepSound.Stop();
+                if (Input.mousePosition.x > transform.position.x + 10.0f)
+                {
+                    dirCursor.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
+                    dirCursor.SetActive(true);
+                }
+                else
+                {
+                    dirCursor.SetActive(false);
+                    Cursor.visible = true;
+                }
             }
             if (trees.transform.localPosition.x <= -840.0f && !isZeiCought)
             {
@@ -199,6 +228,8 @@ public class CaoMoSpriteController : MonoBehaviour
             }
             if(trees.transform.localPosition.x <= -2800.0f)
             {
+                foodstepSound.Stop();
+                horseStepSound.Stop();
                 isOKToLeadAgain = false;
             }
         }
