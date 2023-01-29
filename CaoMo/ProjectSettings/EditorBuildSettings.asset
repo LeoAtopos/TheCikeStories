@@ -56,4 +56,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ZhuanZhuStory/Future.unity
     guid: 3e52f4be73e184366a229fa9846ff843
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 473d0bcec1543445e8c4f6c3f35bc725, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: 66a5075cef4344bddbf2406acceb6358, type: 2}
