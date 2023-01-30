@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
+using TMPro;
 
 public class GameController : MonoBehaviour
 {
@@ -35,6 +38,9 @@ public class GameController : MonoBehaviour
     public GameObject introPanel;
     public GameObject moodPanel;
 
+    public TextMeshProUGUI chineseLN;
+    public TextMeshProUGUI englishLN;
+
     void Awake()
     {
         instance = this;
@@ -45,6 +51,17 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[0])
+        {
+            chineseLN.color = Color.black;
+            englishLN.color = Color.grey;
+        }
+        else
+        {
+            chineseLN.color = Color.grey;
+            englishLN.color = Color.black;
+        }
+        
         sfx.clip = clickSound;
         DOTween.KillAll();
         introPanel.SetActive(false);
@@ -215,5 +232,23 @@ public class GameController : MonoBehaviour
             sfx.clip = clickSound;
             sfx.Play();
         }
+    }
+
+    public void SetLanguage(string l)
+    {
+        if (l=="Chinese")
+        {
+            LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[0];
+            chineseLN.color = Color.black;
+            englishLN.color = Color.grey;
+        }
+            
+        if (l == "English")
+        {
+            LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[1];
+            chineseLN.color = Color.grey;
+            englishLN.color = Color.black;
+        }
+            
     }
 }

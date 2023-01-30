@@ -19,6 +19,26 @@ MonoBehaviour:
     m_Key: Start Reading
     m_Metadata:
       m_Items: []
+  - m_Id: 250016135372800
+    m_Key: What
+    m_Metadata:
+      m_Items: []
+  - m_Id: 250158888509440
+    m_Key: YuanwenZhuyi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 250421242224640
+    m_Key: ChooseLine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 250520424931328
+    m_Key: ExitGame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 253127914676224
+    m_Key: ASSASSIN TALES
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

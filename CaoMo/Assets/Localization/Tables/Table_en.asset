@@ -22,6 +22,26 @@ MonoBehaviour:
     m_Localized: Start Reading
     m_Metadata:
       m_Items: []
+  - m_Id: 250016135372800
+    m_Localized: WHAT?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 250158888509440
+    m_Localized: '- Originalism -'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 250421242224640
+    m_Localized: Lines
+    m_Metadata:
+      m_Items: []
+  - m_Id: 250520424931328
+    m_Localized: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 253127914676224
+    m_Localized: ASSASSIN TALES
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
