@@ -16,7 +16,6 @@ public class LoseLandController : MonoBehaviour
     public GameObject zhuangState;
     public GameObject zhuangLine;
     public GameObject subText1;
-    public GameObject subText2;
 
     public AudioSource sfx;
     
@@ -30,7 +29,6 @@ public class LoseLandController : MonoBehaviour
         Invoke("StartShrinkBattleMap", 1f);
         zhuangPos.SetActive(false);
         zhuangLine.SetActive(false);
-        subText2.SetActive(false);
     }
 
     // Update is called once per frame

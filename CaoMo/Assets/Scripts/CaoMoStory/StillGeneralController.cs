@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 using TMPro;
-
+using UnityEngine.Localization.Components;
 
 public class StillGeneralController : MonoBehaviour
 {
@@ -15,6 +15,7 @@ public class StillGeneralController : MonoBehaviour
     public GameObject swordGeneral;
     public GameObject zhuangLine;
     public TextMeshProUGUI zhuangLineText;
+    public LocalizeStringEvent zhuangLineString;
     public GameObject caoMoPos;
     public GameObject caoMoState;
     public Image caoMoImage;
@@ -22,6 +23,7 @@ public class StillGeneralController : MonoBehaviour
     public GameObject caoMOGeneralState;
     public GameObject caoMoLine;
     public TextMeshProUGUI caoMoLineText;
+    //public LocalizeStringEvent caoMoLineString;
     public GameObject bingPos;
     public GameObject dioZi;
 
@@ -163,7 +165,8 @@ public class StillGeneralController : MonoBehaviour
     void ZhuangAskDio()
     {
         zhuangLine.SetActive(true);
-        zhuangLineText.text = "丢孤！";
+        //zhuangLineText.text = "丢孤！";
+        zhuangLineString.SetEntry("diogu");
         zhuangLine.GetComponent<AudioSource>().clip = dioWoAudioClip;
         zhuangLine.GetComponent<AudioSource>().Play();
         Invoke("ZhuangAskDioDone", 3f);

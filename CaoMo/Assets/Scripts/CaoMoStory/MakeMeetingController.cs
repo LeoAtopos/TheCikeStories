@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEngine.Localization.Components;
 
 public class MakeMeetingController : MonoBehaviour
 {
@@ -16,9 +17,11 @@ public class MakeMeetingController : MonoBehaviour
     public GameObject huanTitleText;
 
     public GameObject huanLine;
+    public LocalizeStringEvent huanLineString;
     public GameObject guanPos;
     public GameObject guanTitleText;
     public GameObject guanLine;
+    public LocalizeStringEvent guanLineString;
     public GameObject options;
     public GameObject subText;
 
@@ -59,7 +62,8 @@ public class MakeMeetingController : MonoBehaviour
     }
     void HuanLine1()
     {
-        huanLine.GetComponent<LineController>().SetText("管相，请教我做事");
+        //huanLine.GetComponent<LineController>().SetText("管相，请教我做事");
+        huanLineString.SetEntry("guanxiangjiaowozuoshi");
         huanLine.SetActive(true);
         Invoke("HuanLine1Done", 3f);
     }
@@ -71,6 +75,7 @@ public class MakeMeetingController : MonoBehaviour
     void GuanLine1()
     {
         guanLine.GetComponent<LineController>().SetText("先要尊王攘夷");
+        guanLineString.SetEntry("xianyao");
         guanLine.SetActive(true);
         Invoke("GuanLine1Done", 2.5f);
     }
@@ -83,9 +88,9 @@ public class MakeMeetingController : MonoBehaviour
         ansCount++;
         options.SetActive(false);
         guanLine.SetActive(false);
-        if (t == 1) huanLine.GetComponent<LineController>().SetText("好的，仲父");
-        if (t == 2) huanLine.GetComponent<LineController>().SetText("明白，亚父");
-        if (t == 3) huanLine.GetComponent<LineController>().SetText("我懂，恩相");
+        if (t == 1) huanLineString.SetEntry("haodezhongfu");
+        if (t == 2) huanLineString.SetEntry("mingbaiyafu"); ;
+        if (t == 3) huanLineString.SetEntry("wodongyafu"); ;
         if (ansCount == 1) Invoke("HuanLine2", 0.1f);
         if (ansCount == 2) Invoke("HuanLine3", 0.1f);
         if (ansCount == 3) Invoke("HuanLine4", 0.1f);
@@ -104,7 +109,8 @@ public class MakeMeetingController : MonoBehaviour
     void HuanLine2p()
     {
         huanLineAudio.clip = huanAgree;
-        huanLine.GetComponent<LineController>().SetText("先立大义，政治动员");
+        //huanLine.GetComponent<LineController>().SetText("先立大义，政治动员");
+        huanLineString.SetEntry("xianlidayi");
         huanLine.SetActive(true);
         Invoke("HuanLine2pDone", 3.5f);
     }
@@ -115,7 +121,8 @@ public class MakeMeetingController : MonoBehaviour
     }
     void GuanLine2()
     {
-        guanLine.GetComponent<LineController>().SetText("再会盟诸侯");
+        //guanLine.GetComponent<LineController>().SetText("再会盟诸侯");
+        guanLineString.SetEntry("zaihuimeng");
         guanLine.SetActive(true);
         Invoke("GuanLine2Done", 2.5f);
     }
@@ -136,7 +143,8 @@ public class MakeMeetingController : MonoBehaviour
     void HuanLine3p()
     {
         huanLineAudio.clip = huanAgree;
-        huanLine.GetComponent<LineController>().SetText("看谁不来，以多欺少");
+        //huanLine.GetComponent<LineController>().SetText("看谁不来，以多欺少");
+        huanLineString.SetEntry("kansheibulai");
         huanLine.SetActive(true);
         Invoke("HuanLine3pDone", 3.5f);
     }
@@ -147,7 +155,8 @@ public class MakeMeetingController : MonoBehaviour
     }
     void GuanLine3()
     {
-        guanLine.GetComponent<LineController>().SetText("积极帮助解决\n各国问题");
+        //guanLine.GetComponent<LineController>().SetText("积极帮助解决\n各国问题");
+        guanLineString.SetEntry("jijibangzhujiejue");
         guanLine.SetActive(true);
         Invoke("GuanLine3Done", 2.5f);
     }
@@ -168,7 +177,8 @@ public class MakeMeetingController : MonoBehaviour
     void HuanLine4p()
     {
         huanLineAudio.clip = huanAgree;
-        huanLine.GetComponent<LineController>().SetText("小的吞并，大的控制");
+        //huanLine.GetComponent<LineController>().SetText("小的吞并，大的控制");
+        huanLineString.SetEntry("xiaodetunbing");
         huanLine.SetActive(true);
         Invoke("HuanLine4pDone", 3.5f);
     }
@@ -179,7 +189,8 @@ public class MakeMeetingController : MonoBehaviour
     }
     void GuanLine4()
     {
-        guanLine.GetComponent<LineController>().SetText("从简单的开始");
+        //guanLine.GetComponent<LineController>().SetText("从简单的开始");
+        guanLineString.SetEntry("congjiandankaishi");
         guanLine.SetActive(true);
         Invoke("GuanLine4Done", 3.5f);
     }
@@ -191,7 +202,8 @@ public class MakeMeetingController : MonoBehaviour
     void HuanLine5()
     {
         huanLineAudio.clip = huanCallLu;
-        huanLine.GetComponent<LineController>().SetText("来人，叫鲁公开会");
+        //huanLine.GetComponent<LineController>().SetText("来人，叫鲁公开会");
+        huanLineString.SetEntry("lairen");
         huanLine.SetActive(true);
         Invoke("HuanLine5Done", 4f);
     }

@@ -46,6 +46,22 @@ MonoBehaviour:
     m_Localized: Defeated 3 times
     m_Metadata:
       m_Items: []
+  - m_Id: 76665655910400
+    m_Localized: Duke Zhuang scared
+    m_Metadata:
+      m_Items: []
+  - m_Id: 77015456669696
+    m_Localized: Offered land for peace
+    m_Metadata:
+      m_Items: []
+  - m_Id: 78892923609088
+    m_Localized: Cao Mo was apointed as general again
+    m_Metadata:
+      m_Items: []
+  - m_Id: 84592039026688
+    m_Localized: Marquis of Qi made alliance meeting with Lu at the land of Ke
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

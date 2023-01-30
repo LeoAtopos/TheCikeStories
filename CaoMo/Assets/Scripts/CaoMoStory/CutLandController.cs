@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.Localization.Components;
 
 public class CutLandController : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class CutLandController : MonoBehaviour
     public Sprite stateMapCut3;
     public GameObject qiArmyLine;
     public TextMeshProUGUI qiArmyLineText;
+    public LocalizeStringEvent qiArmyLineString;
     public GameObject qiArmy;
     public GameObject qiArmyName;
 
@@ -74,7 +76,8 @@ public class CutLandController : MonoBehaviour
     void QiArmyFirstRespond()
     {
         qiArmyLine.SetActive(true);
-        qiArmyLineText.text = "鲁国风光真不错啊";// 文本需要优化，体现点文化内涵，最好用上诗经里的外交辞令
+        //qiArmyLineText.text = "鲁国风光真不错啊";// 文本需要优化，体现点文化内涵，最好用上诗经里的外交辞令
+        qiArmyLineString.SetEntry("luguofengguang");
         Invoke("GoCut2", 2f);
     }
     void GoCut2()
@@ -90,7 +93,8 @@ public class CutLandController : MonoBehaviour
     void QiArmySecondRespond()
     {
         qiArmyLine.SetActive(true);
-        qiArmyLineText.text = "鲁公大方天下闻名";
+        //qiArmyLineText.text = "鲁公大方天下闻名";
+        qiArmyLineString.SetEntry("lugongdafang");
         Invoke("GoCut3", 2f);
     }
     void GoCut3()
@@ -106,7 +110,8 @@ public class CutLandController : MonoBehaviour
     void QiArmyThirdRespond()
     {
         qiArmyLine.SetActive(true);
-        qiArmyLineText.text = "齐鲁兄弟永修同好";
+        //qiArmyLineText.text = "齐鲁兄弟永修同好";
+        qiArmyLineString.SetEntry("qiluxiongdi");
         Invoke("QiArmyTurnBack", 2f);
     }
     void QiArmyTurnBack()
