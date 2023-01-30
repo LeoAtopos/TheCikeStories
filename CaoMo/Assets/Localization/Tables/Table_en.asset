@@ -187,6 +187,14 @@ MonoBehaviour:
     m_Localized: Higher
     m_Metadata:
       m_Items: []
+  - m_Id: 373372071436288
+    m_Localized: Charge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 375126733348864
+    m_Localized: (BCE 685)
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -34,6 +34,18 @@ MonoBehaviour:
     m_Localized: Duke Zhuang loves strength.
     m_Metadata:
       m_Items: []
+  - m_Id: 26288671678464
+    m_Localized: Cao Mo became general of Lu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26637402890240
+    m_Localized: Fight wars against State of Qi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27021118791680
+    m_Localized: Defeated 3 times
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
