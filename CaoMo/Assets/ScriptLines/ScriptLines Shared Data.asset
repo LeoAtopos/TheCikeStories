@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: ScriptLines Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: ScriptLines
+  m_TableCollectionNameGuidString: 60981b3c8f49f46b982d09db68b5ae0d
+  m_Entries:
+  - m_Id: 8106532864
+    m_Key: caomozhe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2660404027392
+    m_Key: lurenye
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11794914467840
+    m_Key: yiyonglishizhuanggong
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12180933042176
+    m_Key: zhuanggonghaoli
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 5583513126960103473
+  references:
+    version: 2
+    RefIds:
+    - rid: 5583513126960103473
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1675070532853

@@ -5,6 +5,9 @@ using DG.Tweening;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Components;
+using UnityEngine.Localization.Settings;
 
 public class CaoMoSpriteController : MonoBehaviour
 {
@@ -43,6 +46,8 @@ public class CaoMoSpriteController : MonoBehaviour
     bool isDioZiShowed = false;
 
     public TextMeshProUGUI zhuangLineText;
+    public GameObject zhuangLine;
+    private LocalizeStringEvent zhuangLineTextLocalString;
     public Sprite caoMoBodyCarrySprite;
     public GameObject caoMoBody;
     public bool isDioZhuang = false;
@@ -66,6 +71,7 @@ public class CaoMoSpriteController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        zhuangLineTextLocalString = zhuangLine.GetComponent<LocalizeStringEvent>();
         CaoMoScript003.SetActive(true);
         CaoMoScript004.SetActive(false);
         isOKToMove = false;
@@ -422,6 +428,7 @@ public class CaoMoSpriteController : MonoBehaviour
         isOKToLeadAgain = false;
         zhuangLines.SetActive(true);
         zhuangLineText.text = " 等等";
+        zhuangLineTextLocalString.SetEntry("dengdeng");
         audioController.GetComponent<AudioSource>().clip = audioController.GetComponent<AudioController>().audioClips[8];
         audioController.GetComponent<AudioSource>().volume = 1f;
         audioController.GetComponent<AudioSource>().Play();
@@ -441,6 +448,7 @@ public class CaoMoSpriteController : MonoBehaviour
     {
         zhuangLines.SetActive(true);
         zhuangLineText.text = "丢孤";
+        zhuangLineTextLocalString.SetEntry("diogu");
         audioController.GetComponent<AudioSource>().clip = audioController.GetComponent<AudioController>().audioClips[5];
         audioController.GetComponent<AudioSource>().Play();
         Invoke("CaoMoGet", 1.5f);
@@ -487,7 +495,7 @@ public class CaoMoSpriteController : MonoBehaviour
         if(dioZhuangNum <= 4)
         {
             zhuangLines.SetActive(true);
-            zhuangLineText.text = "再高";
+            zhuangLineTextLocalString.SetEntry("zaigao");
             audioController.GetComponent<AudioSource>().clip = audioController.GetComponent<AudioController>().audioClips[6];
             audioController.GetComponent<AudioSource>().Play();
             Invoke("ZhuangAskHigherFin", 1.0f);

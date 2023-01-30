@@ -42,6 +42,151 @@ MonoBehaviour:
     m_Localized: ASSASSIN TALES
     m_Metadata:
       m_Items: []
+  - m_Id: 341732196605952
+    m_Localized: "\xB7 This is an experimental work exploring the method of game
+      creation.\n\n\xB7 Sentence by sentence, follow the narrative flow of the original
+      historical text to design the game and see what could we get. \nThat is the
+      concept of <color=\"red\">Originalism</color>.\n\n\xB7 It takes you about 9
+      minutes. Feel free to share your views after.\n\n\xB7 The text used in the
+      experiment comes from \"Biography of Assassins\" in Sima Qian's \"Historical
+      Records\", which described the true stories of a series of great assassins
+      in the Spring and Autumn and Warring States Periods 2,500 years ago. "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 345018786111488
+    m_Localized: 'CHAPTER
+
+      CAO MO'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 345216413327360
+    m_Localized: Click to Countinue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 351122672836608
+    m_Localized: (BCE 686)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 351895108444160
+    m_Localized: (Ancient Indian)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 352158930165760
+    m_Localized: (Ancient Persia)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 352935157424128
+    m_Localized: (Ancient Mesopotamian)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 353191572004864
+    m_Localized: (Ancient Egypt)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 353409529012224
+    m_Localized: (Ancient Greece)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 354248263983104
+    m_Localized: (Yan)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 354321106460672
+    m_Localized: (Qi)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 354414979178496
+    m_Localized: (Xing)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 354486500450304
+    m_Localized: (Wei)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 354633082986496
+    m_Localized: (Yi)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 354762129137664
+    m_Localized: (Qin)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 354834208251904
+    m_Localized: (Quwo)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 354899769417728
+    m_Localized: (Ba)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 355010859753472
+    m_Localized: (Shu)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 355061745049600
+    m_Localized: (Chu)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 355148923658240
+    m_Localized: (Zheng)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 355243425521664
+    m_Localized: (Cai)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 355302498099200
+    m_Localized: (Chen)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 355396307902464
+    m_Localized: (Song)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 355463005724672
+    m_Localized: (Wu)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 355531993636864
+    m_Localized: (Yue)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 355581910048768
+    m_Localized: (Ju)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 355725359439872
+    m_Localized: (ZHOU)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360166787637248
+    m_Localized: Haaa!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360433885110272
+    m_Localized: Die!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360745035358208
+    m_Localized: '[Duke Zhuang of Lu State]'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360963139166208
+    m_Localized: Make Way
+    m_Metadata:
+      m_Items: []
+  - m_Id: 363552413048832
+    m_Localized: Wait
+    m_Metadata:
+      m_Items: []
+  - m_Id: 363606225969152
+    m_Localized: Throw me
+    m_Metadata:
+      m_Items: []
+  - m_Id: 363903950249984
+    m_Localized: Higher
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
