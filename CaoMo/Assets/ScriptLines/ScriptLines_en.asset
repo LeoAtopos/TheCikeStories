@@ -62,6 +62,10 @@ MonoBehaviour:
     m_Localized: Marquis of Qi made alliance meeting with Lu at the land of Ke
     m_Metadata:
       m_Items: []
+  - m_Id: 104286808694784
+    m_Localized: Marquis Huan and Duke Zhuang met on the altar
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -299,6 +299,46 @@ MonoBehaviour:
     m_Localized: I know
     m_Metadata:
       m_Items: []
+  - m_Id: 451325421674496
+    m_Localized: (Land of Ke)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 452636846317568
+    m_Localized: Only one company
+    m_Metadata:
+      m_Items: []
+  - m_Id: 453137365196800
+    m_Localized: 'Defeated 3 times, he is still
+
+      coming with no shame?'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 453809783431168
+    m_Localized: 'Lu yield. I''m afraid.
+
+      Next could be us'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 454554083647488
+    m_Localized: 'After this alliance, Lu will never
+
+      get their land back'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 455139176472576
+    m_Localized: 'Alliance?
+
+      Submission in deed'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 455808809689088
+    m_Localized: "Duke of Lu can only \ntake one guard?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 456212024909824
+    m_Localized: Only guards of Qi on the altar?
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
