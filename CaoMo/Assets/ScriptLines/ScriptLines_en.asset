@@ -66,6 +66,74 @@ MonoBehaviour:
     m_Localized: Marquis Huan and Duke Zhuang met on the altar
     m_Metadata:
       m_Items: []
+  - m_Id: 116878444847104
+    m_Localized: Cao Mo took a dagger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 117224361680896
+    m_Localized: Hijack Marquis of Qi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 117474551914496
+    m_Localized: No body dare to move
+    m_Metadata:
+      m_Items: []
+  - m_Id: 117708036235264
+    m_Localized: Marquis asked what you want?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118006679068672
+    m_Localized: 'Cao Mo: Qi is strong and other strong states also want Lu'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118667307114496
+    m_Localized: A broken wall of Lu will fall into land of Qi, you want that?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 119004952780800
+    m_Localized: Marquis then promissed return land of Lu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 119301641068544
+    m_Localized: Talking done, Cao throwed the dagger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 119595808579584
+    m_Localized: off the altar, into the ministers facing north
+    m_Metadata:
+      m_Items: []
+  - m_Id: 120091302682624
+    m_Localized: Face and talking as usual.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 120407767113728
+    m_Localized: Marquis angry, want to break the deal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 120754849964032
+    m_Localized: Guan said NO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 120945002930176
+    m_Localized: Land is nothing. Reputation lost, no lords will help
+    m_Metadata:
+      m_Items: []
+  - m_Id: 121823713812480
+    m_Localized: Better give the land back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 121982480801792
+    m_Localized: Then Marquis return the land took from Lu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 122351093014528
+    m_Localized: Land lost in 3 wars returned to Lu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 122701388701696
+    m_Localized: 167 years later, there were tale of Zhuan Zhu
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
