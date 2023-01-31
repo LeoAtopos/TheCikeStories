@@ -188,9 +188,9 @@ public class GameController : MonoBehaviour
                 if(bgm.clip != plotBGM)
                 {
                     bgm.clip = plotBGM;
+                    bgm.volume = 0.2f;
+                    bgm.Play();
                 }
-                bgm.volume = 0.2f;
-                bgm.Play();
             }
             if(next.name == "105FightQi")
             {
