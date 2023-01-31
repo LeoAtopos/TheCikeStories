@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.Localization.Components;
 
 public class LevelButtonController : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class LevelButtonController : MonoBehaviour
     public string levelLine;
 
     public TextMeshProUGUI leveltext;
+    public LocalizeStringEvent leveltextString;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,8 @@ public class LevelButtonController : MonoBehaviour
         level = ln;
         levelSceneName = ls;
         levelLine = ll;
-        leveltext.text = ll;
+        //leveltext.text = ll;
+        leveltextString.SetEntry(ll);
     }
 
     public void LoadLevel()

@@ -122,18 +122,18 @@ public class GameController : MonoBehaviour
     public void NewLevelList(GameObject pausePanel)
     {
         GameObject content = pausePanel.GetComponent<PausePanel>().content;
-        levelList.Add(NewLevel(1,"101ChooseHeadIcon","曹沫者", content));
-        levelList.Add(NewLevel(2,"102FindLuState","鲁人也", content));
-        levelList.Add(NewLevel(3,"103BraveOne","以勇力事鲁公 庄公好力", content));
-        levelList.Add(NewLevel(4, "104GeneralCao", "曹沫为鲁将", content));
-        levelList.Add(NewLevel(5, "105FightQi", "与齐战", content));
-        levelList.Add(NewLevel(6, "106LoseLand", "鲁庄公惧", content));
-        levelList.Add(NewLevel(7, "107CutLand", "乃献遂邑之地以和", content));
-        levelList.Add(NewLevel(8, "108StillGeneral", "犹复以为将", content));
-        levelList.Add(NewLevel(9, "109MakeMeeting", "齐桓公许与鲁会于柯而盟", content));
-        levelList.Add(NewLevel(10, "110WalkUp", "桓公与庄公既盟于坛上", content));
-        levelList.Add(NewLevel(11, "111Hijack", "曹沫执匕首劫齐桓公...", content));
-        levelList.Add(NewLevel(12, "112End", "曹沫三战所亡地尽复予鲁...", content));
+        levelList.Add(NewLevel(1,"101ChooseHeadIcon", "caomozhe", content));
+        levelList.Add(NewLevel(2,"102FindLuState", "luren", content));
+        levelList.Add(NewLevel(3,"103BraveOne", "yiyong", content));
+        levelList.Add(NewLevel(4, "104GeneralCao", "caomoweilujiang", content));
+        levelList.Add(NewLevel(5, "105FightQi", "yuqi", content));
+        levelList.Add(NewLevel(6, "106LoseLand", "zhuanggongju", content));
+        levelList.Add(NewLevel(7, "107CutLand", "naixiansuiyi", content));
+        levelList.Add(NewLevel(8, "108StillGeneral", "youfuyiweijiang", content));
+        levelList.Add(NewLevel(9, "109MakeMeeting", "qihuangongxuyulu", content));
+        levelList.Add(NewLevel(10, "110WalkUp", "huangongyuzhuanggong", content));
+        levelList.Add(NewLevel(11, "111Hijack", "jieqihuangong", content));
+        levelList.Add(NewLevel(12, "112End", "jinfuyulu", content));
     }
 
     GameObject NewLevel(int ln, string ls, string ll,GameObject content)

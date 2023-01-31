@@ -473,6 +473,14 @@ MonoBehaviour:
     m_Localized: Any expectation?
     m_Metadata:
       m_Items: []
+  - m_Id: 630361624141824
+    m_Localized: Main Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 630574359240704
+    m_Localized: Countinue
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

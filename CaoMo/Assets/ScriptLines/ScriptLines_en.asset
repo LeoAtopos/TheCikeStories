@@ -134,6 +134,26 @@ MonoBehaviour:
     m_Localized: 167 years later, there was the tale of Zhuan Zhu
     m_Metadata:
       m_Items: []
+  - m_Id: 285672517656576
+    m_Localized: is from state of Lu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 285742994546688
+    m_Localized: Serving Duke Zhuang with Courage and ...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 285820371066880
+    m_Localized: Fight wars against State of Qi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 285892240465920
+    m_Localized: Cao Mo took a dagger ...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 285925245444096
+    m_Localized: Land lost in 3 wars returned to Lu ...
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
