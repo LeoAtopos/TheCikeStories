@@ -339,6 +339,140 @@ MonoBehaviour:
     m_Localized: Only guards of Qi on the altar?
     m_Metadata:
       m_Items: []
+  - m_Id: 608046957977600
+    m_Localized: What a brave man!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 608973605560320
+    m_Localized: Really? Is it real?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 609219454689280
+    m_Localized: "Even I got frightened \ndown here."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 609463361855488
+    m_Localized: "He believes Marquis \nof Qi's word?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 610139475271680
+    m_Localized: 'It''s too powerful if
+
+      Qi and Lu allianced'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 610636437381120
+    m_Localized: 'Can''t believe he got out
+
+      of this, with no harm'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 611027212296192
+    m_Localized: What happened?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 613561695985664
+    m_Localized: The landscape...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 614040006025216
+    m_Localized: How generious...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 614326699286528
+    m_Localized: The friendship
+    m_Metadata:
+      m_Items: []
+  - m_Id: 615224183873536
+    m_Localized: Just hijack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 615504430489600
+    m_Localized: Just bargain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 615798656720896
+    m_Localized: Just alliance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 618341705179136
+    m_Localized: 'Other''s Land for
+
+      my reputation'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 619135615623168
+    m_Localized: Long friendship Qi and Lu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 619108210040832
+    m_Localized: How generous of Marquis Qi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 619079151902720
+    m_Localized: How nice the landscape of Qi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 619814887350272
+    m_Localized: 'Just hijack
+
+      They will return our land'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 619846629842944
+    m_Localized: 'Just bargain
+
+      They will return our land'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 619880670814208
+    m_Localized: 'Just alliance
+
+      They will return our land'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 624141794271232
+    m_Localized: End of Chapter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 625420331376640
+    m_Localized: 'Chapter
+
+      Zhuan Zhu'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 625770077609984
+    m_Localized: '- Waiting for further Development -'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 626456349630464
+    m_Localized: Zhuan Zhu pulls the fish gut
+    m_Metadata:
+      m_Items: []
+  - m_Id: 626592039559168
+    m_Localized: Yu Rang stabs the robe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 626848802267136
+    m_Localized: Nie Zheng cuts own face
+    m_Metadata:
+      m_Items: []
+  - m_Id: 627009792237568
+    m_Localized: Jing ke rushs around the pillar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 627223362002944
+    m_Localized: Guan suck shot Huan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 627396230242304
+    m_Localized: Yao Li give family to kill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 627533178462208
+    m_Localized: Any expectation?
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEngine.Localization.Components;
 
 public class HijackCtrl : MonoBehaviour
 {
@@ -71,8 +72,10 @@ public class HijackCtrl : MonoBehaviour
     public GameObject shoutText;
     public GameObject huanLine;
     public TextMeshProUGUI huanLineText;
+    public LocalizeStringEvent huanLineString;
     public GameObject caoMoLine;
     public TextMeshProUGUI caoMoLineText;
+    public LocalizeStringEvent caoMoLineString;
 
     public GameObject stateMapPos;
     public GameObject stateMap3;
@@ -431,17 +434,20 @@ public class HijackCtrl : MonoBehaviour
         caoMoAudioSource.clip = caoMoTalkLand;
         if(n == 1)
         {
-            caoMoLineText.text = "鲁国风光不如你们齐国啊";
+            //caoMoLineText.text = "鲁国风光不如你们齐国啊"; 
+            caoMoLineString.SetEntry("takeback1");
             caoMoLine.SetActive(true);
         }
         if (n == 2)
         {
-            caoMoLineText.text = "齐侯大方也是天下闻名啊";
+            //caoMoLineText.text = "齐侯大方也是天下闻名啊";
+            caoMoLineString.SetEntry("takeback2");
             caoMoLine.SetActive(true);
         }
         if (n == 3)
         {
-            caoMoLineText.text = "鲁齐兄弟永存共亡";
+            //caoMoLineText.text = "鲁齐兄弟永存共亡";
+            caoMoLineString.SetEntry("takeback3");
             caoMoLine.SetActive(true);
         }
         if (cutBackCount == 1)
@@ -518,17 +524,20 @@ public class HijackCtrl : MonoBehaviour
         caoMoAudioSource.clip = caoMoExplain;
         if (n == 1)
         {
-            caoMoLineText.text = "劫持了齐侯\n齐侯答应还地了";
+            //caoMoLineText.text = "劫持了齐侯\n齐侯答应还地了";
+            caoMoLineString.SetEntry("talk1");
             caoMoLine.SetActive(true);
         }
         if (n == 2)
         {
-            caoMoLineText.text = "谈谈条件\n齐侯答应还地了";
+            //caoMoLineText.text = "谈谈条件\n齐侯答应还地了";
+            caoMoLineString.SetEntry("talk2");
             caoMoLine.SetActive(true);
         }
         if (n == 3)
         {
-            caoMoLineText.text = "会盟而已\n齐侯答应还地了";
+            //caoMoLineText.text = "会盟而已\n齐侯答应还地了";
+            caoMoLineString.SetEntry("talk3");
             caoMoLine.SetActive(true);
         }
         Invoke("AnsLuXiangDone", 2.5f);
@@ -583,15 +592,18 @@ public class HijackCtrl : MonoBehaviour
         guanLine.SetActive(false);
         if (n == 1)
         {
-            huanLineText.text = "好的，仲父";
+            //huanLineText.text = "好的，仲父";
+            huanLineString.SetEntry("haodezhongfu");
         }
         if (n == 2)
         {
-            huanLineText.text = "明白，亚父";
+            //huanLineText.text = "明白，亚父";
+            huanLineString.SetEntry("mingbaiyafu");
         }
         if (n == 3)
         {
-            huanLineText.text = "我懂，恩相";
+            //huanLineText.text = "我懂，恩相";
+            huanLineString.SetEntry("wodongyafu");
         }
         huanAudioSource.clip = huanGet;
         huanLine.SetActive(true);
@@ -601,7 +613,8 @@ public class HijackCtrl : MonoBehaviour
     {
         huanLine.SetActive(false);
         huanAudioSource.clip = huanAgree;
-        huanLineText.text = "别人的国土\n换自己的名声";
+        //huanLineText.text = "别人的国土\n换自己的名声";
+        huanLineString.SetEntry("bierendeguotu");
         huanLine.SetActive(true);
         Invoke("DealSet", 4.5f);
     }
