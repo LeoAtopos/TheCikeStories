@@ -39,11 +39,12 @@ public class CaoMoToWar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isOKToMove)
+        Vector3 mp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (isOKToMove)
         {
             if (Input.GetMouseButton(0))
             {
-                if (Input.mousePosition.x > transform.position.x + 10.0f)
+                if (mp.x > transform.position.x + 0.5f)
                 {
                     horseAnimator.Play("HorseMoving");
                     if (!horseStepSound.isPlaying) horseStepSound.Play();
@@ -54,7 +55,7 @@ public class CaoMoToWar : MonoBehaviour
             else
             {
                 horseStepSound.Stop();
-                if (Input.mousePosition.x > transform.position.x + 10.0f)
+                if (mp.x > transform.position.x + 0.5f)
                 {
                     dirCursor.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
                     dirCursor.SetActive(true);

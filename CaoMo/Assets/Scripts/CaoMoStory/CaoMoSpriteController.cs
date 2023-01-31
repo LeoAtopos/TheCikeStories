@@ -94,11 +94,12 @@ public class CaoMoSpriteController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(isOKToMove)
+        Vector3 mp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (isOKToMove)
         {
             if (Input.GetMouseButton(0))
             {
-                if (Input.mousePosition.x - transform.position.x < -5.0f)
+                if (mp.x - transform.position.x < -0.5f)
                 {
                     //left move
                     transform.localPosition += new Vector3(-250 * Time.fixedDeltaTime, 0, 0);
@@ -106,7 +107,7 @@ public class CaoMoSpriteController : MonoBehaviour
                     if (!foodstepSound.isPlaying) foodstepSound.Play();
                     dirCursor.SetActive(false);
                 }
-                else if (Input.mousePosition.x - transform.position.x > 5.0f)
+                else if (mp.x - transform.position.x > 0.5f)
                 {
                     //right move
                     transform.localPosition += new Vector3(250 * Time.fixedDeltaTime, 0, 0);
@@ -117,7 +118,7 @@ public class CaoMoSpriteController : MonoBehaviour
             else
             {
                 foodstepSound.Stop();
-                if (Input.mousePosition.x - transform.position.x < -5.0f)
+                if (mp.x - transform.position.x < -0.5f)
                 {
                     dirCursor.SetActive(true);
                 }
@@ -141,7 +142,7 @@ public class CaoMoSpriteController : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
-                if (Input.mousePosition.x > transform.position.x + 10.0f)
+                if (mp.x > transform.position.x + 0.5f)
                 {
                     animator.Play("CaoMoMoving");
                     if (!foodstepSound.isPlaying) foodstepSound.Play();
@@ -155,7 +156,7 @@ public class CaoMoSpriteController : MonoBehaviour
             {
                 foodstepSound.Stop();
                 horseStepSound.Stop();
-                if (Input.mousePosition.x > transform.position.x + 10.0f)
+                if (mp.x > transform.position.x + 0.50f)
                 {
                     dirCursor.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
                     dirCursor.SetActive(true);
@@ -196,7 +197,7 @@ public class CaoMoSpriteController : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
-                if (Input.mousePosition.x > transform.position.x + 10.0f)
+                if (mp.x > transform.position.x + 0.5f)
                 {
                     animator.Play("CaoMoMoving");
                     if (!foodstepSound.isPlaying) foodstepSound.Play();
@@ -210,7 +211,7 @@ public class CaoMoSpriteController : MonoBehaviour
             {
                 foodstepSound.Stop();
                 horseStepSound.Stop();
-                if (Input.mousePosition.x > transform.position.x + 10.0f)
+                if (mp.x > transform.position.x + 0.5f)
                 {
                     dirCursor.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
                     dirCursor.SetActive(true);

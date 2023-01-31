@@ -16,12 +16,15 @@ public class CaoMoHeadNormalAsCursor : MonoBehaviour
     void Update()
     {
         if(isInPlayerControll)
-            gameObject.GetComponent<RectTransform>().position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
+        {
+            //gameObject.GetComponent<RectTransform>().position = Camera.main.WorldToViewportPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
+            transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
+        }   
     }
 
     public void MoveToCenter()
     {
         isInPlayerControll = false;
-        gameObject.GetComponent<RectTransform>().position = new Vector3(Screen.width/2, Screen.height/2, 0);
+        transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width/2, Screen.height/2, 0));
     }
 }

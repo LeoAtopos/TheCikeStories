@@ -180,7 +180,6 @@ public class HijackCtrl : MonoBehaviour
             //    opWalkers2.transform.localPosition -= 80f * opWalkers.transform.up * Time.fixedDeltaTime;
             if (!isCaoMoStopped) caoMoAnimation.Play("CaoMoWalkUpMoving");
             ZhuangAnimation.Play("ZhuangWalkUpMoving");
-
         }
         if(isOKToWalkDown)
         {
@@ -194,8 +193,9 @@ public class HijackCtrl : MonoBehaviour
             }
             else
             {
+                Vector3 mp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 foodstepSound.Stop();
-                if (Input.mousePosition.y < transform.position.y - 10.0f)
+                if (mp.y < transform.position.y - 1.0f)
                 {
                     dirCursor.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
                     dirCursor.SetActive(true);
@@ -311,7 +311,7 @@ public class HijackCtrl : MonoBehaviour
         daggerPos.transform.DOKill();
         dagger.transform.DOKill();
         Vector3 cP = daggerPos.transform.position;
-        cP.x -= 50;
+        cP.x -= 0.5f;
         caoMoPos.transform.position = cP;
         daggerPos.transform.SetParent(caoMoPos.transform);
         daggerPos.transform.SetAsFirstSibling();

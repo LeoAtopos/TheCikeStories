@@ -30,8 +30,8 @@ public class CursorCtrl : MonoBehaviour
             cursorImage.sprite = (cursorImage.sprite == cursorSprite1) ? cursorSprite2 : cursorSprite1;
             time = 0;
         }
-        gameObject.GetComponent<RectTransform>().position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
-        if(gameObject.activeSelf) Cursor.visible = false;
+        transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
+        if (gameObject.activeSelf) Cursor.visible = false;
     }
     private void OnEnable()
     {

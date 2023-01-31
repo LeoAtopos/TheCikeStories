@@ -14,6 +14,6 @@ public class QiAnbushArmyMoveForward : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position += transform.up * 8f * Time.fixedDeltaTime;
+        transform.position += transform.up * 0.08f * Time.fixedDeltaTime;
     }
 }

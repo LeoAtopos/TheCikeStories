@@ -57,6 +57,7 @@ public class CaoMoWalkUpCtrl : MonoBehaviour
     {
         if (isOKToMove)
         {
+            Vector3 mp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if (Input.GetMouseButton(0))
             {
                 if (!foodstepSound.isPlaying) foodstepSound.Play();
@@ -70,7 +71,7 @@ public class CaoMoWalkUpCtrl : MonoBehaviour
             else
             {
                 foodstepSound.Stop();
-                if (Input.mousePosition.y > transform.position.y + 10.0f)
+                if (mp.y > transform.position.y + 1.0f)
                 {
                     //dirCursor.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
                     dirCursor.SetActive(true);

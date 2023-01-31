@@ -69,11 +69,12 @@ public class StillGeneralController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(isCaoMoCanMove)
+        Vector3 mp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (isCaoMoCanMove)
         {
             if (Input.GetMouseButton(0))
             {
-                if (Input.mousePosition.x - caoMoPos.transform.position.x < -5.0f)
+                if (mp.x - caoMoPos.transform.position.x < -0.5f)
                 {
                     //left move
                     caoMoPos.transform.localPosition += new Vector3(-30 * Time.fixedDeltaTime, 0, 0);
@@ -85,7 +86,7 @@ public class StillGeneralController : MonoBehaviour
             else
             {
                 foodstepSound.Stop();
-                if (Input.mousePosition.x - caoMoPos.transform.position.x < -5.0f)
+                if (mp.x - caoMoPos.transform.position.x < -0.5f)
                 {
                     //dirCursor.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
                     dirCursor.SetActive(true);

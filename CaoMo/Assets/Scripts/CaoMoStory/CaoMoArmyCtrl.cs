@@ -34,7 +34,10 @@ public class CaoMoArmyCtrl : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
-                targetPos = Input.mousePosition;
+                Vector3 screenPoint = Input.mousePosition;
+                screenPoint.z = 10.0f; //distance of the plane from the camera
+                targetPos = Camera.main.ScreenToWorldPoint(screenPoint);
+                targetPos.z = transform.position.z;
                 dir = targetPos - transform.position;
                 float ang = Vector3.SignedAngle(transform.up, dir, Vector3.forward);
                 transform.Rotate(new Vector3(0, 0, ang));
@@ -43,7 +46,7 @@ public class CaoMoArmyCtrl : MonoBehaviour
             if (hasTarget)
             {
                 Vector3 d = targetPos - transform.position;
-                if (d.magnitude > 1)
+                if (d.magnitude > 0.1f)
                 {
                     if(isHit)
                     {
