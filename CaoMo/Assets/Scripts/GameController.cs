@@ -43,13 +43,15 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
+        //bgm.Play();
+        Invoke("StartLater", 1f);
         instance = this;
         DontDestroyOnLoad(this);
-        QualitySettings.vSyncCount = 1;  // VSync must be disabled
+        //QualitySettings.vSyncCount = 1;  // VSync must be disabled
         Application.targetFrameRate = 60;
     }
     // Start is called before the first frame update
-    void Start()
+    void StartLater()
     {
         if(LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[0])
         {
@@ -61,7 +63,7 @@ public class GameController : MonoBehaviour
             chineseLN.color = Color.grey;
             englishLN.color = Color.black;
         }
-        
+        bgm.Play();
         sfx.clip = clickSound;
         DOTween.KillAll();
         introPanel.SetActive(false);

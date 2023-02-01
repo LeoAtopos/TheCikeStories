@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StartupSelectors:
   - rid: 5583513126960103424
-  - rid: 5583513126960103426
   - rid: 5583513126960103425
+  - rid: 5583513126960103426
   m_AvailableLocales:
     rid: 5583513126960103427
   m_AssetDatabase:

@@ -16,7 +16,17 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 33be83c753334459ca6b5e3490e651f6
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 66a5075cef4344bddbf2406acceb6358
+    m_Address: Assets/Localization/Localization Settings/Localization Settings.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d80fe6d531d4ccf43a0544d1013e715d
+    m_Address: Assets/Audios/MainMenuBGM(Across-the-Moat).mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a50e9696c802740aeb6352a54712147d, type: 2}
   m_SchemaSet:
