@@ -1,6 +1,8 @@
 # TheCikeStories
 Trying to translate ancient history scripts to interactive gameplay with a serious word by word attitude. See how it will work.
 
+# 试玩：https://leo-ding.itch.io/assassin-tales
+
 # 原文主义刺客列传
 
 《刺客列传》是司马迁所著的《史记》中的一篇。本项目将探索用原文主义的设计理念将《刺客列传》游戏化。
