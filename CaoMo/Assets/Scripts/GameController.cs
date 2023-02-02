@@ -90,7 +90,9 @@ public class GameController : MonoBehaviour
                 }
                 isPausing = true;
                 Time.timeScale = 0;
-            }else
+                Cursor.visible = true;
+            }
+            else
             {
                 if (isPausing)
                 {
@@ -147,6 +149,7 @@ public class GameController : MonoBehaviour
 
     public void ShowChooseLevelPanel()
     {
+        
         PlaySound("click");
         if (ChooseLevelPanel == null)
         {

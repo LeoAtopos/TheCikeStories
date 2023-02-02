@@ -6,7 +6,7 @@
 	<dict>
 		<key>Resources/Data/Managed/Assembly-CSharp.dll</key>
 		<data>
-		EKXaCyIIi3vw/CRrl0xNp5LcA28=
+		Ppp7/GGSJC26VjUPgKxnEHGi6wY=
 		</data>
 		<key>Resources/Data/Managed/DOTween.dll</key>
 		<data>
@@ -518,7 +518,7 @@
 		</data>
 		<key>Resources/Data/ScriptingAssemblies.json</key>
 		<data>
-		tMWqwUCr88r+k/xsdvMMXjGoN5M=
+		m7wQ++LUSEql0MsK1/oM8h55eFc=
 		</data>
 		<key>Resources/Data/StreamingAssets/UnityServicesProjectConfiguration.json</key>
 		<data>
@@ -562,11 +562,11 @@
 		</data>
 		<key>Resources/Data/globalgamemanagers</key>
 		<data>
-		6TtvhMV9CAroL6ECwQJxtVZpj2o=
+		ajpLAPOqNCNuSi4D12/B73aL9pY=
 		</data>
 		<key>Resources/Data/globalgamemanagers.assets</key>
 		<data>
-		/5tAAmAPte0LIdFdqzzbHH7Qv0I=
+		AI2tmNm6kzD2NNaqSvU95VPS0Ts=
 		</data>
 		<key>Resources/Data/globalgamemanagers.assets.resS</key>
 		<data>
@@ -610,7 +610,7 @@
 		</data>
 		<key>Resources/Data/level3</key>
 		<data>
-		w4/5V6Q7hQXstNsRDMfHh1X9IBI=
+		f3dnlTJDusn0qmRWscAb4NiXZfc=
 		</data>
 		<key>Resources/Data/level4</key>
 		<data>
@@ -646,7 +646,7 @@
 		</data>
 		<key>Resources/Data/sharedassets0.assets</key>
 		<data>
-		bR0biGvvkazQRkAyfv/E+vPIM+0=
+		gdP1ThPnqNTF99LC/V3CEilp0F4=
 		</data>
 		<key>Resources/Data/sharedassets0.assets.resS</key>
 		<data>
@@ -1010,16 +1010,16 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			j5Zl5NvrtdkRfIJtvIVx8rdStM0=
+			gzu/Z4DeaL2M5khzCmFNG3FFo44=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"8f9665e4dbebb5d9117c826dbc8571f2b752b4cd"</string>
+			<string>cdhash H"833bbf6780de68bd8ce648730a614d1b7145a38e"</string>
 		</dict>
 		<key>Resources/Data/Managed/Assembly-CSharp.dll</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			raBZ39ICSQzLn9UWae/6PdGupHRLnR32u8xyK82rp/o=
+			QWUY7gSo9y95iwFclOTB4Cc3UXb2vrjFPByNH4dGIGw=
 			</data>
 		</dict>
 		<key>Resources/Data/Managed/DOTween.dll</key>
@@ -1915,7 +1915,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			vk28ap493TWwAdOot/7b8mwD3iTiyebU5jgJOZM5Tfs=
+			nHpBKHZJoE8Q0jWjysvek+UhQzg6K/Mzwr4egyOFwuA=
 			</data>
 		</dict>
 		<key>Resources/Data/StreamingAssets/UnityServicesProjectConfiguration.json</key>
@@ -1992,14 +1992,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			eeCemNoyLGZto4iz/rxnC4U14dYBedUFVh2argooQaI=
+			fkLxauUlZ3z+/9eVGUW8ZLjmyuqKCdPoHkEqQPih3wI=
 			</data>
 		</dict>
 		<key>Resources/Data/globalgamemanagers.assets</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0Q1WdVrlnlDZzRxY+BiR6DLc0tPhjr2aw8VpTj4gxB0=
+			qSeW1Ww4MJoKtzmRjS9gDqFmqYSC8ERH7cR51sS8cy0=
 			</data>
 		</dict>
 		<key>Resources/Data/globalgamemanagers.assets.resS</key>
@@ -2076,7 +2076,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			BqKDiPhX9OpcKt14zKDlSjfMMRHZZJpCbr1B5XduuKc=
+			+WVqqMVWT3gJ/Zpec53rB99NH06zUHxtdMO9vaohrqI=
 			</data>
 		</dict>
 		<key>Resources/Data/level4</key>
@@ -2139,7 +2139,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			rUE1PmXlwxcbrSq4Xc6WS1O7iUBOHhV+e82BrPuJ/Po=
+			945KnoLDSNVdDACjuiICetlVjh3xbRzCjVIPe52AfQ0=
 			</data>
 		</dict>
 		<key>Resources/Data/sharedassets0.assets.resS</key>

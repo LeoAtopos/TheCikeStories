@@ -200,6 +200,14 @@ PrefabInstance:
       propertyPath: m_text
       value: "\uFF08\u53E4\u6CE2\u65AF\u6587\u660E\uFF09"
       objectReference: {fileID: 0}
+    - target: {fileID: 5646163858228251495, guid: 6e86ce9f11b514ea98f89116958abbdd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 60.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5646163858228251495, guid: 6e86ce9f11b514ea98f89116958abbdd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -55.1
+      objectReference: {fileID: 0}
     - target: {fileID: 9011818969157114628, guid: 6e86ce9f11b514ea98f89116958abbdd, type: 3}
       propertyPath: m_Name
       value: Persians

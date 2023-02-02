@@ -17,6 +17,7 @@ public class CaoMoHeadNormalAsCursor : MonoBehaviour
     {
         if(isInPlayerControll)
         {
+            Cursor.visible = false;
             //gameObject.GetComponent<RectTransform>().position = Camera.main.WorldToViewportPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
             transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
         }   
@@ -26,5 +27,10 @@ public class CaoMoHeadNormalAsCursor : MonoBehaviour
     {
         isInPlayerControll = false;
         transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width/2, Screen.height/2, 0));
+    }
+
+    private void OnDestroy()
+    {
+        Cursor.visible = true;
     }
 }
